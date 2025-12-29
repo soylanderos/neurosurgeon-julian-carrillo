@@ -1,0 +1,413 @@
+<section class="relative overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white py-16 md:py-24">
+  <!-- Ambient blobs + grid noise -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-28 h-[520px] w-[520px] rounded-full bg-[#AFCEE3]/55 blur-3xl"></div>
+    <div class="absolute -bottom-32 -right-32 h-[560px] w-[560px] rounded-full bg-[#C3B692]/35 blur-3xl"></div>
+    <div class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full bg-[#215EBB]/10 blur-3xl"></div>
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image: radial-gradient(#0e2859 0.6px, transparent 0.6px); background-size: 18px 18px;"
+    ></div>
+  </div>
+
+  <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-slate-600 mb-10 max-w-6xl mx-auto">
+      <a routerLink="/" class="hover:text-[#215EBB] transition">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-[#0E2859] font-semibold">Contacto</span>
+    </nav>
+
+    <!-- HERO (compacto, sin saturar) -->
+    <header class="max-w-6xl mx-auto mb-8 md:mb-12">
+      <div class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm p-7 md:p-10 relative overflow-hidden">
+        <div class="pointer-events-none absolute -top-24 -right-20 h-64 w-64 rounded-full bg-[#215EBB]/10 blur-2xl"></div>
+        <div class="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="max-w-3xl">
+            <span class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide bg-[#AFCEE3]/40 text-[#0E2859] border border-[#0E2859]/10">
+              <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+              Atención con cita
+            </span>
+
+            <h1 class="mt-4 text-4xl md:text-5xl font-extrabold text-[#0E2859] text-balance leading-[1.06]">
+              Agenda tu consulta
+            </h1>
+
+            <p class="mt-3 text-lg md:text-xl text-[#0E2859]/70 leading-relaxed text-pretty">
+              Envíanos tu solicitud aquí y te contactamos para confirmar disponibilidad. Si necesitas respuesta rápida, usa WhatsApp.
+            </p>
+
+            <!-- Trust chips -->
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70">
+                Respuesta por WhatsApp o llamada
+              </span>
+              <span class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70">
+                Ubicación fácil de abrir en Maps
+              </span>
+              <span class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70">
+                Atención con cita
+              </span>
+            </div>
+          </div>
+
+          <!-- CTAs (solo 2 para no saturar) -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-5 py-3 text-white font-extrabold shadow-sm hover:bg-[#0E2859]/95 transition"
+              [href]="whatsappUrl"
+              target="_blank"
+              rel="noopener"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-[#0E2859] font-extrabold border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+              [href]="telUrl"
+            >
+              Llamar
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN: Form (primary) + Side (map+info) -->
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-10 items-start">
+      <!-- LEFT: FORM (principal) -->
+      <section class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm overflow-hidden">
+        <div class="px-6 md:px-8 py-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <h2 class="text-lg md:text-xl font-extrabold text-[#0E2859]">Solicitud de cita</h2>
+              <p class="mt-1 text-sm text-[#0E2859]/65">
+                Completa el formulario y te contactamos para confirmar disponibilidad.
+              </p>
+            </div>
+            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold bg-[#AFCEE3]/40 text-[#0E2859] border border-[#0E2859]/10">
+              Tiempo estimado: 1 minuto
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6 md:p-8">
+          <form class="grid sm:grid-cols-2 gap-4" [formGroup]="form" (ngSubmit)="submit()">
+            <!-- Nombre -->
+            <div class="sm:col-span-2">
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Nombre completo</label>
+              <input
+                type="text"
+                formControlName="full_name"
+                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
+                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                placeholder="Ej. Juan Pérez"
+                autocomplete="name"
+              />
+              @if (showErr('full_name')) {
+                <p class="mt-1 text-xs font-semibold text-red-700">Escribe tu nombre (mínimo 3 caracteres).</p>
+              }
+            </div>
+
+            <!-- Teléfono -->
+            <div>
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Teléfono</label>
+              <input
+                type="tel"
+                formControlName="phone"
+                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
+                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                placeholder="Ej. +52 656 000 0000"
+                autocomplete="tel"
+              />
+              @if (showErr('phone')) {
+                <p class="mt-1 text-xs font-semibold text-red-700">Teléfono inválido (mínimo 8 dígitos).</p>
+              }
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Email (opcional)</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
+                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                placeholder="correo@ejemplo.com"
+                autocomplete="email"
+              />
+              @if (showErr('email')) {
+                <p class="mt-1 text-xs font-semibold text-red-700">Email inválido.</p>
+              }
+            </div>
+
+            <!-- Fecha / Hora -->
+            <div>
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Fecha preferida (opcional)</label>
+              <input
+                type="date"
+                formControlName="preferred_date"
+                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859]
+                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+              />
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Hora preferida (opcional)</label>
+              <input
+                type="time"
+                formControlName="preferred_time"
+                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859]
+                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+              />
+            </div>
+
+            <!-- Motivo -->
+            <div class="sm:col-span-2">
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Motivo de la consulta</label>
+              <textarea
+                rows="4"
+                formControlName="reason"
+                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
+                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                placeholder="Describe síntomas, diagnóstico o motivo principal."
+              ></textarea>
+              @if (showErr('reason')) {
+                <p class="mt-1 text-xs font-semibold text-red-700">Describe el motivo (mínimo 10 caracteres).</p>
+              }
+            </div>
+
+            <!-- Notas -->
+            <div class="sm:col-span-2">
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Notas (opcional)</label>
+              <input
+                type="text"
+                formControlName="notes"
+                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
+                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                placeholder="Ej. Tengo estudios previos / dolor desde hace 3 semanas."
+              />
+            </div>
+
+            <!-- Actions -->
+            <div class="sm:col-span-2 mt-1 flex flex-col sm:flex-row gap-3">
+              <button
+                type="submit"
+                [disabled]="submitting() || form.invalid"
+                class="inline-flex items-center justify-center rounded-2xl bg-[#215EBB] px-5 py-3 text-white font-extrabold
+                       hover:bg-[#215EBB]/95 transition disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                @if (submitting()) { Enviando… } @else { Enviar solicitud }
+              </button>
+
+              <a
+                class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-[#0E2859] font-extrabold
+                       border border-[#0E2859]/10 hover:border-[#CE6C37]/30 hover:text-[#CE6C37] transition"
+                [href]="whatsappUrl"
+                target="_blank"
+                rel="noopener"
+              >
+                Prefiero WhatsApp
+              </a>
+            </div>
+
+            @if (submitError()) {
+              <div class="sm:col-span-2 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-700">
+                <p class="font-semibold">No se pudo enviar.</p>
+                <p class="text-sm mt-1">{{ submitError() }}</p>
+              </div>
+            }
+
+            <!-- Confidence + privacy -->
+            <div class="sm:col-span-2 mt-2 rounded-2xl border border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white p-5">
+              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">RECOMENDACIÓN</p>
+              <p class="mt-1 text-sm text-[#0E2859]/75 leading-relaxed">
+                Si cuentas con estudios previos, menciónalos en “Notas”. Esto ayuda a agilizar el seguimiento.
+              </p>
+              <p class="mt-3 text-xs text-[#0E2859]/55 leading-relaxed">
+                Nota: Esta solicitud no sustituye una valoración médica. La confirmación depende de disponibilidad.
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- RIGHT: MAP + CONTACT INFO (compacto, no repetido) -->
+      <aside class="space-y-6">
+        <!-- MAP -->
+        <section class="rounded-3xl overflow-hidden border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm">
+          <div class="px-6 md:px-8 py-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
+            <div class="flex items-center justify-between gap-4 flex-wrap">
+              <div>
+                <h3 class="text-lg font-extrabold text-[#0E2859]">Ubicación</h3>
+                <p class="mt-1 text-sm text-[#0E2859]/65">Abre Maps y obtén ruta.</p>
+              </div>
+              <a
+                class="inline-flex items-center gap-2 rounded-2xl bg-white px-4 py-2 text-sm font-extrabold border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+                [href]="mapsUrl"
+                target="_blank"
+                rel="noopener"
+              >
+                <lucide-icon [img]="iNav" class="h-4 w-4"></lucide-icon>
+                Abrir en Maps
+              </a>
+            </div>
+          </div>
+
+          <div class="relative aspect-[4/3] w-full bg-slate-100">
+            @if (mapEmbedUrl) {
+              <iframe
+                class="absolute inset-0 w-full h-full"
+                [src]="mapEmbedUrl"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa del consultorio"
+              ></iframe>
+            } @else {
+              <div class="absolute inset-0 grid place-items-center p-8 text-center">
+                <div class="mx-auto h-14 w-14 rounded-2xl bg-[#215EBB]/10 border border-[#215EBB]/15 grid place-items-center">
+                  <lucide-icon [img]="iMapPin" class="h-7 w-7 text-[#215EBB]"></lucide-icon>
+                </div>
+                <p class="mt-4 font-extrabold text-[#0E2859]">Mapa disponible</p>
+                <p class="mt-1 text-sm text-[#0E2859]/60">Abre la ubicación en Google Maps.</p>
+              </div>
+            }
+          </div>
+
+          <div class="px-6 md:px-8 py-6 border-t border-[#0E2859]/10 bg-white">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <button
+                type="button"
+                (click)="copyText(fullAddress)"
+                class="rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-left hover:border-[#215EBB]/25 transition"
+              >
+                <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">DIRECCIÓN</p>
+                <p class="mt-1 font-extrabold text-[#0E2859] line-clamp-2">{{ fullAddress }}</p>
+                <p class="mt-1 text-xs text-[#0E2859]/60">Toca para copiar</p>
+              </button>
+
+              <button
+                type="button"
+                (click)="copyText(phone)"
+                class="rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-left hover:border-[#215EBB]/25 transition"
+              >
+                <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">TELÉFONO</p>
+                <p class="mt-1 font-extrabold text-[#0E2859]">{{ phone }}</p>
+                <p class="mt-1 text-xs text-[#0E2859]/60">Toca para copiar</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT INFO (bento compacto) -->
+        <section class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm overflow-hidden">
+          <div class="px-6 md:px-8 py-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
+            <h3 class="text-lg font-extrabold text-[#0E2859]">Datos de contacto</h3>
+            <p class="mt-1 text-sm text-[#0E2859]/65">Todo listo para agendar.</p>
+          </div>
+
+          <div class="p-6 md:p-8 space-y-4">
+            <!-- Horario (una sola vez) -->
+            <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-4">
+              <div class="flex items-start gap-3">
+                <div class="h-11 w-11 rounded-2xl bg-[#C3B692]/20 border border-[#C3B692]/35 grid place-items-center shrink-0">
+                  <lucide-icon [img]="iClock" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">HORARIO</p>
+                  <p class="mt-1 text-sm text-[#0E2859]/75">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                  <p class="text-sm text-[#0E2859]/75">Sábados: 9:00 AM - 2:00 PM</p>
+                  <p class="mt-1 text-xs font-extrabold text-[#CE6C37]">Atención con cita</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tel / Whats / Email -->
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-4">
+                <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">TELÉFONO</p>
+                <p class="mt-1 font-extrabold text-[#0E2859]">{{ phone }}</p>
+                <div class="mt-3 flex gap-2">
+                  <a class="flex-1 inline-flex items-center justify-center rounded-xl bg-[#0E2859] px-3 py-2 text-white text-sm font-extrabold hover:bg-[#0E2859]/95 transition" [href]="telUrl">
+                    Llamar
+                  </a>
+                  <button type="button" class="inline-flex items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-extrabold border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition" (click)="copyText(phone)">
+                    Copiar
+                  </button>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-4">
+                <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">WHATSAPP</p>
+                <p class="mt-1 font-extrabold text-[#0E2859]">{{ whatsapp }}</p>
+                <div class="mt-3 flex gap-2">
+                  <a class="flex-1 inline-flex items-center justify-center rounded-xl bg-[#215EBB] px-3 py-2 text-white text-sm font-extrabold hover:bg-[#215EBB]/95 transition" [href]="whatsappUrl" target="_blank" rel="noopener">
+                    Abrir
+                  </a>
+                  <button type="button" class="inline-flex items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-extrabold border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition" (click)="copyText(whatsapp)">
+                    Copiar
+                  </button>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2 rounded-2xl border border-[#0E2859]/10 bg-white p-4">
+                <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">EMAIL</p>
+                <p class="mt-1 font-extrabold text-[#0E2859] break-words">{{ email }}</p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <a class="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-extrabold border border-[#0E2859]/10 hover:border-[#CE6C37]/25 hover:text-[#CE6C37] transition" [href]="mailtoUrl">
+                    Escribir correo
+                  </a>
+                  <button type="button" class="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-extrabold border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition" (click)="copyText(email)">
+                    Copiar email
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Micro nota -->
+            <div class="rounded-2xl border border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white p-4">
+              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">TIP</p>
+              <p class="mt-1 text-sm text-[#0E2859]/75 leading-relaxed">
+                Para agilizar: menciona estudios previos y desde cuándo inició el síntoma.
+              </p>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Sticky mobile CTA -->
+  <div class="fixed inset-x-0 bottom-0 z-[55] lg:hidden">
+    <div class="mx-auto w-[min(96vw,560px)] mb-3">
+      <div class="rounded-3xl border border-[#0E2859]/10 bg-white/90 backdrop-blur shadow-2xl p-3">
+        <div class="grid grid-cols-2 gap-2">
+          <a class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-4 py-3 text-white font-extrabold" [href]="whatsappUrl" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
+          <a class="inline-flex items-center justify-center rounded-2xl bg-white px-4 py-3 text-[#0E2859] font-extrabold border border-[#0E2859]/10" [href]="telUrl">
+            Llamar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] w-[min(92vw,520px)]" [class.toast--open]="toastOpen()" aria-live="polite">
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-2xl px-4 py-3 flex items-start gap-3">
+      <div class="mt-0.5">
+        <lucide-icon [img]="iOk" class="w-5 h-5 text-emerald-600"></lucide-icon>
+      </div>
+      <div class="min-w-0">
+        <p class="font-semibold text-slate-900">{{ toastTitle() }}</p>
+        <p class="text-sm text-slate-600">{{ toastDesc() }}</p>
+      </div>
+      <button type="button" class="ml-auto rounded-lg p-2 hover:bg-slate-100 transition" (click)="closeToast()" aria-label="Cerrar">
+        <lucide-icon [img]="iX" class="w-4 h-4 text-slate-500"></lucide-icon>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<!-- floating-whatsapp.component.html -->
+<a
+  [href]="waLink()"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 z-50"
+  aria-label="Contactar por WhatsApp"
+>
+  <!-- Botón estilo “shadcn-like” sin depender de tu Button component -->
+  <button
+    type="button"
+    class="rounded-full w-16 h-16 bg-[#25D366] hover:bg-[#1FAF55] shadow-2xl hover:shadow-[#25D366]/50 transition-all hover:scale-110 text-[#AFCEE3] flex items-center justify-center"
+  >
+    <!-- MessageSquare icon (inline SVG) -->
+    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+</a>

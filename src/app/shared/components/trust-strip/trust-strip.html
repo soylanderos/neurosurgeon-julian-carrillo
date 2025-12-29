@@ -1,0 +1,141 @@
+<!-- Trust Strip (revamp) -->
+<section class="relative py-14 overflow-hidden">
+  <!-- fondo suave con “auras” -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#AFCEE3]/25 via-white to-white"></div>
+    <div class="absolute -top-20 -right-24 h-72 w-72 rounded-full bg-[#215EBB]/15 blur-3xl"></div>
+    <div class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#CE6C37]/12 blur-3xl"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- mini header -->
+    <div class="mb-8 flex items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold tracking-wide text-[#CE6C37]">Confianza clínica</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0E2859]">Respaldo profesional</h2>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-2 text-sm text-[#0E2859]/70">
+        <span class="inline-flex h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+        Datos verificables
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      @for (item of trustItems; track item.key) {
+      <article
+        class="group relative rounded-2xl border border-[#0E2859]/10 bg-white/70 backdrop-blur-md p-5 sm:p-6 shadow-[0_10px_30px_-18px_rgba(14,40,89,0.35)] hover:shadow-[0_18px_45px_-18px_rgba(14,40,89,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+      >
+        <!-- barra accent superior -->
+        <div
+          class="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-[#CE6C37] via-[#215EBB] to-[#AFCEE3]"
+        ></div>
+
+        <!-- icon bubble -->
+        <div class="flex items-center justify-between">
+          <div
+            class="relative inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#AFCEE3]/55 to-white ring-1 ring-[#0E2859]/10 group-hover:ring-[#CE6C37]/30 transition"
+          >
+            <!-- pequeño glow -->
+            <div
+              class="absolute -inset-2 rounded-2xl bg-[#215EBB]/10 blur-xl opacity-0 group-hover:opacity-100 transition"
+            ></div>
+
+            <div class="relative text-[#0E2859] group-hover:text-[#215EBB] transition-colors">
+              @switch (item.icon) { @case ('award') {
+              <!-- Award -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 15l3 7-3-2-3 2 3-7Z" fill="currentColor" opacity="0.18" />
+                <path
+                  d="M12 15l3 7-3-2-3 2 3-7Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+              } @case ('graduation') {
+              <!-- GraduationCap -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M22 10 12 5 2 10l10 5 10-5Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              } @case ('shield') {
+              <!-- Shield -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 2 20 6v7c0 5-3.5 9-8 9s-8-4-8-9V6l8-4Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              } @case ('filecheck') {
+              <!-- FileCheck -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14 2v6h8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m9 15 2 2 4-4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              } }
+            </div>
+          </div>
+
+          <!-- pill “badge” opcional -->
+          <span
+            class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#CE6C37]/10 text-[#CE6C37] border border-[#CE6C37]/20 group-hover:bg-[#CE6C37]/12 transition"
+          >
+            Verificado
+          </span>
+        </div>
+
+        <!-- texto -->
+        <div class="mt-4">
+          <p class="text-sm text-[#0E2859]/70">
+            {{ item.label }}
+          </p>
+
+          <p class="mt-1 text-lg font-extrabold text-[#0E2859] tracking-tight">
+            {{ item.value }}
+          </p>
+
+          <!-- micro subrayado -->
+          <div
+            class="mt-4 h-[2px] w-10 rounded-full bg-[#AFCEE3] group-hover:w-16 group-hover:bg-[#CE6C37] transition-all"
+          ></div>
+        </div>
+      </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,454 @@
+<div class="relative overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white py-16 md:py-24">
+  <!-- soft blobs + “aura” -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-28 h-[520px] w-[520px] rounded-full bg-[#AFCEE3]/55 blur-3xl"></div>
+    <div class="absolute -bottom-32 -right-32 h-[560px] w-[560px] rounded-full bg-[#C3B692]/35 blur-3xl"></div>
+    <div class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full bg-[#215EBB]/10 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-[0.06]"
+         style="background-image: radial-gradient(#0E2859 0.6px, transparent 0.6px); background-size: 18px 18px;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-slate-600 mb-10 max-w-6xl mx-auto">
+      <a routerLink="/" class="hover:text-[#215EBB] transition">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-[#0E2859] font-semibold">Reseñas</span>
+    </nav>
+
+    <!-- HERO: split editorial -->
+    <header class="max-w-6xl mx-auto mb-10 md:mb-14">
+      <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-6 lg:gap-10 items-stretch">
+        <!-- Left: headline -->
+        <div class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm p-8 md:p-10 relative overflow-hidden">
+          <div class="pointer-events-none absolute -top-24 -right-20 h-64 w-64 rounded-full bg-[#215EBB]/10 blur-2xl"></div>
+          <div class="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+
+          <span
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
+                   bg-[#AFCEE3]/40 text-[#0E2859] border border-[#0E2859]/10"
+          >
+            <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+            Reseñas verificables
+          </span>
+
+          <h1 class="mt-5 text-4xl md:text-5xl font-extrabold text-[#0E2859] text-balance leading-[1.06]">
+            Lo que dicen mis pacientes
+          </h1>
+
+          <p class="mt-4 text-lg md:text-xl text-[#0E2859]/70 leading-relaxed text-pretty">
+            Opiniones reales tomadas de <strong>Doctoralia</strong> y <strong>Google</strong>.
+            Diseñadas para leerse fácil, sin ruido.
+          </p>
+
+          <!-- subtle “signature line” -->
+          <div class="mt-7 h-px w-full bg-gradient-to-r from-transparent via-[#0E2859]/15 to-transparent"></div>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3 text-sm text-[#0E2859]/70">
+            <span class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white px-3 py-1">
+              <span class="h-2 w-2 rounded-full bg-[#215EBB]"></span>
+              Experiencia premium
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white px-3 py-1">
+              <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+              Confianza y claridad
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white px-3 py-1">
+              <span class="h-2 w-2 rounded-full bg-[#C3B692]"></span>
+              Atención humana
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: segmented control + summary -->
+        <div class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm p-6 md:p-8 relative overflow-hidden">
+          <div class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#AFCEE3]/30 blur-3xl"></div>
+
+          <!-- Segmented control (nuevo estilo) -->
+          <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-1 shadow-sm">
+            <div class="grid grid-cols-2 gap-1">
+              <button
+                type="button"
+                (click)="setTab('doctoralia')"
+                class="relative rounded-xl px-4 py-3 text-sm font-extrabold transition
+                       border border-transparent"
+                [class.bg-[#0E2859]]="activeTab() === 'doctoralia'"
+                [class.text-white]="activeTab() === 'doctoralia'"
+                [class.text-[#0E2859]]="activeTab() !== 'doctoralia'"
+                [class.hover:bg-[#0E2859]/5]="activeTab() !== 'doctoralia'"
+              >
+                <span class="inline-flex items-center justify-center h-6 w-6 rounded-lg mr-2 align-middle"
+                      [class.bg-white/10]="activeTab() === 'doctoralia'"
+                      [class.bg-[#CE6C37]/10]="activeTab() !== 'doctoralia'">
+                  <lucide-icon [img]="iBadgeCheck" class="h-4 w-4"
+                               [class.text-white]="activeTab() === 'doctoralia'"
+                               [class.text-[#CE6C37]]="activeTab() !== 'doctoralia'"></lucide-icon>
+                </span>
+                Doctoralia
+              </button>
+
+              <button
+                type="button"
+                (click)="setTab('google')"
+                class="relative rounded-xl px-4 py-3 text-sm font-extrabold transition
+                       border border-transparent"
+                [class.bg-[#0E2859]]="activeTab() === 'google'"
+                [class.text-white]="activeTab() === 'google'"
+                [class.text-[#0E2859]]="activeTab() !== 'google'"
+                [class.hover:bg-[#0E2859]/5]="activeTab() !== 'google'"
+              >
+                <span class="inline-flex items-center justify-center h-6 w-6 rounded-lg mr-2 align-middle"
+                      [class.bg-white/10]="activeTab() === 'google'"
+                      [class.bg-[#215EBB]/10]="activeTab() !== 'google'">
+                  <lucide-icon [img]="iStar" class="h-4 w-4"
+                               [class.text-white]="activeTab() === 'google'"
+                               [class.text-[#215EBB]]="activeTab() !== 'google'"></lucide-icon>
+                </span>
+                Google
+              </button>
+            </div>
+          </div>
+
+          <!-- Summary card -->
+          <div class="mt-5 rounded-2xl border border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white p-5">
+            @if (activeTab() === 'doctoralia') {
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">FUENTE ACTIVA</p>
+                  <p class="mt-1 text-lg font-extrabold text-[#0E2859]">Doctoralia</p>
+                  <p class="mt-1 text-sm text-[#0E2859]/70">
+                    Mostrando <span class="font-extrabold">{{ visibleCount() }}</span> de
+                    <span class="font-extrabold">{{ doctoralia().length }}</span> reseñas cargadas.
+                  </p>
+                </div>
+
+                <div class="h-11 w-11 rounded-2xl bg-white/70 border border-[#0E2859]/10 grid place-items-center">
+                  <lucide-icon [img]="iQuote" class="h-5 w-5 text-[#215EBB]"></lucide-icon>
+                </div>
+              </div>
+            } @else {
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">FUENTE ACTIVA</p>
+                  <p class="mt-1 text-lg font-extrabold text-[#0E2859]">Google</p>
+                  <p class="mt-1 text-sm text-[#0E2859]/70">
+                    Mostrando <span class="font-extrabold">{{ visibleCount() }}</span> de
+                    <span class="font-extrabold">{{ googleReviews().length }}</span> reseñas cargadas.
+                  </p>
+                </div>
+
+                <div class="h-11 w-11 rounded-2xl bg-white/70 border border-[#0E2859]/10 grid place-items-center">
+                  <lucide-icon [img]="iExternal" class="h-5 w-5 text-[#215EBB]"></lucide-icon>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- PANEL: masonry gallery -->
+    <section class="max-w-6xl mx-auto rounded-3xl bg-white/80 backdrop-blur border border-[#0E2859]/10 shadow-sm overflow-hidden">
+      <!-- Head -->
+      <div class="px-6 md:px-8 py-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <h2 class="text-lg md:text-xl font-extrabold text-[#0E2859]">Reseñas</h2>
+            <p class="text-sm text-[#0E2859]/65">
+              Lectura tipo “revista”: tarjetas limpias, ordenadas y sin distracciones.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              (click)="resetVisible()"
+              class="inline-flex items-center justify-center rounded-2xl bg-white px-4 py-2 text-sm font-extrabold
+                     border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+            >
+              Volver al inicio
+            </button>
+
+            @if (hasMore()) {
+              <button
+                type="button"
+                (click)="loadMore()"
+                class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-4 py-2 text-sm font-extrabold text-white
+                       hover:bg-[#0E2859]/95 transition shadow-sm"
+              >
+                Cargar más
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="p-6 md:p-8">
+        <!-- States -->
+        @if (activeTab() === 'doctoralia') {
+          @if (loadingDoctoralia()) {
+            <div class="columns-1 md:columns-2 xl:columns-3 gap-5 [column-fill:_balance]">
+              @for (i of skeletonItems; track trackSkeleton($index, i)) {
+                <div class="mb-5 break-inside-avoid">
+                  <div class="rounded-3xl border border-[#0E2859]/10 bg-white p-6">
+                    <div class="animate-pulse">
+                      <div class="flex items-start gap-3">
+                        <div class="h-12 w-12 rounded-2xl bg-slate-200"></div>
+                        <div class="flex-1">
+                          <div class="h-4 w-1/2 bg-slate-200 rounded mb-2"></div>
+                          <div class="h-3 w-2/3 bg-slate-200 rounded"></div>
+                        </div>
+                      </div>
+                      <div class="h-4 w-40 bg-slate-200 rounded mt-5"></div>
+                      <div class="h-3 w-full bg-slate-200 rounded mt-4"></div>
+                      <div class="h-3 w-5/6 bg-slate-200 rounded mt-2"></div>
+                      <div class="h-3 w-2/3 bg-slate-200 rounded mt-2"></div>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          } @else if (errorDoctoralia()) {
+            <div class="rounded-2xl border border-red-200 bg-red-50 p-6 text-red-700">
+              <p class="font-semibold">{{ errorDoctoralia() }}</p>
+              <p class="text-sm text-red-700/80 mt-1">Intenta recargar en unos segundos.</p>
+            </div>
+          } @else if (!doctoralia().length) {
+            <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-6 text-[#0E2859]/70">
+              Sin reseñas por ahora.
+            </div>
+          } @else {
+            <!-- Masonry reviews -->
+            <div class="columns-1 md:columns-2 xl:columns-3 gap-5 [column-fill:_balance]">
+              @for (r of visibleDoctoralia(); track trackDoctoralia($index, r)) {
+                <article class="mb-5 break-inside-avoid">
+                  <div
+                    class="group relative overflow-hidden rounded-3xl border border-[#0E2859]/10 bg-white
+                           shadow-sm hover:shadow-xl transition"
+                  >
+                    <!-- spotlight overlay -->
+                    <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#AFCEE3]/35 blur-3xl"></div>
+                      <div class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#CE6C37]/12 blur-3xl"></div>
+                    </div>
+
+                    <!-- top accent -->
+                    <div class="h-[5px] bg-gradient-to-r from-[#CE6C37] via-[#215EBB] to-[#AFCEE3]"></div>
+
+                    <div class="relative p-6">
+                      <div class="flex items-start gap-3">
+                        <div class="h-12 w-12 rounded-2xl bg-[#AFCEE3]/35 border border-[#0E2859]/10 grid place-items-center">
+                          <lucide-icon [img]="iQuote" class="h-6 w-6 text-[#215EBB]"></lucide-icon>
+                        </div>
+
+                        <div class="min-w-0 flex-1">
+                          <div class="flex items-start justify-between gap-3">
+                            <div class="min-w-0">
+                              <p class="font-extrabold text-[#0E2859] truncate">{{ r.author }}</p>
+                              <p class="text-xs text-[#0E2859]/60 mt-0.5">
+                                {{ r.dateText ?? '' }}
+                                @if (r.service) { <span class="mx-1">•</span> {{ r.service }} }
+                              </p>
+                            </div>
+
+                            @if (r.isVerified) {
+                              <span
+                                class="shrink-0 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-extrabold
+                                       bg-[#CE6C37]/10 text-[#CE6C37] border border-[#CE6C37]/25"
+                              >
+                                <lucide-icon [img]="iBadgeCheck" class="h-4 w-4"></lucide-icon>
+                                Verificada
+                              </span>
+                            }
+                          </div>
+
+                          <div class="mt-3 flex items-center gap-1">
+                            @for (filled of starsFilled(r.rating); track $index) {
+                              <svg class="h-4 w-4" viewBox="0 0 24 24"
+                                   [attr.fill]="filled ? '#CE6C37' : 'none'"
+                                   [attr.stroke]="filled ? '#CE6C37' : '#CE6C37'"
+                                   stroke-width="2" aria-hidden="true">
+                                <path d="M12 17.3 6.8 20l1-5.8L3 9.8l5.9-.8L12 3.8l3.1 5.2 5.9.8-4.8 4.4 1 5.8L12 17.3Z" />
+                              </svg>
+                            }
+                            <span class="ml-2 text-xs font-bold text-[#0E2859]/60">{{ r.rating }}/5</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="mt-5 text-[#0E2859]/80 leading-relaxed text-pretty">
+                        “{{ r.comment || 'Reseña sin texto.' }}”
+                      </p>
+
+                      @if (r.clinic) {
+                        <p class="mt-4 text-xs font-semibold text-[#0E2859]/55">{{ r.clinic }}</p>
+                      }
+
+                      @if (r.sourceUrl) {
+                        <a
+                          class="mt-5 inline-flex items-center justify-between gap-3 w-full
+                                 rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3
+                                 text-sm font-extrabold text-[#215EBB] hover:text-[#0E2859]
+                                 hover:border-[#215EBB]/25 transition"
+                          [href]="r.sourceUrl"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          <span>Ver en Doctoralia</span>
+                          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#215EBB]/10">
+                            <lucide-icon [img]="iExternal" class="h-4 w-4"></lucide-icon>
+                          </span>
+                        </a>
+                      }
+                    </div>
+                  </div>
+                </article>
+              }
+            </div>
+          }
+
+        } @else {
+
+          @if (loadingGoogle()) {
+            <div class="columns-1 md:columns-2 xl:columns-3 gap-5 [column-fill:_balance]">
+              @for (i of skeletonItems; track trackSkeleton($index, i)) {
+                <div class="mb-5 break-inside-avoid">
+                  <div class="rounded-3xl border border-[#0E2859]/10 bg-white p-6">
+                    <div class="animate-pulse">
+                      <div class="flex items-start gap-3">
+                        <div class="h-12 w-12 rounded-2xl bg-slate-200"></div>
+                        <div class="flex-1">
+                          <div class="h-4 w-1/2 bg-slate-200 rounded mb-2"></div>
+                          <div class="h-3 w-2/3 bg-slate-200 rounded"></div>
+                        </div>
+                      </div>
+                      <div class="h-4 w-40 bg-slate-200 rounded mt-5"></div>
+                      <div class="h-3 w-full bg-slate-200 rounded mt-4"></div>
+                      <div class="h-3 w-5/6 bg-slate-200 rounded mt-2"></div>
+                      <div class="h-3 w-2/3 bg-slate-200 rounded mt-2"></div>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          } @else if (errorGoogle()) {
+            <div class="rounded-2xl border border-red-200 bg-red-50 p-6 text-red-700">
+              <p class="font-semibold">{{ errorGoogle() }}</p>
+              <p class="text-sm text-red-700/80 mt-1">Puede ser temporal (rate limit / API).</p>
+            </div>
+          } @else if (!googleReviews().length) {
+            <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-6 text-[#0E2859]/70">
+              Sin reseñas por ahora.
+            </div>
+          } @else {
+
+            <div class="columns-1 md:columns-2 xl:columns-3 gap-5 [column-fill:_balance]">
+              @for (r of visibleGoogle(); track trackGoogle($index, r)) {
+                <article class="mb-5 break-inside-avoid">
+                  <div
+                    class="group relative overflow-hidden rounded-3xl border border-[#0E2859]/10 bg-white
+                           shadow-sm hover:shadow-xl transition"
+                  >
+                    <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#215EBB]/18 blur-3xl"></div>
+                      <div class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+                    </div>
+
+                    <div class="h-[5px] bg-gradient-to-r from-[#215EBB] via-[#AFCEE3] to-[#C3B692]"></div>
+
+                    <div class="relative p-6">
+                      <div class="flex items-start gap-3">
+                        @if (r.authorPhoto) {
+                          <img
+                            class="h-12 w-12 rounded-2xl object-cover border border-[#0E2859]/10"
+                            [src]="r.authorPhoto"
+                            [alt]="r.author"
+                            loading="lazy"
+                            decoding="async"
+                            referrerpolicy="no-referrer"
+                          />
+                        } @else {
+                          <div class="h-12 w-12 rounded-2xl bg-[#AFCEE3]/35 border border-[#0E2859]/10 grid place-items-center">
+                            <lucide-icon [img]="iQuote" class="h-6 w-6 text-[#215EBB]"></lucide-icon>
+                          </div>
+                        }
+
+                        <div class="min-w-0 flex-1">
+                          <p class="font-extrabold text-[#0E2859] truncate">{{ r.author }}</p>
+                          <p class="text-xs text-[#0E2859]/60 mt-0.5">{{ r.relativeTime ?? '' }}</p>
+
+                          <div class="mt-3 flex items-center gap-1">
+                            @for (filled of starsFilled(r.rating); track $index) {
+                              <svg class="h-4 w-4" viewBox="0 0 24 24"
+                                   [attr.fill]="filled ? '#CE6C37' : 'none'"
+                                   [attr.stroke]="filled ? '#CE6C37' : '#CE6C37'"
+                                   stroke-width="2" aria-hidden="true">
+                                <path d="M12 17.3 6.8 20l1-5.8L3 9.8l5.9-.8L12 3.8l3.1 5.2 5.9.8-4.8 4.4 1 5.8L12 17.3Z" />
+                              </svg>
+                            }
+                            <span class="ml-2 text-xs font-bold text-[#0E2859]/60">{{ r.rating }}/5</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="mt-5 text-[#0E2859]/80 leading-relaxed text-pretty">
+                        “{{ r.text || 'Reseña sin texto.' }}”
+                      </p>
+
+                      @if (r.googleMapsUri) {
+                        <a
+                          class="mt-5 inline-flex items-center justify-between gap-3 w-full
+                                 rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3
+                                 text-sm font-extrabold text-[#215EBB] hover:text-[#0E2859]
+                                 hover:border-[#215EBB]/25 transition"
+                          [href]="r.googleMapsUri"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          <span>Ver en Google Maps</span>
+                          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#215EBB]/10">
+                            <lucide-icon [img]="iExternal" class="h-4 w-4"></lucide-icon>
+                          </span>
+                        </a>
+                      }
+                    </div>
+                  </div>
+                </article>
+              }
+            </div>
+
+          }
+        }
+
+        <!-- Load more bottom -->
+        <div class="mt-8 flex flex-col items-center gap-3">
+          @if (hasMore()) {
+            <button
+              type="button"
+              (click)="loadMore()"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-6 py-3
+                     text-white font-extrabold shadow-sm hover:bg-[#0E2859]/95 transition"
+            >
+              Cargar 15 más
+            </button>
+            <p class="text-xs text-[#0E2859]/60">
+              Mostrando {{ visibleCount() }} de {{ totalActive() }} reseñas cargadas.
+            </p>
+          } @else {
+            <p class="text-sm text-[#0E2859]/60">
+              Ya estás viendo todas las reseñas disponibles por ahora.
+            </p>
+          }
+        </div>
+      </div>
+    </section>
+
+    <footer class="max-w-2xl mx-auto text-center mt-10">
+      <p class="text-sm text-[#0E2859]/60 leading-relaxed">
+        <strong>Nota:</strong> Los resultados pueden variar según cada caso individual.
+        Esta información no sustituye una valoración médica profesional.
+      </p>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+/* toast animation */
+.toast {
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 220ms ease;
+}
+.toast.toast--open {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}

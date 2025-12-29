@@ -1,0 +1,80 @@
+@if (error()) {
+  <div class="max-w-3xl mx-auto text-center rounded-2xl border border-red-200 bg-red-50 p-5 text-red-700">
+    {{ error() }}
+  </div>
+} @else {
+
+  @if (loading()) {
+    <!-- ✅ Skeletons -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (i of skeletonItems; track i) {
+        <div class="rounded-2xl border border-slate-200 bg-white p-6" aria-hidden="true">
+          <div class="animate-pulse">
+            <div class="h-12 w-12 rounded-2xl bg-slate-200 mb-4"></div>
+            <div class="h-6 bg-slate-200 rounded-lg mb-3 w-3/4"></div>
+            <div class="h-4 bg-slate-200 rounded-lg mb-2 w-full"></div>
+            <div class="h-4 bg-slate-200 rounded-lg mb-4 w-5/6"></div>
+            <div class="h-4 bg-slate-200 rounded-lg w-24"></div>
+          </div>
+        </div>
+      }
+    </div>
+
+  } @else {
+
+    @if (cards().length === 0) {
+      <div class="max-w-3xl mx-auto text-center rounded-2xl border border-slate-200 bg-white p-6 text-slate-600">
+        No hay servicios publicados todavía.
+      </div>
+    } @else {
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        @for (c of cards(); track trackBySlug($index, c)) {
+          <a [routerLink]="['/servicios', c.slug]" class="group block h-full">
+            <div
+              class="relative h-full rounded-2xl border border-[#0E2859]/10 bg-white p-6
+                     shadow-sm hover:shadow-xl hover:-translate-y-1 transition"
+            >
+              <!-- top glow -->
+              <div class="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition">
+                <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[#AFCEE3]/35 blur-3xl"></div>
+                <div class="absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-[#CE6C37]/15 blur-3xl"></div>
+              </div>
+
+              <!-- Icon badge -->
+              <div
+                class="relative w-12 h-12 rounded-2xl mb-4 grid place-items-center
+                       bg-gradient-to-br from-[#AFCEE3]/55 via-white to-[#C3B692]/25
+                       ring-1 ring-[#0E2859]/10 group-hover:scale-110 transition-transform"
+              >
+                @if (c.icon === 'brain') {
+                  <lucide-icon [img]="iBrain" class="h-6 w-6 text-[#0E2859]"></lucide-icon>
+                } @else {
+                  <lucide-icon [img]="iActivity" class="h-6 w-6 text-[#0E2859]"></lucide-icon>
+                }
+
+                <span class="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-[#CE6C37]"></span>
+              </div>
+
+              <h3 class="relative text-xl font-extrabold text-[#0E2859] mb-3 group-hover:text-[#215EBB] transition-colors">
+                {{ c.title }}
+              </h3>
+
+              <p class="relative text-[#0E2859]/70 leading-relaxed mb-5 text-pretty">
+                {{ c.description }}
+              </p>
+
+              <div class="relative inline-flex items-center gap-2 text-sm font-extrabold text-[#CE6C37]">
+                Saber más
+                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#CE6C37]/10">
+                  <lucide-icon [img]="iArrowRight" class="h-4 w-4"></lucide-icon>
+                </span>
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+
+    }
+  }
+}

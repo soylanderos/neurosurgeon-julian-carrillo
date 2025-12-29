@@ -1,0 +1,162 @@
+<div class="relative overflow-hidden bg-[#F7FAFF]">
+  <!-- soft blobs background -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-28 h-[560px] w-[560px] rounded-full bg-[#AFCEE3]/55 blur-3xl"></div>
+    <div class="absolute -bottom-28 -right-28 h-[560px] w-[560px] rounded-full bg-[#C3B692]/35 blur-3xl"></div>
+    <div class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full bg-[#215EBB]/10 blur-3xl"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 relative">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-[#0E2859]/60 mb-8">
+        <a routerLink="/" class="hover:text-[#215EBB] transition">Inicio</a>
+        <span class="mx-2 text-[#0E2859]/30">/</span>
+        <span class="text-[#0E2859] font-semibold">Blog</span>
+      </nav>
+
+      <!-- Header -->
+      <header class="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+        <span
+          class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
+                 bg-[#AFCEE3]/35 text-[#0E2859]"
+        >
+          <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+          Blog · Salud y Neurocirugía
+        </span>
+
+        <h1 class="mt-5 text-4xl md:text-5xl font-extrabold text-[#0E2859] leading-[1.05] text-balance">
+          Artículos claros sobre Cerebro y Columna
+        </h1>
+
+        <p class="mt-4 text-lg md:text-xl text-[#0E2859]/70 leading-relaxed text-pretty">
+          Contenido informativo para ayudarte a entender tus síntomas, opciones de tratamiento y
+          cuidados preventivos con un enfoque práctico y basado en evidencia.
+        </p>
+      </header>
+
+      <!-- Estados -->
+      @if (loading()) {
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @for (_ of [1,2,3,4,5,6]; track $index) {
+              <div class="rounded-2xl border border-[#0E2859]/10 bg-white/80 backdrop-blur p-6 shadow-sm">
+                <div class="animate-pulse">
+                  <div class="h-6 w-24 rounded-full bg-[#0E2859]/10 mb-4"></div>
+                  <div class="h-6 rounded-lg bg-[#0E2859]/10 mb-3 w-5/6"></div>
+                  <div class="h-4 rounded-lg bg-[#0E2859]/10 mb-2 w-full"></div>
+                  <div class="h-4 rounded-lg bg-[#0E2859]/10 mb-5 w-4/5"></div>
+                  <div class="h-4 w-28 rounded-lg bg-[#0E2859]/10"></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+      } @else if (error()) {
+        <div class="max-w-3xl mx-auto text-center rounded-2xl border border-red-200 bg-red-50 p-5 text-red-700">
+          {{ error() }}
+        </div>
+
+      } @else {
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-3 justify-center mb-10 md:mb-12">
+          @for (tag of tags(); track tag) {
+            <button
+              type="button"
+              (click)="setTag(tag)"
+              class="group inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition
+                     border"
+              [class.bg-gradient-to-r]="selectedTag() === tag"
+              [class.from-[#0E2859]]="selectedTag() === tag"
+              [class.to-[#215EBB]]="selectedTag() === tag"
+              [class.text-white]="selectedTag() === tag"
+              [class.border-[#0E2859]/10]="selectedTag() === tag"
+
+              [class.bg-white]="selectedTag() !== tag"
+              [class.text-[#0E2859]]="selectedTag() !== tag"
+              [class.border-[#0E2859]/12]="selectedTag() !== tag"
+              [class.hover:bg-[#AFCEE3]/25]="selectedTag() !== tag"
+              [class.hover:border-[#215EBB]/25]="selectedTag() !== tag"
+            >
+              <span
+                class="h-2 w-2 rounded-full"
+                [class.bg-[#CE6C37]]="selectedTag() === tag"
+                [class.bg-[#0E2859]/25]="selectedTag() !== tag"
+              ></span>
+              {{ tag }}
+            </button>
+          }
+        </div>
+
+        <!-- Empty -->
+        @if (filteredPosts().length === 0) {
+          <div class="max-w-3xl mx-auto text-center rounded-2xl border border-[#0E2859]/10 bg-white/80 backdrop-blur p-8 text-[#0E2859]/70">
+            No hay artículos para este filtro por ahora.
+          </div>
+        } @else {
+
+          <!-- Posts grid -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @for (post of filteredPosts(); track post.slug) {
+              <article class="group h-full">
+                <a
+                  [routerLink]="['/blog', post.slug]"
+                  class="relative block h-full rounded-2xl border border-[#0E2859]/10 bg-white/85 backdrop-blur
+                         p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition overflow-hidden"
+                >
+                  <!-- hover glow -->
+                  <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition">
+                    <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[#AFCEE3]/35 blur-3xl"></div>
+                    <div class="absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-[#CE6C37]/15 blur-3xl"></div>
+                  </div>
+
+                  <!-- Tag badge -->
+                  <div
+                    class="relative inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-extrabold
+                           bg-[#AFCEE3]/35 text-[#0E2859] border border-[#0E2859]/10 mb-4"
+                  >
+                    <lucide-icon [img]="iTag" class="w-3.5 h-3.5"></lucide-icon>
+                    {{ post.tag }}
+                  </div>
+
+                  <h2 class="relative text-xl font-extrabold text-[#0E2859] leading-snug mb-3 text-balance">
+                    {{ post.title }}
+                  </h2>
+
+                  <p class="relative text-sm text-[#0E2859]/70 leading-relaxed text-pretty mb-5">
+                    {{ post.excerpt }}
+                  </p>
+
+                  <div class="relative flex items-center justify-between gap-3 mt-auto">
+                    <div class="flex items-center gap-4 text-xs text-[#0E2859]/55">
+                      <span class="inline-flex items-center gap-1">
+                        <lucide-icon [img]="iCalendar" class="w-3.5 h-3.5"></lucide-icon>
+                        {{ formatDate(post.published_at) }}
+                      </span>
+
+                      <span class="inline-flex items-center gap-1">
+                        <lucide-icon [img]="iClock" class="w-3.5 h-3.5"></lucide-icon>
+                        {{ post.read_time }}
+                      </span>
+                    </div>
+
+                    <div class="inline-flex items-center gap-2 text-sm font-extrabold text-[#CE6C37]">
+                      Leer
+                      <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#CE6C37]/10">
+                        <span class="text-[#CE6C37] font-extrabold">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            }
+          </div>
+
+        }
+      }
+    </div>
+  </div>
+</div>

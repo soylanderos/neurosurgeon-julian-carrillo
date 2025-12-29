@@ -1,0 +1,36 @@
+<!-- core/layout/layout.html -->
+<app-header></app-header>
+
+<main class="relative overflow-hidden">
+  <!-- Site background -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <!-- base wash -->
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-white"></div>
+
+    <!-- glow 1 (sky) -->
+    <div
+      class="absolute -top-24 -right-24 h-[520px] w-[520px] rounded-full blur-3xl opacity-40"
+      style="background: #AFCEE3;"
+    ></div>
+
+    <!-- glow 2 (orange) -->
+    <div
+      class="absolute -bottom-28 -left-28 h-[560px] w-[560px] rounded-full blur-3xl opacity-20"
+      style="background: #CE6C37;"
+    ></div>
+
+    <!-- glow 3 (blue) -->
+    <div
+      class="absolute top-[35%] left-[10%] h-[420px] w-[420px] rounded-full blur-3xl opacity-15"
+      style="background: #215EBB;"
+    ></div>
+  </div>
+
+  <!-- Page content -->
+  <div class="relative">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<app-footer></app-footer>
+<app-floating-whatsapp phone="526563151101" text="Hola, quiero agendar una cita."></app-floating-whatsapp>

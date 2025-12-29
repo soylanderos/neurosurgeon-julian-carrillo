@@ -1,0 +1,173 @@
+<!-- HERO (reference-like) -->
+<section class="relative overflow-hidden bg-[#F7FAFF]">
+
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="py-14 md:py-20">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <!-- LEFT -->
+        <div class="lg:col-span-6">
+          <div class="max-w-xl">
+            <div class="flex items-center gap-2 text-sm text-[#0E2859]/70">
+              <span
+                class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white border border-[#0E2859]/10 shadow-sm"
+              >
+                <lucide-icon [img]="iPulse" class="h-4 w-4 text-[#215EBB]"></lucide-icon>
+              </span>
+              <span class="font-semibold">Tu salud, nuestra prioridad</span>
+            </div>
+
+            <h1
+              class="mt-5 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#0E2859] text-balance"
+            >
+              Atención especializada en
+              <span class="relative inline-block">
+                Cerebro y Columna
+                <span
+                  class="absolute -bottom-2 left-0 right-0 h-2 rounded-full bg-[#CE6C37]/35"
+                ></span>
+              </span>
+            </h1>
+
+            <p class="mt-5 text-lg md:text-xl text-[#0E2859]/70 leading-relaxed text-pretty">
+              Neurocirujano certificado con diagnóstico preciso y un plan de tratamiento claro para
+              tu recuperación.
+            </p>
+
+            <!-- CTAs extra (optional) -->
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://wa.me/52XXXXXXXXXX"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full bg-white border border-[#0E2859]/15 px-6 py-3 font-extrabold text-[#0E2859] hover:bg-[#0E2859]/5 transition inline-flex items-center justify-center gap-2"
+              >
+                <span
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]/15"
+                >
+                  <lucide-icon [img]="iWhatsapp" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                </span>
+                WhatsApp
+              </a>
+
+              <a
+                [href]="phoneUrl"
+                class="rounded-full bg-white border border-[#0E2859]/15 px-6 py-3 font-extrabold text-[#0E2859] hover:bg-[#0E2859]/5 transition inline-flex items-center justify-center gap-2"
+              >
+                <span
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#AFCEE3]/35"
+                >
+                  <lucide-icon [img]="iPhone" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                </span>
+                Llamar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="lg:col-span-6 lg:justify-self-end">
+          <div class="relative mx-auto w-[320px] sm:w-[400px] md:w-[460px]">
+            <!-- big circle background like reference -->
+            <div class="absolute inset-0 -z-10 grid place-items-center">
+              <div class="h-[460px] w-[460px] rounded-full bg-[#215EBB]/10"></div>
+              <div class="absolute h-[360px] w-[360px] rounded-full bg-white/60"></div>
+            </div>
+
+            <!-- rings -->
+            <div class="absolute -inset-6 rounded-full border-[10px] border-white/80"></div>
+            <div class="absolute -inset-10 rounded-full border border-[#0E2859]/10"></div>
+
+            <!-- portrait -->
+            <div
+              class="relative aspect-square rounded-full overflow-hidden bg-white shadow-2xl border border-[#0E2859]/10"
+            >
+              <img
+                src="https://hospitalangeles.com/assets/img/medicos/julian-octavio-carrillo-gonzalez.jpg"
+                alt="Dr. Julián Octavio Carrillo"
+                class="h-full w-full object-cover object-[50%_20%]"
+                loading="eager"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0E2859]/20 via-transparent to-transparent"
+              ></div>
+            </div>
+
+            <!-- floating chips (REAL like reference) -->
+            <div class="absolute -left-10 top-24">
+              <div
+                class="rounded-full bg-white/90 backdrop-blur border border-[#0E2859]/10 shadow-lg px-4 py-2 flex items-center gap-2"
+              >
+                <span class="h-9 w-9 rounded-full bg-[#AFCEE3]/45 grid place-items-center">
+                  <lucide-icon [img]="iBrain" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                </span>
+                <p class="text-sm font-extrabold text-[#0E2859]">Cerebro</p>
+              </div>
+            </div>
+
+            <div class="absolute -right-8 top-16">
+              <div
+                class="rounded-full bg-white/90 backdrop-blur border border-[#0E2859]/10 shadow-lg px-4 py-2 flex items-center gap-2"
+              >
+                <span class="h-9 w-9 rounded-full bg-[#C3B692]/35 grid place-items-center">
+                  <lucide-icon [img]="iBone" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                </span>
+                <p class="text-sm font-extrabold text-[#0E2859]">Columna</p>
+              </div>
+            </div>
+
+            <div class="absolute -left-6 bottom-14">
+              <div
+                class="rounded-full bg-white/90 backdrop-blur border border-[#0E2859]/10 shadow-lg px-4 py-2 flex items-center gap-2"
+              >
+                <span class="h-9 w-9 rounded-full bg-[#CE6C37]/15 grid place-items-center">
+                  <lucide-icon [img]="iMapPin" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                </span>
+                <p class="text-sm font-extrabold text-[#0E2859]">Cd. Juárez</p>
+              </div>
+            </div>
+
+            <div class="absolute -right-6 bottom-10">
+              <div
+                class="rounded-full bg-white/90 backdrop-blur border border-[#0E2859]/10 shadow-lg px-4 py-2 flex items-center gap-2"
+              >
+                <span class="h-9 w-9 rounded-full bg-[#AFCEE3]/45 grid place-items-center">
+                  <lucide-icon [img]="iBadgeCheck" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                </span>
+                <p class="text-sm font-extrabold text-[#0E2859]">Certificado</p>
+              </div>
+            </div>
+
+            <!-- tiny accent -->
+            <div class="absolute -bottom-6 right-16 h-4 w-4 rounded-full bg-[#CE6C37]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom consultation cards -->
+    <div class="pb-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 -mt-4">
+        @for (item of consultationCards; track $index) {
+        <div
+          class="rounded-2xl bg-white/80 border border-[#0E2859]/10 shadow-sm hover:shadow-md transition p-5"
+        >
+          <div class="flex items-start gap-4">
+            <div
+              class="h-11 w-11 rounded-xl bg-[#CE6C37]/15 flex items-center justify-center flex-shrink-0"
+            >
+              <lucide-icon [img]="iPlus" class="h-5 w-5 text-[#CE6C37]"></lucide-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-extrabold text-[#0E2859] mb-1">{{ item.title }}</h3>
+              <p class="text-sm text-[#0E2859]/65">{{ item.desc }}</p>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

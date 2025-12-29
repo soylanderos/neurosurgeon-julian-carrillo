@@ -1,0 +1,10 @@
+
+@custom-variant dark (&:is(.dark *));
+
+:root{
+  --brand-navy: #0E2859;
+  --brand-orange: #CE6C37;
+  --brand-blue: #215EBB;
+  --brand-sky: #AFCEE3;
+  --brand-sand: #C3B692;
+}

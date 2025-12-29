@@ -1,0 +1,224 @@
+<!-- footer.component.html -->
+<footer class="relative overflow-hidden bg-[#0E2859] text-white">
+  <!-- top accent bar (igual vibe header) -->
+  <div class="h-1 w-full bg-gradient-to-r from-[#CE6C37] via-[#215EBB] to-[#AFCEE3]"></div>
+
+  <!-- soft blobs -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-20 -left-28 h-[520px] w-[520px] rounded-full bg-[#AFCEE3]/18 blur-3xl"></div>
+    <div class="absolute -bottom-32 -right-24 h-[560px] w-[560px] rounded-full bg-[#C3B692]/12 blur-3xl"></div>
+    <div class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full bg-[#215EBB]/16 blur-3xl"></div>
+    <div class="absolute bottom-10 left-1/3 h-[360px] w-[360px] rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <!-- Main -->
+    <div class="py-12 md:py-16">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <!-- Brand / About -->
+        <div class="lg:col-span-4">
+          <a [routerLink]="['/']" class="group inline-flex items-center gap-3">
+            <div class="relative">
+              <span
+                class="absolute -inset-1 rounded-[18px] bg-gradient-to-br from-[#AFCEE3]/35 via-white/10 to-[#C3B692]/20 blur-md opacity-0 group-hover:opacity-100 transition"
+              ></span>
+
+              <div
+                class="relative h-11 w-11 rounded-2xl bg-white/10 ring-1 ring-white/15 grid place-items-center shadow-sm"
+              >
+                <span class="text-sm font-extrabold tracking-wide">JC</span>
+              </div>
+            </div>
+
+            <div class="leading-tight">
+              <p class="text-[15px] font-extrabold">
+                Dr. Julián Carrillo
+                <span class="ml-2 inline-flex h-2 w-2 rounded-full bg-[#CE6C37] align-middle"></span>
+              </p>
+              <p class="text-xs text-white/70">Neurocirugía · Cerebro &amp; Columna</p>
+            </div>
+          </a>
+
+          <p class="mt-4 text-sm text-white/75 leading-relaxed max-w-sm">
+            Neurocirujano certificado enfocado en diagnóstico preciso, opciones claras y atención humana.
+          </p>
+
+          <!-- Quick CTAs -->
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a
+              [href]="phoneUrl"
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold
+                     bg-white/10 hover:bg-white/15 border border-white/10 transition"
+            >
+              <!-- phone -->
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2c-2.6-.3-5.1-1.2-7.3-2.7a20 20 0 0 1-6.2-6.2C4.3 10.8 3.4 8.3 3.1 5.7A2 2 0 0 1 5.1 3.5h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L9 13a16 16 0 0 0 6 6l3.1-1.2a2 2 0 0 1 2.1.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                />
+              </svg>
+              Llamar
+            </a>
+
+            <a
+              [href]="whatsappUrl"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold
+                     bg-[#CE6C37]/20 hover:bg-[#CE6C37]/25 border border-[#CE6C37]/25 transition"
+            >
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10">💬</span>
+              WhatsApp
+            </a>
+
+            <a
+              [routerLink]="['/contacto']"
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold
+                     bg-gradient-to-r from-[#215EBB] to-[#0E2859] hover:brightness-110 border border-white/10 transition"
+            >
+              Agendar cita <span class="text-[#CE6C37]">→</span>
+            </a>
+          </div>
+
+          <!-- Social -->
+          <div class="mt-6 flex items-center gap-2">
+            <a
+              [href]="facebookUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="h-10 w-10 grid place-items-center rounded-full bg-white/10 hover:bg-white/15 border border-white/10 transition"
+              aria-label="Facebook"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v3H8v3h3v6h3v-6h3l1-3h-4V9c0-.6.4-1 1-1Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+
+            <a
+              [href]="instagramUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="h-10 w-10 grid place-items-center rounded-full bg-white/10 hover:bg-white/15 border border-white/10 transition"
+              aria-label="Instagram"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
+                      stroke="currentColor" stroke-width="2" />
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+                      stroke="currentColor" stroke-width="2" />
+                <path d="M17.5 6.5h.01"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Servicios dinámicos -->
+        <div class="lg:col-span-3">
+          <p class="text-sm font-extrabold text-white">Servicios</p>
+          <p class="mt-1 text-xs text-white/60">Principales tratamientos y procedimientos</p>
+
+          @if (loadingServicios()) {
+            <div class="mt-4 space-y-2">
+              @for (_ of [1,2,3,4,5]; track $index) {
+                <div class="h-9 rounded-xl bg-white/10 animate-pulse"></div>
+              }
+            </div>
+          } @else if (serviciosError()) {
+            <div class="mt-4 rounded-2xl border border-white/10 bg-white/10 p-4 text-sm text-white/80">
+              {{ serviciosError() }}
+            </div>
+          } @else {
+            <ul class="mt-4 space-y-2 text-sm">
+              @for (s of serviciosFooter(); track s.slug) {
+                <li>
+                  <a
+                    [routerLink]="['/servicios', s.slug]"
+                    class="group inline-flex items-center gap-2 rounded-xl px-3 py-2
+                           text-white/80 hover:text-white hover:bg-white/10 transition"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-[#CE6C37] opacity-70 group-hover:opacity-100"></span>
+                    <span class="truncate font-semibold">{{ s.card_title }}</span>
+                  </a>
+                </li>
+              }
+
+              <li class="pt-2">
+                <a
+                  [routerLink]="['/servicios']"
+                  class="inline-flex items-center gap-2 rounded-xl px-3 py-2
+                         text-sm font-extrabold text-white hover:bg-white/10 transition"
+                >
+                  Ver todos <span class="text-[#CE6C37]">→</span>
+                </a>
+              </li>
+            </ul>
+          }
+        </div>
+
+        <!-- Enlaces -->
+        <div class="lg:col-span-2">
+          <p class="text-sm font-extrabold text-white">Enlaces</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a [routerLink]="['/dr-julian-carrillo']" class="rounded-xl px-3 py-2 inline-flex text-white/80 hover:text-white hover:bg-white/10 transition">Sobre el doctor</a></li>
+            <li><a [routerLink]="['/blog']" class="rounded-xl px-3 py-2 inline-flex text-white/80 hover:text-white hover:bg-white/10 transition">Blog</a></li>
+            <li><a [routerLink]="['/testimonios']" class="rounded-xl px-3 py-2 inline-flex text-white/80 hover:text-white hover:bg-white/10 transition">Testimonios</a></li>
+            <li><a [routerLink]="['/contacto']" class="rounded-xl px-3 py-2 inline-flex text-white/80 hover:text-white hover:bg-white/10 transition">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div class="lg:col-span-3">
+          <p class="text-sm font-extrabold text-white">Contacto</p>
+          <div class="mt-4 rounded-3xl border border-white/10 bg-white/10 p-5">
+            <ul class="space-y-3 text-sm text-white/80">
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-white/10">📍</span>
+                <span>Ciudad Juárez, Chihuahua</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-white/10">📞</span>
+                <a [href]="phoneUrl" class="hover:text-white font-semibold">
+                  {{ phoneLabel }}
+                </a>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-white/10">✉️</span>
+                <a [href]="'mailto:' + email" class="hover:text-white font-semibold">
+                  {{ email }}
+                </a>
+              </li>
+            </ul>
+
+            <!-- micro note -->
+            <div class="mt-4 rounded-2xl bg-white/10 border border-white/10 p-4">
+              <p class="text-xs text-white/70 leading-relaxed">
+                Atención con enfoque humano y profesional. En urgencias o señales de alarma, acude a un servicio de emergencias.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="mt-12 pt-8 border-t border-white/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/70">
+          <p>© {{ currentYear() }} Dr. Julián Carrillo. Todos los derechos reservados.</p>
+
+          <div class="flex items-center gap-4">
+            <a [routerLink]="['/privacidad']" class="hover:text-white transition">Aviso de Privacidad</a>
+            <span class="text-white/30">•</span>
+            <a [routerLink]="['/aviso-medico']" class="hover:text-white transition">Aviso Médico</a>
+          </div>
+        </div>
+
+        <p class="mt-4 text-center md:text-left text-xs text-white/50 leading-relaxed">
+          Este sitio web proporciona información general y no sustituye una consulta médica profesional.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

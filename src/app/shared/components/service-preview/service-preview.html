@@ -1,0 +1,57 @@
+<!-- Services Preview (carousel style) -->
+<section class="py-20 md:py-28 bg-[#FAF6F2] relative overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <!-- Left copy -->
+      <div class="lg:col-span-5">
+        <span
+          class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
+                 bg-[#AFCEE3]/40 text-[#0E2859]"
+        >
+          <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+          Servicios
+        </span>
+
+        <h2 class="mt-5 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0E2859] text-balance">
+          ¿En qué te puedo ayudar?
+        </h2>
+
+        <p class="mt-4 text-base md:text-lg text-[#0E2859]/70 max-w-xl text-pretty">
+          Diagnóstico y tratamiento especializado para condiciones de columna y cerebro.
+          Te explico opciones claras y realistas, sin humo.
+        </p>
+
+        <!-- mini highlight -->
+        <div class="mt-8 flex items-center gap-4 rounded-2xl bg-white/70 backdrop-blur border border-[#0E2859]/10 p-4 shadow-sm">
+          <div class="h-12 w-12 rounded-2xl bg-[#0E2859] text-white grid place-items-center">
+            <span class="text-sm font-black">JC</span>
+          </div>
+          <div class="min-w-0">
+            <p class="text-sm font-extrabold text-[#0E2859]">Evaluación personalizada</p>
+            <p class="text-sm text-[#0E2859]/65">
+              Agenda tu consulta y revisamos tu caso con calma.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            [routerLink]="['/servicios']"
+            class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-extrabold
+                   bg-[#0E2859] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition"
+          >
+            Ver todos los servicios
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
+              <lucide-icon [img]="iChevronRight" class="h-4 w-4"></lucide-icon>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right carousel -->
+      <div class="lg:col-span-7">
+        <app-service-preview-carousel [perView]="2" [max]="8"></app-service-preview-carousel>
+      </div>
+    </div>
+  </div>
+</section>

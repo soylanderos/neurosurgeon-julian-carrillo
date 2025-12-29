@@ -1,0 +1,305 @@
+<header class="sticky top-0 z-50">
+  <!-- top accent bar -->
+  <div class="h-1 w-full bg-gradient-to-r from-[#CE6C37] via-[#215EBB] to-[#AFCEE3]"></div>
+
+  <!-- glass bar -->
+  <div class="relative bg-white/78 backdrop-blur-xl border-b border-[#0E2859]/10">
+    <!-- subtle background glow -->
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute -top-10 -right-20 h-44 w-44 rounded-full bg-[#215EBB]/10 blur-3xl"></div>
+      <div class="absolute -top-16 -left-24 h-56 w-56 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 lg:h-[76px] flex items-center justify-between gap-3">
+        <!-- Brand -->
+        <a [routerLink]="['/']" class="group flex items-center gap-3 min-w-0">
+          <div class="relative">
+            <!-- ring + glow -->
+            <span
+              class="absolute -inset-1 rounded-[18px] bg-gradient-to-br from-[#AFCEE3]/40 via-white to-[#C3B692]/25 blur-md opacity-0 group-hover:opacity-100 transition"
+            ></span>
+
+            <div
+              class="relative h-10 w-10 rounded-2xl bg-[#0E2859] text-white grid place-items-center shadow-sm ring-1 ring-white/40"
+            >
+              <span class="text-sm font-extrabold tracking-wide">JC</span>
+            </div>
+          </div>
+
+          <div class="min-w-0 leading-tight">
+            <p class="truncate text-[15px] font-extrabold text-[#0E2859]">
+              Dr. Julián Carrillo
+              <span class="ml-2 align-middle inline-flex h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+            </p>
+            <p class="truncate text-xs text-[#0E2859]/60">Neurocirugía · Cerebro &amp; Columna</p>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-1">
+          <!-- Nota: routerLinkActive en Angular agrega clase al <a>, pero el "underline" lo metemos con after -->
+          <a
+            [routerLink]="['/dr-julian-carrillo']"
+            routerLinkActive="!text-[#0E2859] !bg-[#AFCEE3]/45"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[#0E2859]/65 hover:text-[#0E2859] hover:bg-[#AFCEE3]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[#CE6C37] hover:after:w-6 after:transition-all"
+          >
+            Sobre Mí
+          </a>
+
+          <!-- Servicios dropdown -->
+          <div class="relative">
+            <button
+              type="button"
+              class="relative px-3 py-2 rounded-full text-sm font-semibold text-[#0E2859]/65 hover:text-[#0E2859] hover:bg-[#AFCEE3]/35 transition inline-flex items-center gap-1 after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[#CE6C37] hover:after:w-6 after:transition-all"
+              (mouseenter)="servicesOpen.set(true)"
+              (mouseleave)="servicesOpen.set(false)"
+            >
+              Servicios
+              <lucide-icon
+                [img]="iChevron"
+                class="h-4 w-4 transition-transform text-[#0E2859]/70"
+                [class.rotate-180]="servicesOpen()"
+              ></lucide-icon>
+            </button>
+
+            <!-- dropdown card -->
+            <div
+              class="absolute left-0 top-full pt-3"
+              (mouseenter)="servicesOpen.set(true)"
+              (mouseleave)="servicesOpen.set(false)"
+              [class.pointer-events-none]="!servicesOpen()"
+            >
+              <div
+                class="w-[360px] rounded-2xl bg-white/95 backdrop-blur-xl shadow-xl ring-1 ring-[#0E2859]/10 overflow-hidden transition-all origin-top-left"
+                [class.opacity-0]="!servicesOpen()"
+                [class.translate-y-1]="!servicesOpen()"
+                [class.opacity-100]="servicesOpen()"
+                [class.translate-y-0]="servicesOpen()"
+              >
+                <div
+                  class="p-4 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/45 via-white to-white"
+                >
+                  <p class="text-sm font-extrabold text-[#0E2859]">Servicios principales</p>
+                  <p class="text-xs text-[#0E2859]/65 mt-0.5">
+                    Diagnóstico claro · Tratamiento personalizado
+                  </p>
+                </div>
+
+                <div class="p-2">
+                  @if (loadingServicios()) {
+                  <div class="space-y-2 p-2">
+                    @for (_ of [1,2,3,4,5]; track $index) {
+                    <div class="h-9 rounded-xl bg-slate-100 animate-pulse"></div>
+                    }
+                  </div>
+                  } @else if (serviciosError()) {
+                  <div class="px-4 py-3 text-sm text-red-600">{{ serviciosError() }}</div>
+                  } @else { @for (s of serviciosNav(); track s.slug) {
+                  <a
+                    [routerLink]="['/servicios', s.slug]"
+                    class="group flex items-center justify-between px-3 py-2 rounded-xl text-sm text-[#0E2859]/75 hover:bg-[#AFCEE3]/40 hover:text-[#0E2859] transition"
+                  >
+                    <span class="truncate font-semibold">{{ s.card_title }}</span>
+                    <span
+                      class="h-2 w-2 rounded-full bg-[#CE6C37] opacity-0 group-hover:opacity-100 transition"
+                    ></span>
+                  </a>
+                  }
+
+                  <a
+                    [routerLink]="['/servicios']"
+                    class="mt-2 flex items-center justify-between px-3 py-2 rounded-xl text-sm font-extrabold text-[#0E2859] hover:bg-[#0E2859]/5 transition"
+                  >
+                    Ver todos
+                    <span class="text-[#CE6C37] font-extrabold">→</span>
+                  </a>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a
+            [routerLink]="['/blog']"
+            routerLinkActive="!text-[#0E2859] !bg-[#AFCEE3]/45"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[#0E2859]/65 hover:text-[#0E2859] hover:bg-[#AFCEE3]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[#CE6C37] hover:after:w-6 after:transition-all"
+          >
+            Blog
+          </a>
+
+          <a
+            [routerLink]="['/testimonios']"
+            routerLinkActive="!text-[#0E2859] !bg-[#AFCEE3]/45"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[#0E2859]/65 hover:text-[#0E2859] hover:bg-[#AFCEE3]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[#CE6C37] hover:after:w-6 after:transition-all"
+          >
+            Testimonios
+          </a>
+
+          <a
+            [routerLink]="['/contacto']"
+            routerLinkActive="!text-[#0E2859] !bg-[#AFCEE3]/45"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[#0E2859]/65 hover:text-[#0E2859] hover:bg-[#AFCEE3]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[#CE6C37] hover:after:w-6 after:transition-all"
+          >
+            Contacto
+          </a>
+        </nav>
+
+        <!-- Desktop actions -->
+        <div class="hidden lg:flex items-center gap-2">
+          <a
+            [href]="phoneUrl"
+            class="h-10 w-10 rounded-full border border-[#0E2859]/15 bg-white hover:bg-[#AFCEE3]/25 hover:border-[#215EBB]/25 transition grid place-items-center"
+            aria-label="Llamar"
+          >
+            <lucide-icon [img]="iPhone" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+          </a>
+
+          <a
+            [href]="whatsappUrl"
+            target="_blank"
+            rel="noopener"
+            class="h-10 w-10 rounded-full border border-[#0E2859]/15 bg-white hover:bg-[#AFCEE3]/25 hover:border-[#215EBB]/25 transition grid place-items-center"
+            aria-label="WhatsApp"
+          >
+            <lucide-icon [img]="iWhats" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+          </a>
+
+          <!-- CTA (más paleta, más punch) -->
+          <a
+            [routerLink]="['/contacto']"
+            class="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-extrabold text-white bg-gradient-to-r from-[#0E2859] to-[#215EBB] shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition ring-1 ring-[#0E2859]/10"
+          >
+            <span
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/12 ring-1 ring-white/15"
+            >
+              <lucide-icon [img]="iCalendar" class="h-5 w-5"></lucide-icon>
+            </span>
+            Agendar cita
+            <span
+              class="ml-1 inline-flex h-2 w-2 rounded-full bg-[#CE6C37] group-hover:scale-110 transition"
+            ></span>
+          </a>
+        </div>
+
+        <!-- Mobile button -->
+        <button
+          type="button"
+          (click)="toggleMobileMenu()"
+          class="lg:hidden h-10 w-10 rounded-full border border-[#0E2859]/15 bg-white hover:bg-[#AFCEE3]/25 transition grid place-items-center"
+          aria-label="Menú"
+        >
+          <lucide-icon
+            [img]="mobileMenuOpen() ? iX : iMenu"
+            class="h-5 w-5 text-[#0E2859]"
+          ></lucide-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile sheet -->
+  @if (mobileMenuOpen()) {
+  <div class="lg:hidden bg-white/95 backdrop-blur-xl border-b border-[#0E2859]/10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex flex-col gap-2">
+        <a
+          [routerLink]="['/dr-julian-carrillo']"
+          (click)="closeMobileMenu()"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[#0E2859]/80 hover:bg-[#AFCEE3]/35"
+        >
+          Sobre el doctor
+        </a>
+
+        <button
+          type="button"
+          (click)="toggleServices()"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[#0E2859]/80 hover:bg-[#AFCEE3]/35 flex items-center justify-between"
+        >
+          Servicios
+          <lucide-icon
+            [img]="iChevron"
+            class="h-4 w-4 transition-transform text-[#0E2859]/70"
+            [class.rotate-180]="servicesOpen()"
+          ></lucide-icon>
+        </button>
+
+        @if (servicesOpen()) {
+        <div class="ml-2 pl-2 border-l border-[#0E2859]/10 space-y-1">
+          @for (s of serviciosNav(); track s.slug) {
+          <a
+            [routerLink]="['/servicios', s.slug]"
+            (click)="closeMobileMenu()"
+            class="block px-4 py-2 rounded-xl text-sm font-medium text-[#0E2859]/70 hover:bg-[#AFCEE3]/35 hover:text-[#0E2859]"
+          >
+            {{ s.card_title }}
+          </a>
+          }
+          <a
+            [routerLink]="['/servicios']"
+            (click)="closeMobileMenu()"
+            class="block px-4 py-2 rounded-xl text-sm font-extrabold text-[#0E2859] hover:bg-[#0E2859]/5"
+          >
+            Ver todos <span class="text-[#CE6C37]">→</span>
+          </a>
+        </div>
+        }
+
+        <a
+          [routerLink]="['/blog']"
+          (click)="closeMobileMenu()"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[#0E2859]/80 hover:bg-[#AFCEE3]/35"
+        >
+          Blog
+        </a>
+
+        <a
+          [routerLink]="['/testimonios']"
+          (click)="closeMobileMenu()"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[#0E2859]/80 hover:bg-[#AFCEE3]/35"
+        >
+          Testimonios
+        </a>
+
+        <a
+          [routerLink]="['/contacto']"
+          (click)="closeMobileMenu()"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[#0E2859]/80 hover:bg-[#AFCEE3]/35"
+        >
+          Contacto
+        </a>
+
+        <div class="grid grid-cols-2 gap-2 pt-2">
+          <a
+            [href]="phoneUrl"
+            class="rounded-2xl border border-[#0E2859]/15 bg-white px-4 py-3 text-sm font-extrabold text-[#0E2859] hover:bg-[#AFCEE3]/25 transition inline-flex items-center justify-center gap-2"
+          >
+            <lucide-icon [img]="iPhone" class="h-4 w-4"></lucide-icon>
+            Llamar
+          </a>
+
+          <a
+            [href]="whatsappUrl"
+            target="_blank"
+            rel="noopener"
+            class="rounded-2xl border border-[#0E2859]/15 bg-white px-4 py-3 text-sm font-extrabold text-[#0E2859] hover:bg-[#AFCEE3]/25 transition inline-flex items-center justify-center gap-2"
+          >
+            <lucide-icon [img]="iWhats" class="h-4 w-4"></lucide-icon>
+            WhatsApp
+          </a>
+
+          <a
+            [routerLink]="['/contacto']"
+            (click)="closeMobileMenu()"
+            class="col-span-2 rounded-2xl text-white px-5 py-3 text-sm font-extrabold bg-gradient-to-r from-[#0E2859] to-[#215EBB] shadow-sm hover:shadow-md transition inline-flex items-center justify-center gap-2"
+          >
+            <lucide-icon [img]="iCalendar" class="h-5 w-5"></lucide-icon>
+            Agendar cita
+            <span class="inline-flex h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  }
+</header>

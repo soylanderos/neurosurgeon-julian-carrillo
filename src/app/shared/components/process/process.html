@@ -1,0 +1,188 @@
+<section class="relative overflow-hidden bg-white py-20 md:py-28">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <!-- LEFT: Title + timeline -->
+      <div class="lg:col-span-7">
+        <div class="max-w-2xl">
+          <span
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-[0.18em] uppercase bg-[#AFCEE3]/35 text-[#0E2859]"
+          >
+            <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+            Proceso de atención
+          </span>
+
+          <h2
+            class="mt-5 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0E2859] text-balance"
+          >
+            Un proceso simple,
+            <span class="relative inline-block">
+              sin vueltas
+              <span
+                class="absolute -bottom-2 left-0 right-0 h-2 rounded-full bg-[#CE6C37]/30"
+              ></span>
+            </span>
+          </h2>
+
+          <p class="mt-4 text-lg text-[#0E2859]/70 text-pretty">
+            Claridad desde la primera consulta hasta el seguimiento.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="mt-12 relative">
+          <!-- vertical line -->
+          <div class="absolute left-6 top-0 bottom-0 w-px bg-[#0E2859]/10"></div>
+
+          <div class="space-y-5 mt-5">
+            @for (step of processSteps; track trackByKey($index, step)) {
+            <div class="relative pl-16">
+              <!-- node -->
+              <div class="absolute left-0 top-0">
+                <div
+                  class="h-12 w-12 rounded-2xl grid place-items-center bg-white border border-[#0E2859]/10 shadow-sm ring-4 ring-[#AFCEE3]/25"
+                >
+                  @switch (step.icon) { @case ('calendar') {
+                  <lucide-icon [img]="iCalendar" class="h-6 w-6 text-[#0E2859]"></lucide-icon> }
+                  @case ('clipboard') {
+                  <lucide-icon [img]="iClipboard" class="h-6 w-6 text-[#0E2859]"></lucide-icon> }
+                  @case ('stethoscope') {
+                  <lucide-icon [img]="iStetho" class="h-6 w-6 text-[#0E2859]"></lucide-icon> }
+                  @default {
+                  <lucide-icon [img]="iFollow" class="h-6 w-6 text-[#0E2859]"></lucide-icon> } }
+                </div>
+
+                <!-- step badge -->
+                <div class="mt-2 text-center">
+                  <span
+                    class="inline-flex rounded-full bg-[#CE6C37]/15 px-2 py-0.5 text-[11px] font-extrabold text-[#CE6C37]"
+                  >
+                    Paso {{ step.number }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- content card -->
+              <div
+                class="group relative rounded-3xl border border-[#0E2859]/10 bg-white/90 backdrop-blur p-6 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition"
+              >
+                <!-- glow -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition"
+                >
+                  <div
+                    class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[#AFCEE3]/35 blur-3xl"
+                  ></div>
+                  <div
+                    class="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-[#CE6C37]/15 blur-3xl"
+                  ></div>
+                </div>
+
+                <div class="relative">
+                  <div class="flex items-start gap-3">
+                    <div class="min-w-0">
+                      <p class="text-base font-extrabold text-[#0E2859]">
+                        {{ step.title }}
+                      </p>
+                      <p class="mt-1 text-sm text-[#0E2859]/65 leading-relaxed">
+                        {{ step.description }}
+                      </p>
+                    </div>
+
+                    <!-- accent dot -->
+                    <span class="ml-auto mt-1 h-2.5 w-2.5 rounded-full bg-[#CE6C37]"></span>
+                  </div>
+
+                  <!-- bottom meta row (replaces "ver detalles") -->
+                  <div class="mt-5 flex items-center gap-3">
+                    <span
+                      class="inline-flex items-center gap-2 rounded-full bg-[#AFCEE3]/35 px-3 py-1 text-xs font-extrabold text-[#0E2859]"
+                    >
+                      <span class="h-2 w-2 rounded-full bg-[#215EBB]"></span>
+                      Atención clara
+                    </span>
+
+                    <div class="h-px flex-1 bg-[#0E2859]/10"></div>
+
+                    <span
+                      class="inline-flex items-center gap-2 text-xs font-semibold text-[#0E2859]/60"
+                    >
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#CE6C37]"></span>
+                      Sin complicaciones
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: CTA panel (like your reference) -->
+      <aside class="lg:col-span-5 lg:sticky lg:top-24">
+        <div
+          class="rounded-[32px] border border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/35 via-white to-[#C3B692]/20 p-7 shadow-sm"
+        >
+          <p class="text-sm font-extrabold text-[#0E2859]">Disponibilidad & atención</p>
+          <p class="mt-2 text-sm text-[#0E2859]/70 leading-relaxed">
+            Agenda tu cita y recibe orientación clara desde el primer contacto.
+          </p>
+
+          <div class="mt-6 space-y-3">
+            <div
+              class="flex items-center gap-3 rounded-2xl bg-white/85 border border-[#0E2859]/10 p-4"
+            >
+              <span class="h-9 w-9 rounded-xl bg-[#CE6C37]/15 grid place-items-center">
+                <lucide-icon [img]="iCalendar" class="h-5 w-5 text-[#CE6C37]"></lucide-icon>
+              </span>
+              <div class="min-w-0">
+                <p class="text-sm font-extrabold text-[#0E2859] truncate">Agenda rápida</p>
+                <p class="text-xs text-[#0E2859]/65 truncate">
+                  WhatsApp o llamada · respuesta ágil
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-2xl bg-white/85 border border-[#0E2859]/10 p-4"
+            >
+              <span class="h-9 w-9 rounded-xl bg-[#215EBB]/12 grid place-items-center">
+                <lucide-icon [img]="iClipboard" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+              </span>
+              <div class="min-w-0">
+                <p class="text-sm font-extrabold text-[#0E2859] truncate">Evaluación completa</p>
+                <p class="text-xs text-[#0E2859]/65 truncate">Síntomas · historial · estudios</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-2xl bg-white/85 border border-[#0E2859]/10 p-4"
+            >
+              <span class="h-9 w-9 rounded-xl bg-[#AFCEE3]/40 grid place-items-center">
+                <lucide-icon [img]="iStetho" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+              </span>
+              <div class="min-w-0">
+                <p class="text-sm font-extrabold text-[#0E2859] truncate">Plan claro</p>
+                <p class="text-xs text-[#0E2859]/65 truncate">
+                  Opciones explicadas sin tecnicismos
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <a
+            [routerLink]="['/contacto']"
+            class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0E2859] text-white px-6 py-3 text-sm font-extrabold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition"
+          >
+            Agendar cita
+            <span class="text-[#CE6C37] font-black">•</span>
+          </a>
+
+          <p class="mt-3 text-xs text-[#0E2859]/55">
+            *La información no sustituye una valoración médica profesional.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
