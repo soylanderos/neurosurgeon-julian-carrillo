@@ -4,8 +4,6 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { BlogApi } from '../data/blog.api';
-
-// lucide
 import { LucideAngularModule, Clock, Calendar, Tag, ArrowLeft, Link as LinkIcon } from 'lucide-angular';
 
 type BlogPost = {
@@ -14,11 +12,8 @@ type BlogPost = {
   excerpt?: string;
   tag: string;
   read_time: string;
-  published_at: string; // ISO
-  // Ajusta estos campos a lo que te devuelva el backend:
-  content_html?: string;     // ideal si tu backend ya entrega HTML sanitizado
-  content?: string;          // si te entrega texto/markdown (en ese caso conviene render markdown)
-  cover_image_url?: string;  // opcional
+  published_at: string;
+  content_md: string; // ✅ viene de la DB
 };
 
 @Component({
@@ -33,7 +28,6 @@ export class BlogDetail {
   private route = inject(ActivatedRoute);
   private sanitizer = inject(DomSanitizer);
 
-  // icons
   readonly iClock = Clock;
   readonly iCalendar = Calendar;
   readonly iTag = Tag;
@@ -49,12 +43,14 @@ export class BlogDetail {
   // Para “Más artículos”
   readonly allPosts = signal<BlogPost[]>([]);
 
+  // ✅ por ahora: convierte markdown simple a párrafos (sin librería)
   readonly safeHtml = computed<SafeHtml>(() => {
     const p = this.post();
-    const html =
-      p?.content_html ??
-      (p?.content ? `<p>${this.escapeHtml(p.content).replace(/\n\n+/g, '</p><p>')}</p>` : '');
-    // OJO: bypassSecurityTrustHtml asume que tu HTML es confiable/sanitizado.
+    const md = p?.content_md ?? '';
+    const html = md
+      ? `<p>${this.escapeHtml(md).replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br/>')}</p>`
+      : '';
+
     return this.sanitizer.bypassSecurityTrustHtml(html);
   });
 
@@ -67,23 +63,18 @@ export class BlogDetail {
   });
 
   constructor() {
-    // escucha cambios de slug en la ruta
+    // ✅ importante: primero carga lista para “related”
+    this.api.listPublished().subscribe({
+      next: (rows) => this.allPosts.set(rows as unknown as BlogPost[]),
+      error: () => this.allPosts.set([]),
+    });
+
     this.route.paramMap.subscribe((pm) => {
       const slug = pm.get('slug') ?? '';
       this.slug.set(slug);
       this.load(slug);
     });
 
-    // carga lista para “Más artículos” (y fallback si no hay getBySlug)
-    this.api.listPublished().subscribe({
-      next: (rows) => this.allPosts.set(rows as BlogPost[]),
-      error: () => {
-        // no bloqueamos el detail por esto, pero ayuda a related
-        this.allPosts.set([]);
-      },
-    });
-
-    // si cambias slug, limpia estado visual rápido
     effect(() => {
       this.slug();
       this.error.set(null);
@@ -99,36 +90,28 @@ export class BlogDetail {
       return;
     }
 
-    // Si tu BlogApi ya tiene getBySlug / getPublishedBySlug / etc, úsalo aquí.
-    const apiAny = this.api as any;
-    const getter =
-      apiAny.getBySlug?.bind(this.api) ??
-      apiAny.getPublishedBySlug?.bind(this.api) ??
-      apiAny.detail?.bind(this.api);
-
-    if (getter) {
-      getter(slug).subscribe({
-        next: (row: BlogPost) => {
-          this.post.set(row);
+    this.api.getBySlug(slug).subscribe({
+      next: (row) => {
+        if (!row) {
+          this.error.set('Artículo no encontrado.');
           this.loading.set(false);
-        },
-        error: () => {
-          this.error.set('No se pudo cargar este artículo.');
-          this.loading.set(false);
-        },
-      });
-      return;
-    }
+          return;
+        }
 
-    // Fallback: usa listPublished y filtra en cliente
-    this.api.listPublished().subscribe({
-      next: (rows) => {
-        const found = (rows as BlogPost[]).find(p => p.slug === slug) ?? null;
-        if (!found) this.error.set('Artículo no encontrado.');
-        this.post.set(found);
+        this.post.set({
+          slug: row.slug,
+          title: row.title,
+          excerpt: row.excerpt,
+          tag: row.tag,
+          read_time: row.read_time,
+          published_at: row.published_at,
+          content_md: row.content_md,
+        });
+
         this.loading.set(false);
       },
-      error: () => {
+      error: (e) => {
+        console.error(e);
         this.error.set('No se pudo cargar este artículo.');
         this.loading.set(false);
       },
@@ -143,14 +126,12 @@ export class BlogDetail {
   async copyLink() {
     try {
       await navigator.clipboard.writeText(window.location.href);
-      // mini feedback “sin drama”
       this.toast('Link copiado ✅');
     } catch {
       this.toast('No se pudo copiar el link 😅');
     }
   }
 
-  // mini toast ultra simple (sin lib)
   private toast(msg: string) {
     const el = document.createElement('div');
     el.textContent = msg;
