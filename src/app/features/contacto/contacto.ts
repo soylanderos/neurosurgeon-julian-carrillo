@@ -84,6 +84,7 @@ export class Contacto {
   readonly iExternal = ExternalLink;
   readonly iArrow = ArrowRight;
   readonly iWhats = MessageCircle;
+  readonly iWhatsapp = MessageCircle;
 
   showErr(name: keyof typeof this.form.controls) {
     const c = this.form.controls[name];

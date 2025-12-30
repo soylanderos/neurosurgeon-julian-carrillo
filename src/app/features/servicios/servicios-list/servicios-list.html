@@ -1,60 +1,98 @@
-<section class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white py-16 md:py-24">
-  <!-- Decor blobs -->
+<section class="relative overflow-hidden bg-[#F7FAFF] py-16 md:py-24">
+  <!-- Ambient background using YOUR palette -->
   <div class="pointer-events-none absolute inset-0">
-    <div class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl"></div>
-    <div class="absolute top-40 -right-24 h-80 w-80 rounded-full bg-indigo-200/35 blur-3xl"></div>
-    <div class="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-sky-200/35 blur-3xl"></div>
+    <div class="absolute -top-28 -left-28 h-[520px] w-[520px] rounded-full bg-[#AFCEE3]/55 blur-3xl"></div>
+    <div class="absolute top-40 -right-32 h-[560px] w-[560px] rounded-full bg-[#215EBB]/12 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-[520px] w-[520px] rounded-full bg-[#C3B692]/28 blur-3xl"></div>
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image: radial-gradient(rgba(14,40,89,.55) 0.6px, transparent 0.6px); background-size: 18px 18px;"
+    ></div>
   </div>
 
   <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb -->
-    <nav class="text-sm text-slate-600 mb-8 max-w-6xl mx-auto">
-      <a routerLink="/" class="hover:text-blue-600">Inicio</a>
+    <nav class="text-sm text-[#0E2859]/65 mb-8 max-w-6xl mx-auto">
+      <a routerLink="/" class="hover:text-[#215EBB] transition">Inicio</a>
       <span class="mx-2">/</span>
-      <span class="text-slate-900">Servicios</span>
+      <span class="text-[#0E2859] font-semibold">Servicios</span>
     </nav>
 
-    <!-- Header -->
+    <!-- HEADER: Premium hero panel -->
     <div class="max-w-6xl mx-auto mb-10 md:mb-14">
-      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div class="max-w-3xl">
-          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 text-balance">
-            Servicios de Neurocirugía
-          </h1>
-          <p class="mt-4 text-lg md:text-xl text-slate-600 leading-relaxed text-pretty">
-            Diagnóstico preciso, opciones claras y tratamiento personalizado.
-          </p>
+      <div
+        class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl
+               shadow-[0_30px_90px_-55px_rgba(14,40,89,.6)]"
+      >
+        <!-- inner accents -->
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#215EBB]/12 blur-3xl"></div>
+          <div class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+          <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent"></div>
+        </div>
 
-          <div class="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-600">
-            <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1">
-              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-              Evaluación integral
-            </span>
-            <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1">
-              <span class="h-2 w-2 rounded-full bg-blue-500"></span>
-              Enfoque Brain &amp; Spine
-            </span>
-            <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1">
-              <span class="h-2 w-2 rounded-full bg-amber-500"></span>
-              Plan por etapas
-            </span>
+        <div class="relative p-7 md:p-10">
+          <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div class="max-w-3xl">
+              <span
+                class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
+                       bg-[#AFCEE3]/40 text-[#0E2859] border border-[#0E2859]/10"
+              >
+                <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+                Brain &amp; Spine · Atención especializada
+              </span>
+
+              <h1 class="mt-4 text-4xl md:text-5xl font-black text-[#0E2859] text-balance leading-[1.06]">
+                Servicios de Neurocirugía
+              </h1>
+
+              <p class="mt-3 text-lg md:text-xl text-[#0E2859]/70 leading-relaxed text-pretty">
+                Diagnóstico preciso, opciones claras y tratamiento personalizado.
+              </p>
+
+              <div class="mt-6 flex flex-wrap items-center gap-2">
+                <span
+                  class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70"
+                >
+                  <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+                  Evaluación integral
+                </span>
+                <span
+                  class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70"
+                >
+                  <span class="h-2 w-2 rounded-full bg-[#215EBB]"></span>
+                  Enfoque Brain &amp; Spine
+                </span>
+                <span
+                  class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70"
+                >
+                  <span class="h-2 w-2 rounded-full bg-[#C3B692]"></span>
+                  Plan por etapas
+                </span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a
+                routerLink="/contacto"
+                class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-5 py-3 text-white font-extrabold
+                       shadow-sm hover:brightness-110 transition"
+              >
+                Agendar cita
+              </a>
+              <a
+                routerLink="/contacto"
+                class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-[#0E2859] font-extrabold
+                       border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+              >
+                Contacto
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="flex items-center gap-3">
-          <a
-            routerLink="/contacto"
-            class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-white font-semibold shadow-sm hover:bg-slate-800 transition"
-          >
-            Agendar cita
-          </a>
-          <a
-            routerLink="/contacto"
-            class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-slate-900 font-semibold border border-slate-200 hover:border-blue-200 hover:text-blue-700 transition"
-          >
-            Contacto
-          </a>
-        </div>
+        <!-- bottom gradient rail -->
+        <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #CE6C37, #215EBB, #AFCEE3);"></div>
       </div>
     </div>
 
@@ -64,36 +102,53 @@
       </div>
     } @else {
 
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-[360px_1fr] gap-8 lg:gap-10">
-
-        <!-- LEFT PANEL -->
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-[380px_1fr] gap-8 lg:gap-10">
+        <!-- LEFT: Command palette panel -->
         <aside class="lg:sticky lg:top-6 h-fit">
-          <div class="rounded-3xl border border-slate-200 bg-white/80 backdrop-blur p-6 shadow-sm">
+          <div
+            class="rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl p-6
+                   shadow-[0_24px_70px_-50px_rgba(14,40,89,.55)] overflow-hidden"
+          >
             <div class="flex items-start justify-between gap-4">
               <div>
-                <h2 class="text-lg font-semibold text-slate-900">Explora servicios</h2>
-                <p class="mt-1 text-sm text-slate-600">
-                  Encuentra el tema que necesitas en segundos.
-                </p>
+                <h2 class="text-lg font-extrabold text-[#0E2859]">Explora servicios</h2>
+                <p class="mt-1 text-sm text-[#0E2859]/65">Busca o filtra en segundos.</p>
               </div>
-              <div class="h-10 w-10 rounded-2xl bg-blue-600/10 flex items-center justify-center">
-                <!-- simple icon -->
-                <svg class="h-5 w-5 text-blue-700" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 21a9 9 0 1 0-9-9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M12 3a9 9 0 0 1 9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M3 12h6l2 3 3-6 2 3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <div class="h-10 w-10 rounded-2xl bg-[#215EBB]/10 border border-[#215EBB]/15 flex items-center justify-center">
+                <svg class="h-5 w-5 text-[#0E2859]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M3 12h6l2 3 3-6 2 3h3"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 21a9 9 0 1 0-9-9"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M12 3a9 9 0 0 1 9 9"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
                 </svg>
               </div>
             </div>
 
-            <!-- Search (FUNCIONAL) -->
+            <!-- Search -->
             <div class="mt-6">
-              <label class="text-xs font-semibold text-slate-600">Buscar</label>
+              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">Buscar</label>
+
               <div class="mt-2 relative">
-                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[#0E2859]/35">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="2" />
+                    <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                   </svg>
                 </span>
 
@@ -101,36 +156,35 @@
                   type="text"
                   [value]="searchTerm()"
                   (input)="onSearch(($any($event.target).value))"
-                  placeholder="Ej. hernia, tumor, columna..."
-                  class="w-full rounded-2xl border border-slate-200 bg-white px-10 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-300"
+                  placeholder="Ej. hernia, tumor, columna…"
+                  class="w-full rounded-2xl border border-[#0E2859]/10 bg-white/90 px-10 py-3 text-[#0E2859]
+                         placeholder:text-[#0E2859]/35 focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
                 />
               </div>
 
               <div class="mt-3 flex items-center justify-between">
-                <p class="text-xs text-slate-500">
-                  Tip: usa palabras clave del diagnóstico o síntoma.
-                </p>
+                <p class="text-xs text-[#0E2859]/55">Tip: usa síntomas o diagnóstico.</p>
                 <button
                   type="button"
                   (click)="clearFilters()"
-                  class="text-xs font-semibold text-slate-600 hover:text-blue-700 transition"
+                  class="text-xs font-extrabold text-[#0E2859]/70 hover:text-[#215EBB] transition"
                 >
                   Limpiar
                 </button>
               </div>
             </div>
 
-            <!-- Quick filters (FUNCIONALES) -->
+            <!-- Categories -->
             <div class="mt-6">
-              <p class="text-xs font-semibold text-slate-600 mb-2">Categorías rápidas</p>
+              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55 mb-3">Categorías</p>
 
-              <div class="flex flex-wrap gap-2">
+              <div class="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   (click)="setCategory('all')"
                   [class]="activeCategory() === 'all'
-                    ? 'rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-700'
-                    : 'rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 hover:border-blue-200 hover:text-blue-700 transition'"
+                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
+                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
                 >
                   Todos
                 </button>
@@ -139,8 +193,8 @@
                   type="button"
                   (click)="setCategory('brain')"
                   [class]="activeCategory() === 'brain'
-                    ? 'rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-700'
-                    : 'rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 hover:border-blue-200 hover:text-blue-700 transition'"
+                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
+                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
                 >
                   Cerebro
                 </button>
@@ -149,8 +203,8 @@
                   type="button"
                   (click)="setCategory('spine')"
                   [class]="activeCategory() === 'spine'
-                    ? 'rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-700'
-                    : 'rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 hover:border-blue-200 hover:text-blue-700 transition'"
+                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
+                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
                 >
                   Columna
                 </button>
@@ -159,8 +213,8 @@
                   type="button"
                   (click)="setCategory('pain')"
                   [class]="activeCategory() === 'pain'
-                    ? 'rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-700'
-                    : 'rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 hover:border-blue-200 hover:text-blue-700 transition'"
+                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
+                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
                 >
                   Dolor / Nervios
                 </button>
@@ -169,44 +223,50 @@
                   type="button"
                   (click)="setCategory('consult')"
                   [class]="activeCategory() === 'consult'
-                    ? 'rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-700'
-                    : 'rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 hover:border-blue-200 hover:text-blue-700 transition'"
+                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
+                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
                 >
                   Consulta
                 </button>
-              </div>
-            </div>
 
-            <!-- Counter (COMENTADO para futuro) -->
-            <!--
-            <div class="mt-6 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 p-4 text-white">
-              <div class="text-xs opacity-90">Servicios disponibles</div>
-              <div class="mt-1 text-3xl font-bold">
-                {{ filteredServicios().length }}
+                <button
+                  type="button"
+                  (click)="setCategory('all')"
+                  class="rounded-2xl border border-[#CE6C37]/20 bg-[#CE6C37]/10 px-3 py-2 text-sm font-extrabold text-[#0E2859] hover:bg-[#CE6C37]/12 transition"
+                >
+                  Recomendado
+                </button>
               </div>
-              <div class="mt-1 text-xs opacity-90">
-                Selecciona uno para ver detalles, enfoque y recomendaciones.
+
+              <!-- count -->
+              <div class="mt-5 rounded-2xl border border-[#0E2859]/10 bg-gradient-to-br from-[#0E2859] to-[#215EBB] p-4 text-white">
+                <p class="text-xs font-extrabold tracking-wide text-white/80">RESULTADOS</p>
+                <p class="mt-1 text-3xl font-black leading-none">
+                  {{ filteredServicios().length }}
+                </p>
+                <p class="mt-2 text-xs text-white/75">
+                  Selecciona un servicio para ver detalles y recomendaciones.
+                </p>
               </div>
             </div>
-            -->
           </div>
         </aside>
 
-        <!-- RIGHT GRID -->
+        <!-- RIGHT: Grid -->
         <div>
           @if (loading()) {
-            <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
               @for (i of skeletonItems; track i) {
-                <div class="rounded-3xl border border-slate-200 bg-white p-6" aria-hidden="true">
+                <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 p-6" aria-hidden="true">
                   <div class="animate-pulse">
                     <div class="flex items-start justify-between">
-                      <div class="h-10 w-10 rounded-2xl bg-slate-200"></div>
-                      <div class="h-6 w-12 rounded-full bg-slate-200"></div>
+                      <div class="h-11 w-11 rounded-2xl bg-[#AFCEE3]/50"></div>
+                      <div class="h-6 w-16 rounded-full bg-[#AFCEE3]/40"></div>
                     </div>
-                    <div class="mt-5 h-6 bg-slate-200 rounded-lg w-3/4"></div>
-                    <div class="mt-3 h-4 bg-slate-200 rounded-lg w-full"></div>
-                    <div class="mt-2 h-4 bg-slate-200 rounded-lg w-5/6"></div>
-                    <div class="mt-6 h-10 bg-slate-200 rounded-2xl w-32"></div>
+                    <div class="mt-5 h-6 bg-[#AFCEE3]/40 rounded-lg w-3/4"></div>
+                    <div class="mt-3 h-4 bg-[#AFCEE3]/35 rounded-lg w-full"></div>
+                    <div class="mt-2 h-4 bg-[#AFCEE3]/35 rounded-lg w-5/6"></div>
+                    <div class="mt-6 h-10 bg-[#AFCEE3]/40 rounded-2xl w-32"></div>
                   </div>
                 </div>
               }
@@ -214,89 +274,146 @@
           } @else {
 
             @if (filteredServicios().length === 0) {
-              <div class="text-center text-slate-600 bg-white border border-slate-200 rounded-2xl p-6">
+              <div class="text-center text-[#0E2859]/70 bg-white/80 border border-[#0E2859]/10 rounded-2xl p-6">
                 No hay resultados con los filtros actuales.
               </div>
             } @else {
 
-              <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <!-- ✅ IMPORTANT: items-stretch ensures equal heights in rows -->
+              <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
                 @for (s of filteredServicios(); track s.slug; let idx = $index) {
-                  <a
-                    [routerLink]="['/servicios', s.slug]"
-                    class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                  >
+                  <a [routerLink]="['/servicios', s.slug]" class="group relative block h-full">
+                    <!-- gradient border wrapper -->
                     <div
-                      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                      [class]="(idx % 3 === 0)
-                        ? 'bg-gradient-to-br from-blue-50 via-white to-indigo-50'
-                        : (idx % 3 === 1)
-                          ? 'bg-gradient-to-br from-sky-50 via-white to-blue-50'
-                          : 'bg-gradient-to-br from-indigo-50 via-white to-sky-50'"
-                    ></div>
+                      class="rounded-[2rem] p-[1px] transition h-full"
+                      style="background: linear-gradient(135deg, rgba(206,108,55,.25), rgba(33,94,187,.22), rgba(175,206,227,.55));"
+                    >
+                      <!-- CARD (equalized) -->
+                      <div
+                        class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur
+                               shadow-[0_14px_40px_-26px_rgba(14,40,89,.55)]
+                               hover:shadow-[0_24px_60px_-26px_rgba(14,40,89,.7)]
+                               transition-all duration-300 group-hover:-translate-y-1
+                               h-full"
+                      >
+                        <!-- hover wash -->
+                        <div
+                          class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                          [style]="(idx % 3 === 0)
+                            ? 'background: linear-gradient(135deg, rgba(175,206,227,.35), rgba(255,255,255,.0) 55%, rgba(33,94,187,.10));'
+                            : (idx % 3 === 1)
+                              ? 'background: linear-gradient(135deg, rgba(195,182,146,.22), rgba(255,255,255,.0) 55%, rgba(206,108,55,.10));'
+                              : 'background: linear-gradient(135deg, rgba(33,94,187,.12), rgba(255,255,255,.0) 55%, rgba(175,206,227,.28));'"
+                        ></div>
 
-                    <div class="absolute -top-6 -right-6 h-24 w-24 rounded-full bg-slate-900/5"></div>
-                    <div class="absolute top-4 right-5 text-xs font-semibold text-slate-500">
-                      {{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}
-                    </div>
-
-                    <div class="relative p-6">
-                      <div class="flex items-start justify-between gap-4">
-                        <div class="h-12 w-12 rounded-2xl flex items-center justify-center shadow-sm border border-slate-200 bg-white group-hover:scale-110 transition-transform">
-                          <!-- Icono simple sin emojis -->
-                          <svg class="h-6 w-6 text-slate-700" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M7 8c0-2 2-4 5-4s5 2 5 4c0 1-.6 1.9-1.6 2.6C16.6 11 18 12 18 14c0 3-3 6-6 6s-6-3-6-6c0-2 1.4-3 2.6-3.4C7.6 9.9 7 9 7 8Z"
-                                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                          </svg>
+                        <!-- top-right index -->
+                        <div class="absolute top-4 right-5 text-xs font-extrabold text-[#0E2859]/40">
+                          {{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}
                         </div>
 
-                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">
-                          Ver detalles
-                        </span>
+                        <!-- ✅ content wrapper makes footer stick -->
+                        <div class="relative p-6 flex flex-col h-full">
+                          <!-- top row -->
+                          <div class="flex items-start justify-between gap-4">
+                            <div
+                              class="h-12 w-12 rounded-2xl flex items-center justify-center
+                                     border border-[#0E2859]/10 bg-white shadow-sm
+                                     group-hover:scale-110 transition-transform"
+                            >
+                              <svg class="h-6 w-6 text-[#0E2859]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path
+                                  d="M7 8c0-2 2-4 5-4s5 2 5 4c0 1-.6 1.9-1.6 2.6C16.6 11 18 12 18 14c0 3-3 6-6 6s-6-3-6-6c0-2 1.4-3 2.6-3.4C7.6 9.9 7 9 7 8Z"
+                                  stroke="currentColor"
+                                  stroke-width="1.8"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </div>
+
+                            <span
+                              class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-xs font-extrabold text-[#0E2859]/75"
+                            >
+                              Ver detalles
+                            </span>
+                          </div>
+
+                          <!-- ✅ title equal height (2 lines max) -->
+                          <h3
+                            class="mt-5 text-xl font-black text-[#0E2859] group-hover:text-[#215EBB] transition-colors
+                                   line-clamp-2 min-h-[3.2rem] leading-snug"
+                          >
+                            {{ s.card_title }}
+                          </h3>
+
+                          <!-- ✅ description equal height (4 lines max) -->
+                          <p
+                            class="mt-3 text-[#0E2859]/70 leading-relaxed
+                                   line-clamp-4 min-h-[6.25rem]"
+                          >
+                            {{ s.card_description }}
+                          </p>
+
+                          <!-- ✅ footer pinned to bottom -->
+                          <div class="mt-auto pt-6">
+                            <div class="flex items-center justify-between">
+                              <div class="flex items-center gap-2 text-xs font-semibold text-[#0E2859]/55">
+                                <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+                                Enfoque personalizado
+                              </div>
+
+                              <div class="inline-flex items-center gap-2 text-[#0E2859] font-extrabold text-sm">
+                                Saber más
+                                <span class="transition-transform group-hover:translate-x-1">→</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- bottom glow -->
+                        <div
+                          class="pointer-events-none absolute bottom-0 left-0 right-0 h-24 opacity-70"
+                          style="background:
+                            radial-gradient(circle at 12% 85%, rgba(206,108,55,.14), transparent 40%),
+                            radial-gradient(circle at 88% 25%, rgba(33,94,187,.12), transparent 45%);"
+                        ></div>
+
+                        <!-- tiny rail -->
+                        <div
+                          class="h-1 w-full"
+                          style="background: linear-gradient(90deg, rgba(206,108,55,.0), rgba(206,108,55,.55), rgba(33,94,187,.45), rgba(175,206,227,.55));"
+                        ></div>
                       </div>
-
-                      <h3 class="mt-5 text-xl font-semibold text-slate-900 group-hover:text-blue-700 transition-colors">
-                        {{ s.card_title }}
-                      </h3>
-
-                      <p class="mt-3 text-slate-600 leading-relaxed">
-                        {{ s.card_description }}
-                      </p>
-
-                      <div class="mt-6 flex items-center justify-between">
-                        <div class="flex items-center gap-2 text-xs text-slate-500">
-                          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                          Enfoque personalizado
-                        </div>
-
-                        <div class="inline-flex items-center gap-2 text-blue-700 font-semibold text-sm">
-                          Saber más
-                          <span class="transition-transform group-hover:translate-x-1">→</span>
-                        </div>
-                      </div>
                     </div>
-
-                    <div
-                      class="pointer-events-none absolute bottom-0 left-0 right-0 h-24 opacity-60"
-                      style="background: radial-gradient(circle at 10% 80%, rgba(59,130,246,.18), transparent 35%),
-                             radial-gradient(circle at 90% 20%, rgba(99,102,241,.16), transparent 40%);"
-                    ></div>
                   </a>
                 }
               </div>
 
-              <div class="mt-10 rounded-3xl border border-slate-200 bg-white p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h4 class="text-lg font-semibold text-slate-900">¿No encuentras lo que buscas?</h4>
-                  <p class="mt-1 text-slate-600">
-                    Escríbenos y te orientamos según tus síntomas o diagnóstico.
-                  </p>
+              <!-- Footer CTA (editorial, premium) -->
+              <div
+                class="mt-10 rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl
+                       shadow-[0_24px_70px_-50px_rgba(14,40,89,.55)] overflow-hidden"
+              >
+                <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                  <div class="max-w-2xl">
+                    <p class="text-xs font-extrabold tracking-wide text-[#CE6C37]">ORIENTACIÓN</p>
+                    <h4 class="mt-1 text-xl md:text-2xl font-black text-[#0E2859]">
+                      ¿No encuentras lo que buscas?
+                    </h4>
+                    <p class="mt-2 text-[#0E2859]/70">
+                      Cuéntanos tus síntomas o diagnóstico y te orientamos sobre el siguiente paso.
+                    </p>
+                  </div>
+
+                  <a
+                    routerLink="/contacto"
+                    class="inline-flex items-center justify-center rounded-2xl bg-[#CE6C37] px-6 py-3 text-white font-extrabold
+                           shadow-[0_18px_50px_-25px_rgba(206,108,55,.9)] hover:brightness-95 transition"
+                  >
+                    Hablar con el equipo
+                  </a>
                 </div>
-                <a
-                  routerLink="/contacto"
-                  class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-white font-semibold shadow-sm hover:bg-blue-700 transition"
-                >
-                  Hablar con el equipo
-                </a>
+
+                <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #AFCEE3, #215EBB, #CE6C37);"></div>
               </div>
 
             }

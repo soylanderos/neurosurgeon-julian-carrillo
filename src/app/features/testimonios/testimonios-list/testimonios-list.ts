@@ -95,7 +95,7 @@ export class TestiomoniosList {
     if (!this.isBrowser) return;
 
     // ✅ Doctoralia (pedimos MUCHAS para que “load more” sea real sin recargar)
-    this.doctoraliaApi.listLatest({ doctorId: this.doctorId, max: 12 }).subscribe({
+    this.doctoraliaApi.listLatest({ doctorId: this.doctorId, max: 900 }).subscribe({
       next: (rows) => {
         const parsed = rows
           .map((r) => parseDoctoraliaRawSafe(r, { isBrowser: this.isBrowser }))

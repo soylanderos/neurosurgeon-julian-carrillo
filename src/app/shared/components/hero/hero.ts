@@ -17,6 +17,7 @@ import {
   User,
   Plus,
   Activity,
+  ArrowBigRight
 } from 'lucide-angular';
 
 // Si no existe "Bone" en tu versión, usa "Bone" si está o "Backpack" no; mejor:
@@ -47,6 +48,7 @@ export class Hero {
   iUser = User;
   iPlus = Plus;
   iPulse = Activity; // o HeartPulse si lo tienes
+  iArrowRight = ArrowBigRight
   readonly pageTitle =
     'Dr. Julián Carrillo - Neurocirujano Especialista en Cerebro y Columna | Ciudad Juárez';
 

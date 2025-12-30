@@ -15,7 +15,7 @@ export class DoctoraliaOpinionsApi {
   private db = inject(SUPABASE) as SupabaseClient;
 
   listLatest(params: { doctorId: number; max?: number }) {
-    const max = params.max ?? 15;
+    const max = params.max ?? 900;
 
     // ✅ Guard: evita "undefined" / NaN
     const doctorIdNum = Number(params.doctorId);

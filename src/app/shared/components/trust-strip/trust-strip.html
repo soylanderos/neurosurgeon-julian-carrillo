@@ -1,138 +1,225 @@
-<!-- Trust Strip (revamp) -->
+<!-- TRUST STRIP (evidence-first, aligned to your 4 trustItems) -->
 <section class="relative py-14 overflow-hidden">
-  <!-- fondo suave con “auras” -->
+  <!-- fondo suave con auras + grid sutil -->
   <div class="absolute inset-0 -z-10">
     <div class="absolute inset-0 bg-gradient-to-b from-[#AFCEE3]/25 via-white to-white"></div>
-    <div class="absolute -top-20 -right-24 h-72 w-72 rounded-full bg-[#215EBB]/15 blur-3xl"></div>
-    <div class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#CE6C37]/12 blur-3xl"></div>
+    <div class="absolute -top-20 -right-24 h-72 w-72 rounded-full bg-[#215EBB]/14 blur-3xl"></div>
+    <div class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="
+        background-image: linear-gradient(to right, rgba(14, 40, 89, 0.18) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(14, 40, 89, 0.18) 1px, transparent 1px);
+        background-size: 48px 48px;
+      "
+    ></div>
   </div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- mini header -->
-    <div class="mb-8 flex items-end justify-between gap-4">
+    <!-- header -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
       <div>
         <p class="text-sm font-semibold tracking-wide text-[#CE6C37]">Confianza clínica</p>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0E2859]">Respaldo profesional</h2>
+        <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-[#0E2859] tracking-tight">
+          Respaldo profesional verificable
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-[#0E2859]/65 max-w-2xl">
+          Datos concretos: cédula, certificaciones, hospitales y experiencia.
+        </p>
       </div>
 
-      <div class="hidden sm:flex items-center gap-2 text-sm text-[#0E2859]/70">
-        <span class="inline-flex h-2 w-2 rounded-full bg-[#CE6C37]"></span>
-        Datos verificables
-      </div>
+      <!-- CTA global: WhatsApp (usa tu número) -->
+      <a
+        href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20%C2%BFme%20pueden%20compartir%20las%20credenciales%20y%20certificaciones%20del%20Dr.%20Juli%C3%A1n%20Carrillo%3F"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-full bg-[#0E2859] px-5 py-3 text-sm font-extrabold text-white shadow-sm hover:brightness-110 transition focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AFCEE3]/60"
+      >
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
+          <lucide-icon [img]="iWhatsapp" class="h-5 w-5 text-white"></lucide-icon>
+        </span>
+        Pedir credenciales
+      </a>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <!-- cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       @for (item of trustItems; track item.key) {
-      <article
-        class="group relative rounded-2xl border border-[#0E2859]/10 bg-white/70 backdrop-blur-md p-5 sm:p-6 shadow-[0_10px_30px_-18px_rgba(14,40,89,0.35)] hover:shadow-[0_18px_45px_-18px_rgba(14,40,89,0.45)] transition-all duration-300 hover:-translate-y-0.5"
-      >
-        <!-- barra accent superior -->
+      <article class="group relative">
+        <!-- gradient border -->
         <div
-          class="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-[#CE6C37] via-[#215EBB] to-[#AFCEE3]"
-        ></div>
-
-        <!-- icon bubble -->
-        <div class="flex items-center justify-between">
+          class="rounded-3xl p-[1px]"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(206, 108, 55, 0.32),
+              rgba(33, 94, 187, 0.28),
+              rgba(175, 206, 227, 0.55)
+            );
+          "
+        >
           <div
-            class="relative inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#AFCEE3]/55 to-white ring-1 ring-[#0E2859]/10 group-hover:ring-[#CE6C37]/30 transition"
+            class="relative overflow-hidden rounded-3xl bg-white/70 backdrop-blur-xl border border-white/70 p-6 shadow-[0_14px_40px_-22px_rgba(14,40,89,0.55)] hover:shadow-[0_22px_55px_-22px_rgba(14,40,89,0.65)] transition-all duration-300 group-hover:-translate-y-0.5"
           >
-            <!-- pequeño glow -->
+            <!-- top shine -->
             <div
-              class="absolute -inset-2 rounded-2xl bg-[#215EBB]/10 blur-xl opacity-0 group-hover:opacity-100 transition"
+              class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/70 to-transparent opacity-80"
             ></div>
 
-            <div class="relative text-[#0E2859] group-hover:text-[#215EBB] transition-colors">
-              @switch (item.icon) { @case ('award') {
-              <!-- Award -->
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 15l3 7-3-2-3 2 3-7Z" fill="currentColor" opacity="0.18" />
-                <path
-                  d="M12 15l3 7-3-2-3 2 3-7Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-              </svg>
-              } @case ('graduation') {
-              <!-- GraduationCap -->
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M22 10 12 5 2 10l10 5 10-5Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              } @case ('shield') {
-              <!-- Shield -->
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M12 2 20 6v7c0 5-3.5 9-8 9s-8-4-8-9V6l8-4Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              } @case ('filecheck') {
-              <!-- FileCheck -->
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M14 2v6h8"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="m9 15 2 2 4-4"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              } }
+            <!-- icon + badge -->
+            <div class="relative flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div
+                  class="relative grid h-12 w-12 place-items-center rounded-2xl bg-white ring-1 ring-[#0E2859]/10 shadow-sm"
+                >
+                  <div
+                    class="absolute -inset-3 rounded-2xl bg-[#215EBB]/10 blur-xl opacity-0 group-hover:opacity-100 transition"
+                  ></div>
+
+                  <!-- tu switch original por icon -->
+                  <div class="relative text-[#0E2859] group-hover:text-[#215EBB] transition-colors">
+                    @switch (item.icon) { @case ('award') {
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 15l3 7-3-2-3 2 3-7Z" fill="currentColor" opacity="0.18" />
+                      <path
+                        d="M12 15l3 7-3-2-3 2 3-7Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    } @case ('graduation') {
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M22 10 12 5 2 10l10 5 10-5Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    } @case ('shield') {
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M12 2 20 6v7c0 5-3.5 9-8 9s-8-4-8-9V6l8-4Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    } @case ('filecheck') {
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M14 2v6h8"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="m9 15 2 2 4-4"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    } }
+                  </div>
+                </div>
+
+                <div>
+                  <p class="text-xs font-semibold text-[#0E2859]/60">Verificado</p>
+                  <p class="text-sm font-extrabold text-[#0E2859]">{{ item.label }}</p>
+                </div>
+              </div>
+
+              <span
+                class="inline-flex items-center gap-2 rounded-full bg-[#CE6C37]/10 text-[#CE6C37] border border-[#CE6C37]/20 px-2.5 py-1 text-[11px] font-bold"
+              >
+                <span class="h-1.5 w-1.5 rounded-full bg-[#CE6C37]"></span>
+                Oficial
+              </span>
             </div>
+
+            <!-- value -->
+            <div class="relative mt-5">
+              <p class="text-2xl font-black text-[#0E2859] tracking-tight leading-tight">
+                {{ item.value }}
+              </p>
+
+              <!-- micro “evidence” line + action -->
+              <div class="mt-2 flex items-center justify-between gap-3">
+                <p class="text-xs text-[#0E2859]/55">
+                  @switch (item.key) { @case ('cedula') { Consulta en registro nacional } @case
+                  ('cert') { Consejos y constancias disponibles } @case ('hosp') { Instituciones
+                  donde atiende } @case ('exp') { Trayectoria profesional } }
+                </p>
+
+                @switch (item.key) { @case ('cedula') {
+                <a
+                  href="https://www.cedulaprofesional.sep.gob.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-bold text-[#215EBB] hover:text-[#0E2859] underline underline-offset-4"
+                >
+                  Verificar
+                </a>
+                } @case ('cert') {
+                <a
+                  href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20%C2%BFme%20pueden%20compartir%20las%20certificaciones%20y%20constancias%20del%20Dr.%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-bold text-[#215EBB] hover:text-[#0E2859] underline underline-offset-4"
+                >
+                  Solicitar
+                </a>
+                } @case ('hosp') {
+                <a
+                  href="#locations"
+                  class="text-xs font-bold text-[#215EBB] hover:text-[#0E2859] underline underline-offset-4"
+                >
+                  Ver
+                </a>
+                } }
+              </div>
+
+              <!-- underline accent -->
+              <div class="mt-5 flex items-center gap-2">
+                <div
+                  class="h-[3px] w-10 rounded-full bg-[#AFCEE3] group-hover:w-16 group-hover:bg-[#CE6C37] transition-all"
+                ></div>
+                <span
+                  class="text-[11px] font-semibold text-[#0E2859]/45 group-hover:text-[#0E2859]/65 transition"
+                >
+                  @switch (item.key) { @case ('cedula') { Fuente: SEP } @case ('cert') { Fuente:
+                  Consejos } @case ('hosp') { Fuente: Hospitales } @case ('exp') { Fuente: CV médico
+                  } }
+                </span>
+              </div>
+            </div>
+
+            <!-- corner glow -->
+            <div
+              class="pointer-events-none absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-[#AFCEE3]/35 blur-2xl"
+            ></div>
           </div>
-
-          <!-- pill “badge” opcional -->
-          <span
-            class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#CE6C37]/10 text-[#CE6C37] border border-[#CE6C37]/20 group-hover:bg-[#CE6C37]/12 transition"
-          >
-            Verificado
-          </span>
-        </div>
-
-        <!-- texto -->
-        <div class="mt-4">
-          <p class="text-sm text-[#0E2859]/70">
-            {{ item.label }}
-          </p>
-
-          <p class="mt-1 text-lg font-extrabold text-[#0E2859] tracking-tight">
-            {{ item.value }}
-          </p>
-
-          <!-- micro subrayado -->
-          <div
-            class="mt-4 h-[2px] w-10 rounded-full bg-[#AFCEE3] group-hover:w-16 group-hover:bg-[#CE6C37] transition-all"
-          ></div>
         </div>
       </article>
       }
