@@ -1,0 +1,21 @@
+.svc-ctrl{
+  background: var(--svc-ctrl-bg);
+  color: var(--svc-ctrl-text);
+  border: 1px solid color-mix(in srgb, var(--svc-ctrl-bg) 85%, white 15%);
+}
+.svc-ctrl:hover{
+  background: var(--svc-ctrl-bg-hover);
+}
+.svc-ctrl:disabled{
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.svc-card{
+  border: 1px solid var(--svc-card-border);
+  box-shadow: var(--svc-card-shadow);
+  background: var(--svc-card-bg-2);
+}
+.svc-card:hover{
+  box-shadow: 0 28px 70px -55px rgba(5,10,48,.55);
+}

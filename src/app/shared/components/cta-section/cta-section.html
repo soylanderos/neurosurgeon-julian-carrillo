@@ -1,52 +1,63 @@
 <!-- CTA / Book Appointment -->
-<section class="relative overflow-hidden py-20 md:py-28 bg-[#0E2859]">
-
+<section class="relative overflow-hidden py-20 md:py-28" style="background: var(--cta-bg);">
+  <div class="pointer-events-none absolute -z-10 inset-0">
+  <div class="absolute -top-28 -right-24 h-80 w-80 rounded-full blur-3xl" style="background: color-mix(in srgb, var(--bg-secondary) 22%, transparent);"></div>
+  <div class="absolute -bottom-32 -left-28 h-96 w-96 rounded-full blur-3xl" style="background: color-mix(in srgb, var(--accent) 16%, transparent);"></div>
+</div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div
-      class="max-w-5xl mx-auto rounded-[32px] border border-white/10 bg-white/10 backdrop-blur-xl
-             shadow-[0_20px_70px_rgba(0,0,0,0.25)] overflow-hidden"
+      class="max-w-5xl mx-auto rounded-[32px] border backdrop-blur-xl overflow-hidden
+             shadow-[0_20px_70px_rgba(0,0,0,0.25)]"
+      style="background: var(--cta-shell); border-color: var(--cta-border);"
     >
       <!-- top accent -->
-      <div class="h-1.5 bg-gradient-to-r from-[#CE6C37] via-[#215EBB] to-[#AFCEE3]"></div>
+      <div class="h-1.5" style="background: var(--cta-accent-bar);"></div>
 
       <div class="p-8 md:p-12">
         <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
           <!-- LEFT -->
           <div>
-            <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
-                        bg-white/10 text-white border border-white/10">
-              <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+            <div
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide border"
+              style="background: var(--cta-pill-bg); color: var(--cta-pill-text); border-color: var(--cta-border);"
+            >
+              <span class="h-2 w-2 rounded-full" style="background: var(--cta-pill-dot);"></span>
               Agenda en minutos · Atención personalizada
             </div>
 
-            <h2 class="mt-5 text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-balance leading-[1.05]">
+            <h2
+              class="mt-5 text-3xl md:text-4xl lg:text-5xl font-extrabold text-balance leading-[1.05]"
+              style="color: var(--cta-title);"
+            >
               Obtén tu cita y recibe
               <span class="relative inline-block">
                 atención médica
-                <span class="absolute -bottom-2 left-0 right-0 h-2 rounded-full bg-[#CE6C37]/35"></span>
+                <span class="absolute -bottom-2 left-0 right-0 h-2 rounded-full" style="background: var(--cta-underline);"></span>
               </span>
               sin complicaciones
             </h2>
 
-            <p class="mt-5 text-lg text-white/85 max-w-2xl text-pretty leading-relaxed">
+            <p class="mt-5 text-lg max-w-2xl text-pretty leading-relaxed" style="color: var(--cta-body);">
               Llena el formulario y agenda tu cita con el especialista. Diagnóstico claro, plan de tratamiento
               y seguimiento real (sin vibes de “te vemos luego”).
             </p>
 
             <!-- Quick trust bullets -->
             <div class="mt-7 grid sm:grid-cols-3 gap-3">
-              <div class="rounded-2xl bg-white/10 border border-white/10 px-4 py-3">
-                <p class="text-sm font-extrabold text-white">Respuesta rápida</p>
-                <p class="text-xs text-white/70 mt-0.5">Por WhatsApp o llamada</p>
+              <div class="rounded-2xl border px-4 py-3" style="background: var(--cta-card); border-color: var(--cta-border);">
+                <p class="text-sm font-extrabold" style="color: var(--cta-title);">Respuesta rápida</p>
+                <p class="text-xs mt-0.5" style="color: var(--cta-muted);">Por WhatsApp o llamada</p>
               </div>
-              <div class="rounded-2xl bg-white/10 border border-white/10 px-4 py-3">
-                <p class="text-sm font-extrabold text-white">Enfoque humano</p>
-                <p class="text-xs text-white/70 mt-0.5">Explicación clara</p>
+
+              <div class="rounded-2xl border px-4 py-3" style="background: var(--cta-card); border-color: var(--cta-border);">
+                <p class="text-sm font-extrabold" style="color: var(--cta-title);">Enfoque humano</p>
+                <p class="text-xs mt-0.5" style="color: var(--cta-muted);">Explicación clara</p>
               </div>
-              <div class="rounded-2xl bg-white/10 border border-white/10 px-4 py-3">
-                <p class="text-sm font-extrabold text-white">Seguimiento</p>
-                <p class="text-xs text-white/70 mt-0.5">Durante tu recuperación</p>
+
+              <div class="rounded-2xl border px-4 py-3" style="background: var(--cta-card); border-color: var(--cta-border);">
+                <p class="text-sm font-extrabold" style="color: var(--cta-title);">Seguimiento</p>
+                <p class="text-xs mt-0.5" style="color: var(--cta-muted);">Durante tu recuperación</p>
               </div>
             </div>
 
@@ -54,9 +65,9 @@
             <div class="mt-8 flex flex-col sm:flex-row gap-3">
               <a
                 [routerLink]="['/contacto']"
-                class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5
-                       bg-white text-[#0E2859] font-extrabold shadow-lg hover:shadow-xl
-                       hover:-translate-y-0.5 transition"
+                class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-extrabold
+                       shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition"
+                style="background: var(--cta-primary-btn-bg); color: var(--cta-primary-btn-text);"
               >
                 <!-- calendar icon -->
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -76,13 +87,13 @@
                 href="https://wa.me/52XXXXXXXXXX"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5
-                       bg-transparent text-white font-extrabold border border-white/20
-                       hover:bg-white/10 transition"
+                class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-extrabold border
+                       hover:brightness-110 transition"
+                style="background: var(--cta-secondary-btn-bg); color: var(--cta-secondary-btn-text); border-color: var(--cta-secondary-btn-border);"
               >
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]/15">
-                  <!-- whatsapp icon placeholder -->
-                  <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full" style="background: var(--cta-whats-badge-bg);">
+                  <!-- whatsapp icon -->
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path
                       d="M20 12a8 8 0 0 1-12.7 6.5L4 19l.6-3.1A8 8 0 1 1 20 12Z"
                       stroke="currentColor"
@@ -101,41 +112,52 @@
               </a>
             </div>
 
-            <p class="mt-4 text-xs text-white/60">
+            <p class="mt-4 text-xs" style="color: var(--cta-footnote);">
               *Esta información no sustituye una valoración médica profesional.
             </p>
           </div>
 
           <!-- RIGHT: mini “card” -->
           <div class="relative">
-            <div class="rounded-3xl bg-white/10 border border-white/10 p-6 md:p-7">
-              <p class="text-sm font-extrabold text-white">¿Qué pasa después?</p>
+            <div class="rounded-3xl border p-6 md:p-7" style="background: var(--cta-card); border-color: var(--cta-border);">
+              <p class="text-sm font-extrabold" style="color: var(--cta-title);">¿Qué pasa después?</p>
 
               <ol class="mt-4 space-y-3">
                 <li class="flex gap-3">
-                  <span class="h-7 w-7 rounded-full bg-[#CE6C37]/20 text-white grid place-items-center text-xs font-black">1</span>
-                  <p class="text-sm text-white/80">Envías el formulario (o WhatsApp).</p>
+                  <span class="h-7 w-7 rounded-full grid place-items-center text-xs font-black"
+                        style="background: var(--cta-step-1-bg); color: var(--cta-title);">
+                    1
+                  </span>
+                  <p class="text-sm" style="color: var(--cta-body);">Envías el formulario (o WhatsApp).</p>
                 </li>
+
                 <li class="flex gap-3">
-                  <span class="h-7 w-7 rounded-full bg-[#AFCEE3]/20 text-white grid place-items-center text-xs font-black">2</span>
-                  <p class="text-sm text-white/80">Confirmamos horario y ubicación.</p>
+                  <span class="h-7 w-7 rounded-full grid place-items-center text-xs font-black"
+                        style="background: var(--cta-step-2-bg); color: var(--cta-title);">
+                    2
+                  </span>
+                  <p class="text-sm" style="color: var(--cta-body);">Confirmamos horario y ubicación.</p>
                 </li>
+
                 <li class="flex gap-3">
-                  <span class="h-7 w-7 rounded-full bg-[#215EBB]/20 text-white grid place-items-center text-xs font-black">3</span>
-                  <p class="text-sm text-white/80">Te atendemos con diagnóstico claro y plan.</p>
+                  <span class="h-7 w-7 rounded-full grid place-items-center text-xs font-black"
+                        style="background: var(--cta-step-3-bg); color: var(--cta-title);">
+                    3
+                  </span>
+                  <p class="text-sm" style="color: var(--cta-body);">Te atendemos con diagnóstico claro y plan.</p>
                 </li>
               </ol>
 
-              <div class="mt-6 rounded-2xl bg-white/10 border border-white/10 p-4">
-                <p class="text-xs font-extrabold text-white/90">Tip pro</p>
-                <p class="text-sm text-white/80 mt-1">
+              <div class="mt-6 rounded-2xl border p-4" style="background: var(--cta-tip-bg); border-color: var(--cta-border);">
+                <p class="text-xs font-extrabold" style="color: var(--cta-title);">Tip pro</p>
+                <p class="text-sm mt-1" style="color: var(--cta-body);">
                   Ten listos tus estudios previos (RM, TAC, RX) para aprovechar mejor la consulta.
                 </p>
               </div>
             </div>
 
             <!-- tiny accent dot -->
-            <div class="absolute -bottom-3 -right-3 h-5 w-5 rounded-full bg-[#CE6C37]"></div>
+            <div class="absolute -bottom-3 -right-3 h-5 w-5 rounded-full" style="background: var(--cta-accent-dot);"></div>
           </div>
         </div>
       </div>

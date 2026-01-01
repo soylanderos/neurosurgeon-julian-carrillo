@@ -1,72 +1,125 @@
-<section class="relative overflow-hidden bg-[#F7FAFF] py-16 md:py-24">
-  <!-- Ambient background using YOUR palette -->
+<section class="relative overflow-hidden py-16 md:py-24" style="background: var(--svc-bg)">
+  <!-- Ambient background -->
   <div class="pointer-events-none absolute inset-0">
-    <div class="absolute -top-28 -left-28 h-[520px] w-[520px] rounded-full bg-[#AFCEE3]/55 blur-3xl"></div>
-    <div class="absolute top-40 -right-32 h-[560px] w-[560px] rounded-full bg-[#215EBB]/12 blur-3xl"></div>
-    <div class="absolute bottom-0 left-1/3 h-[520px] w-[520px] rounded-full bg-[#C3B692]/28 blur-3xl"></div>
+    <div
+      class="absolute -top-28 -left-28 h-[520px] w-[520px] rounded-full blur-3xl"
+      style="background: var(--svc-blob-1)"
+    ></div>
+    <div
+      class="absolute top-40 -right-32 h-[560px] w-[560px] rounded-full blur-3xl"
+      style="background: var(--svc-blob-2)"
+    ></div>
+    <div
+      class="absolute bottom-0 left-1/3 h-[520px] w-[520px] rounded-full blur-3xl"
+      style="background: var(--svc-blob-3)"
+    ></div>
+
     <div
       class="absolute inset-0 opacity-[0.06]"
-      style="background-image: radial-gradient(rgba(14,40,89,.55) 0.6px, transparent 0.6px); background-size: 18px 18px;"
+      style="
+        background-image: radial-gradient(
+          color-mix(in srgb, var(--bg-primary) 55%, transparent) 0.6px,
+          transparent 0.6px
+        );
+        background-size: 18px 18px;
+      "
     ></div>
   </div>
 
   <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb -->
-    <nav class="text-sm text-[#0E2859]/65 mb-8 max-w-6xl mx-auto">
-      <a routerLink="/" class="hover:text-[#215EBB] transition">Inicio</a>
-      <span class="mx-2">/</span>
-      <span class="text-[#0E2859] font-semibold">Servicios</span>
+    <nav class="text-sm mb-8 max-w-6xl mx-auto" style="color: var(--svc-muted)">
+      <a routerLink="/" class="transition hover:opacity-100" style="color: var(--svc-muted)">
+        Inicio
+      </a>
+      <span class="mx-2" style="color: var(--svc-sep)">/</span>
+      <span class="font-semibold" style="color: var(--svc-title)">Servicios</span>
     </nav>
 
     <!-- HEADER: Premium hero panel -->
     <div class="max-w-6xl mx-auto mb-10 md:mb-14">
       <div
-        class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl
-               shadow-[0_30px_90px_-55px_rgba(14,40,89,.6)]"
+        class="relative overflow-hidden rounded-[2rem] backdrop-blur-xl shadow-[0_30px_90px_-55px_rgba(14,40,89,.6)]"
+        style="background: var(--svc-card-bg); border: 1px solid rgba(255, 255, 255, 0.7)"
       >
         <!-- inner accents -->
         <div class="pointer-events-none absolute inset-0">
-          <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#215EBB]/12 blur-3xl"></div>
-          <div class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
-          <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent"></div>
+          <div
+            class="absolute -top-24 -right-24 h-72 w-72 rounded-full blur-3xl"
+            style="background: var(--svc-blob-2)"
+          ></div>
+          <div
+            class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full blur-3xl"
+            style="background: color-mix(in srgb, var(--accent) 10%, transparent)"
+          ></div>
+          <div
+            class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent"
+          ></div>
         </div>
 
         <div class="relative p-7 md:p-10">
           <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div class="max-w-3xl">
               <span
-                class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
-                       bg-[#AFCEE3]/40 text-[#0E2859] border border-[#0E2859]/10"
+                class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide border"
+                style="
+                  background: var(--svc-pill-bg);
+                  color: var(--svc-pill-text);
+                  border-color: var(--svc-border);
+                "
               >
-                <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+                <span class="h-2 w-2 rounded-full" style="background: var(--svc-accent)"></span>
                 Brain &amp; Spine · Atención especializada
               </span>
 
-              <h1 class="mt-4 text-4xl md:text-5xl font-black text-[#0E2859] text-balance leading-[1.06]">
+              <h1
+                class="mt-4 text-4xl md:text-5xl font-black text-balance leading-[1.06]"
+                style="color: var(--svc-title)"
+              >
                 Servicios de Neurocirugía
               </h1>
 
-              <p class="mt-3 text-lg md:text-xl text-[#0E2859]/70 leading-relaxed text-pretty">
+              <p
+                class="mt-3 text-lg md:text-xl leading-relaxed text-pretty"
+                style="color: var(--svc-body)"
+              >
                 Diagnóstico preciso, opciones claras y tratamiento personalizado.
               </p>
 
               <div class="mt-6 flex flex-wrap items-center gap-2">
                 <span
-                  class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70"
+                  class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-extrabold"
+                  style="
+                    border-color: var(--svc-border);
+                    background: rgba(255, 255, 255, 0.8);
+                    color: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+                  "
                 >
-                  <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+                  <span class="h-2 w-2 rounded-full" style="background: var(--svc-accent)"></span>
                   Evaluación integral
                 </span>
+
                 <span
-                  class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70"
+                  class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-extrabold"
+                  style="
+                    border-color: var(--svc-border);
+                    background: rgba(255, 255, 255, 0.8);
+                    color: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+                  "
                 >
-                  <span class="h-2 w-2 rounded-full bg-[#215EBB]"></span>
+                  <span class="h-2 w-2 rounded-full" style="background: var(--bg-secondary)"></span>
                   Enfoque Brain &amp; Spine
                 </span>
+
                 <span
-                  class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70"
+                  class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-extrabold"
+                  style="
+                    border-color: var(--svc-border);
+                    background: rgba(255, 255, 255, 0.8);
+                    color: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+                  "
                 >
-                  <span class="h-2 w-2 rounded-full bg-[#C3B692]"></span>
+                  <span class="h-2 w-2 rounded-full" style="background: var(--sand)"></span>
                   Plan por etapas
                 </span>
               </div>
@@ -75,15 +128,16 @@
             <div class="flex flex-col sm:flex-row gap-3">
               <a
                 routerLink="/contacto"
-                class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-5 py-3 text-white font-extrabold
-                       shadow-sm hover:brightness-110 transition"
+                class="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-white font-extrabold shadow-sm transition hover:brightness-110"
+                style="background: var(--bg-primary)"
               >
                 Agendar cita
               </a>
+
               <a
                 routerLink="/contacto"
-                class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-[#0E2859] font-extrabold
-                       border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+                class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 font-extrabold border transition hover:opacity-90"
+                style="color: var(--svc-title); border-color: var(--svc-border)"
               >
                 Contacto
               </a>
@@ -92,334 +146,404 @@
         </div>
 
         <!-- bottom gradient rail -->
-        <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #CE6C37, #215EBB, #AFCEE3);"></div>
+        <div class="h-1.5 w-full" style="background: var(--svc-rail)"></div>
       </div>
     </div>
 
     @if (error()) {
-      <div class="max-w-3xl mx-auto text-center text-red-700 bg-white border border-red-200 rounded-2xl p-6">
-        {{ error() }}
-      </div>
+    <div
+      class="max-w-3xl mx-auto text-center text-red-700 bg-white border border-red-200 rounded-2xl p-6"
+    >
+      {{ error() }}
+    </div>
     } @else {
 
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-[380px_1fr] gap-8 lg:gap-10">
-        <!-- LEFT: Command palette panel -->
-        <aside class="lg:sticky lg:top-6 h-fit">
-          <div
-            class="rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl p-6
-                   shadow-[0_24px_70px_-50px_rgba(14,40,89,.55)] overflow-hidden"
-          >
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <h2 class="text-lg font-extrabold text-[#0E2859]">Explora servicios</h2>
-                <p class="mt-1 text-sm text-[#0E2859]/65">Busca o filtra en segundos.</p>
-              </div>
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-[380px_1fr] gap-8 lg:gap-10">
+      <!-- LEFT: Command palette panel -->
+      <aside class="lg:sticky lg:top-6 h-fit">
+        <div
+          class="rounded-[2rem] backdrop-blur-xl p-6 overflow-hidden shadow-[0_24px_70px_-50px_rgba(14,40,89,.55)]"
+          style="background: var(--svc-card-bg); border: 1px solid rgba(255, 255, 255, 0.7)"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-extrabold" style="color: var(--svc-title)">
+                Explora servicios
+              </h2>
+              <p class="mt-1 text-sm" style="color: var(--svc-muted)">
+                Busca o filtra en segundos.
+              </p>
+            </div>
 
-              <div class="h-10 w-10 rounded-2xl bg-[#215EBB]/10 border border-[#215EBB]/15 flex items-center justify-center">
-                <svg class="h-5 w-5 text-[#0E2859]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <div
+              class="h-10 w-10 rounded-2xl border flex items-center justify-center"
+              style="
+                background: color-mix(in srgb, var(--bg-secondary) 10%, transparent);
+                border-color: color-mix(in srgb, var(--bg-secondary) 15%, transparent);
+              "
+            >
+              <svg
+                class="h-5 w-5"
+                style="color: var(--svc-title)"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 12h6l2 3 3-6 2 3h3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 21a9 9 0 1 0-9-9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M12 3a9 9 0 0 1 9 9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="mt-6">
+            <label class="text-xs font-extrabold tracking-wide" style="color: var(--svc-muted)"
+              >Buscar</label
+            >
+
+            <div class="mt-2 relative">
+              <span
+                class="absolute left-4 top-1/2 -translate-y-1/2"
+                style="color: color-mix(in srgb, var(--bg-primary) 35%, transparent)"
+              >
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
-                    d="M3 12h6l2 3 3-6 2 3h3"
+                    d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   />
                   <path
-                    d="M12 21a9 9 0 1 0-9-9"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M12 3a9 9 0 0 1 9 9"
+                    d="M21 21l-4.3-4.3"
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
                   />
                 </svg>
-              </div>
+              </span>
+
+              <input
+                type="text"
+                [value]="searchTerm()"
+                (input)="onSearch($any($event.target).value)"
+                placeholder="Ej. hernia, tumor, columna…"
+                class="w-full rounded-2xl px-10 py-3 focus:outline-none focus:ring-4"
+                style="
+                  background: rgba(255, 255, 255, 0.9);
+                  border: 1px solid var(--svc-border);
+                  color: var(--svc-title);
+                  --tw-ring-color: var(--svc-ring);
+                "
+              />
             </div>
 
-            <!-- Search -->
-            <div class="mt-6">
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">Buscar</label>
-
-              <div class="mt-2 relative">
-                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[#0E2859]/35">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="2" />
-                    <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  </svg>
-                </span>
-
-                <input
-                  type="text"
-                  [value]="searchTerm()"
-                  (input)="onSearch(($any($event.target).value))"
-                  placeholder="Ej. hernia, tumor, columna…"
-                  class="w-full rounded-2xl border border-[#0E2859]/10 bg-white/90 px-10 py-3 text-[#0E2859]
-                         placeholder:text-[#0E2859]/35 focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
-                />
-              </div>
-
-              <div class="mt-3 flex items-center justify-between">
-                <p class="text-xs text-[#0E2859]/55">Tip: usa síntomas o diagnóstico.</p>
-                <button
-                  type="button"
-                  (click)="clearFilters()"
-                  class="text-xs font-extrabold text-[#0E2859]/70 hover:text-[#215EBB] transition"
-                >
-                  Limpiar
-                </button>
-              </div>
-            </div>
-
-            <!-- Categories -->
-            <div class="mt-6">
-              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55 mb-3">Categorías</p>
-
-              <div class="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  (click)="setCategory('all')"
-                  [class]="activeCategory() === 'all'
-                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
-                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
-                >
-                  Todos
-                </button>
-
-                <button
-                  type="button"
-                  (click)="setCategory('brain')"
-                  [class]="activeCategory() === 'brain'
-                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
-                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
-                >
-                  Cerebro
-                </button>
-
-                <button
-                  type="button"
-                  (click)="setCategory('spine')"
-                  [class]="activeCategory() === 'spine'
-                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
-                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
-                >
-                  Columna
-                </button>
-
-                <button
-                  type="button"
-                  (click)="setCategory('pain')"
-                  [class]="activeCategory() === 'pain'
-                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
-                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
-                >
-                  Dolor / Nervios
-                </button>
-
-                <button
-                  type="button"
-                  (click)="setCategory('consult')"
-                  [class]="activeCategory() === 'consult'
-                    ? 'rounded-2xl border border-[#215EBB]/25 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859]'
-                    : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
-                >
-                  Consulta
-                </button>
-
-                <button
-                  type="button"
-                  (click)="setCategory('all')"
-                  class="rounded-2xl border border-[#CE6C37]/20 bg-[#CE6C37]/10 px-3 py-2 text-sm font-extrabold text-[#0E2859] hover:bg-[#CE6C37]/12 transition"
-                >
-                  Recomendado
-                </button>
-              </div>
-
-              <!-- count -->
-              <div class="mt-5 rounded-2xl border border-[#0E2859]/10 bg-gradient-to-br from-[#0E2859] to-[#215EBB] p-4 text-white">
-                <p class="text-xs font-extrabold tracking-wide text-white/80">RESULTADOS</p>
-                <p class="mt-1 text-3xl font-black leading-none">
-                  {{ filteredServicios().length }}
-                </p>
-                <p class="mt-2 text-xs text-white/75">
-                  Selecciona un servicio para ver detalles y recomendaciones.
-                </p>
-              </div>
+            <div class="mt-3 flex items-center justify-between">
+              <p class="text-xs" style="color: var(--svc-muted)">
+                Tip: usa síntomas o diagnóstico.
+              </p>
+              <button
+                type="button"
+                (click)="clearFilters()"
+                class="text-xs font-extrabold transition hover:opacity-90"
+                style="color: color-mix(in srgb, var(--bg-primary) 70%, transparent)"
+              >
+                Limpiar
+              </button>
             </div>
           </div>
-        </aside>
 
-        <!-- RIGHT: Grid -->
-        <div>
-          @if (loading()) {
-            <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-              @for (i of skeletonItems; track i) {
-                <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 p-6" aria-hidden="true">
-                  <div class="animate-pulse">
-                    <div class="flex items-start justify-between">
-                      <div class="h-11 w-11 rounded-2xl bg-[#AFCEE3]/50"></div>
-                      <div class="h-6 w-16 rounded-full bg-[#AFCEE3]/40"></div>
-                    </div>
-                    <div class="mt-5 h-6 bg-[#AFCEE3]/40 rounded-lg w-3/4"></div>
-                    <div class="mt-3 h-4 bg-[#AFCEE3]/35 rounded-lg w-full"></div>
-                    <div class="mt-2 h-4 bg-[#AFCEE3]/35 rounded-lg w-5/6"></div>
-                    <div class="mt-6 h-10 bg-[#AFCEE3]/40 rounded-2xl w-32"></div>
-                  </div>
-                </div>
-              }
+          <!-- Categories -->
+          <div class="mt-6">
+            <p class="text-xs font-extrabold tracking-wide mb-3" style="color: var(--svc-muted)">
+              Categorías
+            </p>
+
+            <div class="grid grid-cols-2 gap-2">
+  @for (cat of categories; track cat.key) {
+    <button
+      type="button"
+      (click)="setCategory(cat.key)"
+      [class]="activeCategory() === cat.key
+        ? 'rounded-2xl border border-[#215EBB]/30 bg-[#AFCEE3]/30 px-3 py-2 text-sm font-extrabold text-[#0E2859] shadow-sm'
+        : 'rounded-2xl border border-[#0E2859]/10 bg-white/90 px-3 py-2 text-sm font-semibold text-[#0E2859]/75 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition'"
+    >
+      {{ cat.label }}
+    </button>
+  }
+
+  <!-- “Recomendado” sin naranja: lo mandamos a 'all' pero con estilo azul -->
+  <button
+    type="button"
+    (click)="setCategory('all')"
+    class="rounded-2xl border border-[#215EBB]/25 bg-[#215EBB]/10 px-3 py-2 text-sm font-extrabold text-[#0E2859]
+           hover:bg-[#215EBB]/15 transition"
+  >
+    Recomendado
+  </button>
+</div>
+
+            <!-- count -->
+            <div
+              class="mt-5 rounded-2xl border p-4 text-white"
+              style="border-color: var(--svc-border); background: var(--svc-count-grad)"
+            >
+              <p class="text-xs font-extrabold tracking-wide text-white/80">RESULTADOS</p>
+              <p class="mt-1 text-3xl font-black leading-none">
+                {{ filteredServicios().length }}
+              </p>
+              <p class="mt-2 text-xs text-white/75">
+                Selecciona un servicio para ver detalles y recomendaciones.
+              </p>
             </div>
-          } @else {
+          </div>
+        </div>
+      </aside>
 
-            @if (filteredServicios().length === 0) {
-              <div class="text-center text-[#0E2859]/70 bg-white/80 border border-[#0E2859]/10 rounded-2xl p-6">
-                No hay resultados con los filtros actuales.
+      <!-- RIGHT: Grid -->
+      <div>
+        @if (loading()) {
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
+          @for (i of skeletonItems; track i) {
+          <div
+            class="rounded-[2rem] border p-6"
+            style="border-color: var(--svc-border); background: rgba(255, 255, 255, 0.8)"
+            aria-hidden="true"
+          >
+            <div class="animate-pulse">
+              <div class="flex items-start justify-between">
+                <div
+                  class="h-11 w-11 rounded-2xl"
+                  style="background: color-mix(in srgb, var(--sky) 50%, transparent)"
+                ></div>
+                <div
+                  class="h-6 w-16 rounded-full"
+                  style="background: color-mix(in srgb, var(--sky) 40%, transparent)"
+                ></div>
               </div>
-            } @else {
-
-              <!-- ✅ IMPORTANT: items-stretch ensures equal heights in rows -->
-              <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-                @for (s of filteredServicios(); track s.slug; let idx = $index) {
-                  <a [routerLink]="['/servicios', s.slug]" class="group relative block h-full">
-                    <!-- gradient border wrapper -->
-                    <div
-                      class="rounded-[2rem] p-[1px] transition h-full"
-                      style="background: linear-gradient(135deg, rgba(206,108,55,.25), rgba(33,94,187,.22), rgba(175,206,227,.55));"
-                    >
-                      <!-- CARD (equalized) -->
-                      <div
-                        class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur
-                               shadow-[0_14px_40px_-26px_rgba(14,40,89,.55)]
-                               hover:shadow-[0_24px_60px_-26px_rgba(14,40,89,.7)]
-                               transition-all duration-300 group-hover:-translate-y-1
-                               h-full"
-                      >
-                        <!-- hover wash -->
-                        <div
-                          class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                          [style]="(idx % 3 === 0)
-                            ? 'background: linear-gradient(135deg, rgba(175,206,227,.35), rgba(255,255,255,.0) 55%, rgba(33,94,187,.10));'
-                            : (idx % 3 === 1)
-                              ? 'background: linear-gradient(135deg, rgba(195,182,146,.22), rgba(255,255,255,.0) 55%, rgba(206,108,55,.10));'
-                              : 'background: linear-gradient(135deg, rgba(33,94,187,.12), rgba(255,255,255,.0) 55%, rgba(175,206,227,.28));'"
-                        ></div>
-
-                        <!-- top-right index -->
-                        <div class="absolute top-4 right-5 text-xs font-extrabold text-[#0E2859]/40">
-                          {{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}
-                        </div>
-
-                        <!-- ✅ content wrapper makes footer stick -->
-                        <div class="relative p-6 flex flex-col h-full">
-                          <!-- top row -->
-                          <div class="flex items-start justify-between gap-4">
-                            <div
-                              class="h-12 w-12 rounded-2xl flex items-center justify-center
-                                     border border-[#0E2859]/10 bg-white shadow-sm
-                                     group-hover:scale-110 transition-transform"
-                            >
-                              <svg class="h-6 w-6 text-[#0E2859]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path
-                                  d="M7 8c0-2 2-4 5-4s5 2 5 4c0 1-.6 1.9-1.6 2.6C16.6 11 18 12 18 14c0 3-3 6-6 6s-6-3-6-6c0-2 1.4-3 2.6-3.4C7.6 9.9 7 9 7 8Z"
-                                  stroke="currentColor"
-                                  stroke-width="1.8"
-                                  stroke-linejoin="round"
-                                />
-                              </svg>
-                            </div>
-
-                            <span
-                              class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-xs font-extrabold text-[#0E2859]/75"
-                            >
-                              Ver detalles
-                            </span>
-                          </div>
-
-                          <!-- ✅ title equal height (2 lines max) -->
-                          <h3
-                            class="mt-5 text-xl font-black text-[#0E2859] group-hover:text-[#215EBB] transition-colors
-                                   line-clamp-2 min-h-[3.2rem] leading-snug"
-                          >
-                            {{ s.card_title }}
-                          </h3>
-
-                          <!-- ✅ description equal height (4 lines max) -->
-                          <p
-                            class="mt-3 text-[#0E2859]/70 leading-relaxed
-                                   line-clamp-4 min-h-[6.25rem]"
-                          >
-                            {{ s.card_description }}
-                          </p>
-
-                          <!-- ✅ footer pinned to bottom -->
-                          <div class="mt-auto pt-6">
-                            <div class="flex items-center justify-between">
-                              <div class="flex items-center gap-2 text-xs font-semibold text-[#0E2859]/55">
-                                <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
-                                Enfoque personalizado
-                              </div>
-
-                              <div class="inline-flex items-center gap-2 text-[#0E2859] font-extrabold text-sm">
-                                Saber más
-                                <span class="transition-transform group-hover:translate-x-1">→</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- bottom glow -->
-                        <div
-                          class="pointer-events-none absolute bottom-0 left-0 right-0 h-24 opacity-70"
-                          style="background:
-                            radial-gradient(circle at 12% 85%, rgba(206,108,55,.14), transparent 40%),
-                            radial-gradient(circle at 88% 25%, rgba(33,94,187,.12), transparent 45%);"
-                        ></div>
-
-                        <!-- tiny rail -->
-                        <div
-                          class="h-1 w-full"
-                          style="background: linear-gradient(90deg, rgba(206,108,55,.0), rgba(206,108,55,.55), rgba(33,94,187,.45), rgba(175,206,227,.55));"
-                        ></div>
-                      </div>
-                    </div>
-                  </a>
-                }
-              </div>
-
-              <!-- Footer CTA (editorial, premium) -->
               <div
-                class="mt-10 rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl
-                       shadow-[0_24px_70px_-50px_rgba(14,40,89,.55)] overflow-hidden"
-              >
-                <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-                  <div class="max-w-2xl">
-                    <p class="text-xs font-extrabold tracking-wide text-[#CE6C37]">ORIENTACIÓN</p>
-                    <h4 class="mt-1 text-xl md:text-2xl font-black text-[#0E2859]">
-                      ¿No encuentras lo que buscas?
-                    </h4>
-                    <p class="mt-2 text-[#0E2859]/70">
-                      Cuéntanos tus síntomas o diagnóstico y te orientamos sobre el siguiente paso.
-                    </p>
-                  </div>
-
-                  <a
-                    routerLink="/contacto"
-                    class="inline-flex items-center justify-center rounded-2xl bg-[#CE6C37] px-6 py-3 text-white font-extrabold
-                           shadow-[0_18px_50px_-25px_rgba(206,108,55,.9)] hover:brightness-95 transition"
-                  >
-                    Hablar con el equipo
-                  </a>
-                </div>
-
-                <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #AFCEE3, #215EBB, #CE6C37);"></div>
-              </div>
-
-            }
+                class="mt-5 h-6 rounded-lg w-3/4"
+                style="background: color-mix(in srgb, var(--sky) 40%, transparent)"
+              ></div>
+              <div
+                class="mt-3 h-4 rounded-lg w-full"
+                style="background: color-mix(in srgb, var(--sky) 35%, transparent)"
+              ></div>
+              <div
+                class="mt-2 h-4 rounded-lg w-5/6"
+                style="background: color-mix(in srgb, var(--sky) 35%, transparent)"
+              ></div>
+              <div
+                class="mt-6 h-10 rounded-2xl w-32"
+                style="background: color-mix(in srgb, var(--sky) 40%, transparent)"
+              ></div>
+            </div>
+          </div>
           }
         </div>
+        } @else { @if (filteredServicios().length === 0) {
+        <div
+          class="text-center rounded-2xl p-6 border"
+          style="
+            color: var(--svc-body);
+            background: rgba(255, 255, 255, 0.8);
+            border-color: var(--svc-border);
+          "
+        >
+          No hay resultados con los filtros actuales.
+        </div>
+        } @else {
+
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
+          @for (s of filteredServicios(); track s.slug; let idx = $index) {
+          <a [routerLink]="['/servicios', s.slug]" class="group relative block h-full">
+            <div
+              class="rounded-[2rem] p-[1px] transition h-full"
+              style="background: var(--svc-card-grad)"
+            >
+              <div
+                class="relative overflow-hidden rounded-[2rem] backdrop-blur transition-all duration-300 group-hover:-translate-y-1 h-full shadow-[0_14px_40px_-26px_rgba(14,40,89,.55)] hover:shadow-[0_24px_60px_-26px_rgba(14,40,89,.7)]"
+                style="
+                  border: 1px solid rgba(255, 255, 255, 0.7);
+                  background: var(--svc-card-bg-strong);
+                "
+              >
+                <div
+                  class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                  [style]="
+                    idx % 3 === 0
+                      ? 'background: linear-gradient(135deg, color-mix(in srgb, var(--sky) 35%, transparent), transparent 55%, color-mix(in srgb, var(--bg-secondary) 10%, transparent));'
+                      : idx % 3 === 1
+                      ? 'background: linear-gradient(135deg, color-mix(in srgb, var(--sand) 22%, transparent), transparent 55%, color-mix(in srgb, var(--accent) 10%, transparent));'
+                      : 'background: linear-gradient(135deg, color-mix(in srgb, var(--bg-secondary) 12%, transparent), transparent 55%, color-mix(in srgb, var(--sky) 28%, transparent));'
+                  "
+                ></div>
+
+                <div
+                  class="absolute top-4 right-5 text-xs font-extrabold"
+                  style="color: color-mix(in srgb, var(--bg-primary) 40%, transparent)"
+                >
+                  {{ idx + 1 < 10 ? '0' + (idx + 1) : idx + 1 }}
+                </div>
+
+                <div class="relative p-6 flex flex-col h-full">
+                  <div class="flex items-start justify-between gap-4">
+                    <div
+                      class="h-12 w-12 rounded-2xl flex items-center justify-center border bg-white shadow-sm transition-transform group-hover:scale-110"
+                      style="border-color: var(--svc-border)"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        style="color: var(--svc-title)"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M7 8c0-2 2-4 5-4s5 2 5 4c0 1-.6 1.9-1.6 2.6C16.6 11 18 12 18 14c0 3-3 6-6 6s-6-3-6-6c0-2 1.4-3 2.6-3.4C7.6 9.9 7 9 7 8Z"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+
+                    <span
+                      class="inline-flex items-center rounded-full border bg-white/80 px-3 py-1 text-xs font-extrabold"
+                      style="
+                        border-color: var(--svc-border);
+                        color: color-mix(in srgb, var(--bg-primary) 75%, transparent);
+                      "
+                    >
+                      Ver detalles
+                    </span>
+                  </div>
+
+                  <h3
+                    class="mt-5 text-xl font-black transition-colors line-clamp-2 min-h-[3.2rem] leading-snug group-hover:opacity-90"
+                    style="color: var(--svc-title)"
+                  >
+                    {{ s.card_title }}
+                  </h3>
+
+                  <p
+                    class="mt-3 leading-relaxed line-clamp-4 min-h-[6.25rem]"
+                    style="color: var(--svc-body)"
+                  >
+                    {{ s.card_description }}
+                  </p>
+
+                  <div class="mt-auto pt-6">
+                    <div class="flex items-center justify-between">
+                      <div
+                        class="flex items-center gap-2 text-xs font-semibold"
+                        style="color: var(--svc-muted)"
+                      >
+                        <span
+                          class="h-2 w-2 rounded-full"
+                          style="background: var(--svc-accent)"
+                        ></span>
+                        Enfoque personalizado
+                      </div>
+
+                      <div
+                        class="inline-flex items-center gap-2 font-extrabold text-sm"
+                        style="color: var(--svc-title)"
+                      >
+                        Saber más
+                        <span class="transition-transform group-hover:translate-x-1">→</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="pointer-events-none absolute bottom-0 left-0 right-0 h-24 opacity-70"
+                  style="
+                    background: radial-gradient(
+                        circle at 12% 85%,
+                        color-mix(in srgb, var(--accent) 14%, transparent),
+                        transparent 40%
+                      ),
+                      radial-gradient(
+                        circle at 88% 25%,
+                        color-mix(in srgb, var(--bg-secondary) 12%, transparent),
+                        transparent 45%
+                      );
+                  "
+                ></div>
+
+                <div
+                  class="h-1 w-full"
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      transparent,
+                      color-mix(in srgb, var(--accent) 55%, transparent),
+                      color-mix(in srgb, var(--bg-secondary) 45%, transparent),
+                      color-mix(in srgb, var(--sky) 55%, transparent)
+                    );
+                  "
+                ></div>
+              </div>
+            </div>
+          </a>
+          }
+        </div>
+
+        <!-- Footer CTA -->
+        <div
+          class="mt-10 rounded-[2rem] backdrop-blur-xl overflow-hidden shadow-[0_24px_70px_-50px_rgba(14,40,89,.55)]"
+          style="background: var(--svc-card-bg); border: 1px solid rgba(255, 255, 255, 0.7)"
+        >
+          <div
+            class="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+          >
+            <div class="max-w-2xl">
+              <p class="text-xs font-extrabold tracking-wide" style="color: var(--svc-accent)">
+                ORIENTACIÓN
+              </p>
+              <h4 class="mt-1 text-xl md:text-2xl font-black" style="color: var(--svc-title)">
+                ¿No encuentras lo que buscas?
+              </h4>
+              <p class="mt-2" style="color: var(--svc-body)">
+                Cuéntanos tus síntomas o diagnóstico y te orientamos sobre el siguiente paso.
+              </p>
+            </div>
+
+            <a
+              routerLink="/contacto"
+              class="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-white font-extrabold transition hover:brightness-95"
+              style="
+                background: var(--accent);
+                box-shadow: 0 18px 50px -25px color-mix(in srgb, var(--accent) 90%, transparent);
+              "
+            >
+              Hablar con el equipo
+            </a>
+          </div>
+
+          <div class="h-1.5 w-full" style="background: var(--svc-rail-2)"></div>
+        </div>
+
+        } }
       </div>
+    </div>
     }
   </div>
 </section>

@@ -3,147 +3,504 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+/* src/styles.css */
+:root{
+  /* Brand palette */
+  --brand-950: #050a30; /* primary deep */
+  --brand-800: #284b63; /* secondary deep */
+  --brand-500: #7393a7; /* info/link */
+  --brand-300: #9ec5cb; /* accent */
+  --brand-200: #adb5bf; /* neutral/muted */
+  --brand-600: #616772; /* muted text */
 
-  --brand-navy: 14 40 89;    /* #0E2859 */
-  --brand-orange: 206 108 55;/* #CE6C37 */
-  --brand-blue: 33 94 187;   /* #215EBB */
-  --brand-sky: 175 206 227;  /* #AFCEE3 */
-  --brand-sand: 195 182 146; /* #C3B692 */
+  /* Semantic tokens (usa esto en componentes) */
+  --bg-primary: var(--brand-950);
+  --bg-secondary: var(--brand-800);
 
+  --text-primary: #ffffff;
+  --text-muted: var(--brand-200);
+  --text-subtle: var(--brand-600);
+
+  --accent: var(--brand-300);
+  --accent-2: var(--brand-500);
+
+  --border-soft: color-mix(in srgb, #ffffff 12%, transparent);
+  --border-ink: color-mix(in srgb, var(--brand-950) 12%, transparent);
+
+  --glass-bg: color-mix(in srgb, #ffffff 78%, transparent);
+  --glass-border: color-mix(in srgb, var(--brand-950) 10%, transparent);
+
+  --ring-soft: color-mix(in srgb, #ffffff 18%, transparent);
+
+  /* HERO tokens */
+  --hero-overlay: color-mix(in srgb, var(--bg-primary) 72%, transparent);
+  --hero-overlay-strong: color-mix(in srgb, var(--bg-primary) 86%, transparent);
+  --hero-shadow: 0 40px 120px -60px rgba(0,0,0,.7);
+
+  --hero-glow-a: color-mix(in srgb, var(--accent-2) 25%, transparent);
+  --hero-glow-b: color-mix(in srgb, var(--accent) 22%, transparent);
+
+  /* Optional: CTA shadow */
+  --cta-shadow: 0 18px 50px -25px rgba(5,10,48,.85);
+
+  /* TRUST STRIP tokens */
+  --trust-bg-from: color-mix(in srgb, var(--accent) 26%, white);
+  --trust-grid: rgba(5,10,48,.14);
+
+  --trust-glow-a: color-mix(in srgb, var(--accent-2) 16%, transparent);
+  --trust-glow-b: color-mix(in srgb, var(--accent) 14%, transparent);
+
+  --trust-card-bg: rgba(255,255,255,.72);
+  --trust-card-border: rgba(255,255,255,.70);
+
+  --trust-shadow: 0 14px 40px -22px rgba(5,10,48,.45);
+  --trust-shadow-hover: 0 22px 55px -22px rgba(5,10,48,.55);
+
+  --trust-grad-a: color-mix(in srgb, var(--bg-secondary) 32%, transparent);
+  --trust-grad-b: color-mix(in srgb, var(--accent-2) 26%, transparent);
+  --trust-grad-c: color-mix(in srgb, var(--accent) 52%, transparent);
+
+  /* ABOUT v2 */
+  --about-bg: color-mix(in srgb, var(--accent) 14%, white);
+  --about-mesh-a: color-mix(in srgb, var(--accent-2) 18%, transparent);
+  --about-mesh-b: color-mix(in srgb, var(--bg-secondary) 14%, transparent);
+  --about-mesh-c: color-mix(in srgb, var(--text-muted) 22%, transparent);
+
+  --about-ink: var(--bg-primary);
+  --about-muted: color-mix(in srgb, var(--bg-primary) 58%, transparent);
+  --about-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+
+  --about-glass: rgba(255,255,255,.62);
+  --about-glass-2: rgba(255,255,255,.78);
+
+  --about-shadow: 0 30px 90px -55px rgba(5,10,48,.55);
+  --about-shadow-soft: 0 18px 55px -45px rgba(5,10,48,.35);
+
+  /* SERVICES PREVIEW TOKENS (2026) */
+  --services-bg: color-mix(in srgb, var(--accent) 18%, white);          /* fondo cálido/soft */
+  --services-pill-bg: color-mix(in srgb, var(--accent-2) 22%, white);   /* badge */
+  --services-pill-text: var(--bg-primary);
+
+  --services-title: var(--bg-primary);
+  --services-body: color-mix(in srgb, var(--bg-primary) 62%, transparent);
+
+  --services-card-bg: rgba(255,255,255,.72);
+  --services-card-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+
+  --services-cta-bg: var(--bg-primary);
+  --services-cta-hover: var(--bg-secondary);
+
+  /* SERVICES CAROUSEL TOKENS */
+  --svc-ctrl-bg: var(--bg-primary);
+  --svc-ctrl-bg-hover: var(--bg-secondary);
+  --svc-ctrl-text: #fff;
+
+  --svc-card-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+  --svc-card-shadow: 0 18px 55px -45px rgba(5,10,48,.35);
+
+  --svc-card-bg: rgba(255,255,255,.72);
+  --svc-card-bg-2: rgba(255,255,255,.82);
+
+  --svc-title: var(--bg-primary);
+  --svc-body: color-mix(in srgb, var(--bg-primary) 62%, transparent);
+
+  --svc-icon-bg: rgba(255,255,255,.70);
+  --svc-icon-border: rgba(255,255,255,.45);
+
+  --svc-tone-sky: color-mix(in srgb, var(--accent-2) 16%, white); /* azul suave */
+  --svc-tone-sand: color-mix(in srgb, var(--accent) 18%, white);   /* aqua/gray suave */
+
+  --svc-btn-bg: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary));
+  --svc-btn-dot: var(--accent-2); /* sustituye el naranja */
+
+  /* Controls */
+  --svc-ctrl-bg: var(--bg-primary);
+  --svc-ctrl-bg-hover: var(--bg-secondary);
+  --svc-ctrl-text: #fff;
+
+  /* Card */
+  --svc-card-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+  --svc-card-bg: rgba(255, 255, 255, 0.72);
+  --svc-card-bg-2: rgba(255, 255, 255, 0.82);
+  --svc-card-shadow: 0 18px 55px -45px rgba(5, 10, 48, 0.35);
+
+  /* Text */
+  --svc-title: var(--bg-primary);
+  --svc-body: color-mix(in srgb, var(--bg-primary) 62%, transparent);
+
+  /* Icon */
+  --svc-icon-bg: rgba(255, 255, 255, 0.70);
+  --svc-icon-border: rgba(255, 255, 255, 0.45);
+
+  /* Tones */
+  --svc-tone-sky: color-mix(in srgb, var(--accent-2) 16%, white);
+  --svc-tone-sand: color-mix(in srgb, var(--accent) 18%, white);
+
+  /* Button */
+  --svc-btn-bg: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary));
+  --svc-btn-dot: var(--accent-2);
+
+  /* SYMPTOMS TOKENS */
+  --symp-bg: color-mix(in srgb, var(--accent) 18%, white);            /* fondo soft */
+  --symp-pill-bg: color-mix(in srgb, var(--accent-2) 22%, white);
+  --symp-pill-text: var(--bg-primary);
+
+  --symp-title: var(--bg-primary);
+  --symp-body: color-mix(in srgb, var(--bg-primary) 62%, transparent);
+
+  --symp-card-bg: rgba(255,255,255,.82);
+  --symp-card-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+
+  --symp-icon-bg: linear-gradient(135deg,
+      color-mix(in srgb, var(--accent) 55%, white),
+      rgba(255,255,255,.85)
+  );
+  --symp-check-bg: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+
+  --symp-underline: var(--accent-2);
+
+  /* Alarm panel */
+  --alarm-bg: color-mix(in srgb, var(--accent-2) 14%, white);
+  --alarm-accent: var(--bg-secondary);
+
+  /* Buttons */
+  --symp-cta-bg: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary));
+  --symp-cta-dot: var(--accent-2);
+
+  --symp-wa-bg: #fff;
+  --symp-wa-border: color-mix(in srgb, var(--bg-primary) 15%, transparent);
+  --symp-wa-hover: color-mix(in srgb, var(--bg-primary) 6%, white);
+
+  /* PROCESS SECTION TOKENS */
+  --proc-bg: #fff;
+
+  --proc-pill-bg: color-mix(in srgb, var(--accent-2) 22%, white);
+  --proc-pill-text: var(--bg-primary);
+  --proc-pill-dot: var(--bg-secondary);
+
+  --proc-title: var(--bg-primary);
+  --proc-body: color-mix(in srgb, var(--bg-primary) 62%, transparent);
+  --proc-underline: color-mix(in srgb, var(--accent-2) 42%, transparent);
+
+  --proc-line: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+
+  /* Timeline node */
+  --proc-node-bg: #fff;
+  --proc-node-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+  --proc-node-ring: color-mix(in srgb, var(--accent) 30%, transparent);
+  --proc-icon: var(--bg-primary);
+
+  /* Step badge */
+  --proc-step-badge-bg: color-mix(in srgb, var(--accent) 22%, white);
+  --proc-step-badge-text: var(--bg-secondary);
+
+  /* Card */
+  --proc-card-bg: rgba(255,255,255,.90);
+  --proc-card-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+  --proc-card-glow-1: color-mix(in srgb, var(--accent) 38%, transparent);
+  --proc-card-glow-2: color-mix(in srgb, var(--accent-2) 24%, transparent);
+
+  --proc-accent-dot: var(--accent-2);
+
+  /* Meta chips */
+  --proc-chip-bg: color-mix(in srgb, var(--accent-2) 18%, white);
+  --proc-chip-dot: var(--bg-secondary);
+  --proc-meta: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+
+  /* CTA panel */
+  --proc-panel-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 26%, white),
+    rgba(255,255,255,.95),
+    color-mix(in srgb, var(--border) 16%, white)
+  );
+  --proc-panel-card-bg: rgba(255,255,255,.86);
+
+  --proc-mini-icon-bg-1: color-mix(in srgb, var(--accent-2) 20%, white);
+  --proc-mini-icon-bg-2: color-mix(in srgb, var(--bg-secondary) 14%, white);
+  --proc-mini-icon-bg-3: color-mix(in srgb, var(--accent) 28%, white);
+
+  /* Buttons */
+  --proc-cta-bg: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary));
+  --proc-cta-dot: var(--accent-2);
+
+  --proc-bg: #fff;
+
+  --proc-pill-bg: color-mix(in srgb, var(--accent-2) 22%, white);
+  --proc-pill-text: var(--bg-primary);
+  --proc-pill-dot: var(--bg-secondary);
+
+  --proc-title: var(--bg-primary);
+  --proc-body: color-mix(in srgb, var(--bg-primary) 62%, transparent);
+  --proc-underline: color-mix(in srgb, var(--accent-2) 42%, transparent);
+
+  --proc-line: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+
+  --proc-node-bg: #fff;
+  --proc-node-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+  --proc-node-ring: color-mix(in srgb, var(--accent) 30%, transparent);
+  --proc-icon: var(--bg-primary);
+
+  --proc-step-badge-bg: color-mix(in srgb, var(--accent) 22%, white);
+  --proc-step-badge-text: var(--bg-secondary);
+
+  --proc-card-bg: rgba(255,255,255,.90);
+  --proc-card-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+  --proc-card-glow-1: color-mix(in srgb, var(--accent) 38%, transparent);
+  --proc-card-glow-2: color-mix(in srgb, var(--accent-2) 24%, transparent);
+
+  --proc-accent-dot: var(--accent-2);
+
+  --proc-chip-bg: color-mix(in srgb, var(--accent-2) 18%, white);
+  --proc-chip-dot: var(--bg-secondary);
+  --proc-meta: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+
+  --proc-panel-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 26%, white),
+    rgba(255,255,255,.95),
+    color-mix(in srgb, var(--border) 16%, white)
+  );
+  --proc-panel-card-bg: rgba(255,255,255,.86);
+
+  --proc-mini-icon-bg-1: color-mix(in srgb, var(--accent-2) 20%, white);
+  --proc-mini-icon-bg-2: color-mix(in srgb, var(--bg-secondary) 14%, white);
+  --proc-mini-icon-bg-3: color-mix(in srgb, var(--accent) 28%, white);
+
+  --proc-cta-bg: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary));
+  --proc-cta-dot: var(--accent-2);
+
+  /* CTA tokens */
+  --cta-bg: var(--bg-primary);
+
+  --cta-shell: rgba(255,255,255,.10);
+  --cta-border: rgba(255,255,255,.12);
+
+  --cta-accent-bar: linear-gradient(90deg, var(--accent), var(--bg-secondary), var(--sky));
+
+  --cta-pill-bg: rgba(255,255,255,.10);
+  --cta-pill-text: rgba(255,255,255,.92);
+  --cta-pill-dot: var(--accent);
+
+  --cta-title: rgba(255,255,255,.98);
+  --cta-body: rgba(255,255,255,.84);
+  --cta-muted: rgba(255,255,255,.68);
+  --cta-footnote: rgba(255,255,255,.60);
+
+  --cta-underline: color-mix(in srgb, var(--accent) 38%, transparent);
+
+  --cta-card: rgba(255,255,255,.10);
+
+  /* Primary CTA button */
+  --cta-primary-btn-bg: #fff;
+  --cta-primary-btn-text: var(--bg-primary);
+
+  /* Secondary CTA button */
+  --cta-secondary-btn-bg: rgba(255,255,255,.02);
+  --cta-secondary-btn-text: rgba(255,255,255,.95);
+  --cta-secondary-btn-border: rgba(255,255,255,.22);
+
+  --cta-whats-badge-bg: rgba(37, 211, 102, .15); /* verde WA */
+  --cta-accent-dot: var(--accent);
+
+  /* Steps */
+  --cta-step-1-bg: color-mix(in srgb, var(--accent) 22%, transparent);
+  --cta-step-2-bg: color-mix(in srgb, var(--sky) 22%, transparent);
+  --cta-step-3-bg: color-mix(in srgb, var(--bg-secondary) 22%, transparent);
+
+  /* Tip card */
+  --cta-tip-bg: rgba(255,255,255,.08);
+
+   /* section */
+  --tst-bg: color-mix(in srgb, var(--sky) 22%, white);
+  --tst-ring: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+
+  /* header pill */
+  --tst-pill-bg: rgba(255,255,255,.72);
+  --tst-pill-text: var(--bg-primary);
+  --tst-pill-dot: var(--accent);
+
+  /* typography */
+  --tst-title: var(--bg-primary);
+  --tst-sub: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+  --tst-comment: color-mix(in srgb, var(--bg-primary) 82%, transparent);
+
+  --tst-meta: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+  --tst-meta-dot: color-mix(in srgb, var(--bg-primary) 25%, transparent);
+
+  /* cards */
+  --tst-card-bg: rgba(255,255,255,.80);
+  --tst-card-border: color-mix(in srgb, var(--bg-primary) 10%, transparent);
+
+  /* hover glows */
+  --tst-glow-1: color-mix(in srgb, var(--sky) 55%, transparent);
+  --tst-glow-2: color-mix(in srgb, var(--accent) 18%, transparent);
+
+  /* accent bar */
+  --tst-accent-bar: linear-gradient(90deg, var(--accent), var(--bg-secondary), var(--sky));
+
+  /* quote badge */
+  --tst-quote-bg: color-mix(in srgb, var(--sky) 35%, transparent);
+
+  /* verified badge */
+  --tst-verified-bg: color-mix(in srgb, var(--accent-2) 10%, transparent);
+  --tst-verified-text: var(--accent-2);
+  --tst-verified-border: color-mix(in srgb, var(--accent-2) 18%, transparent);
+  --tst-verified-dot: var(--accent-2);
+
+  /* links */
+  --tst-link: var(--bg-secondary);
+
+  /* stars */
+  --tst-star: var(--accent);
+  --tst-star-base: color-mix(in srgb, var(--accent) 15%, transparent);
+  --tst-star-stroke: color-mix(in srgb, var(--accent) 35%, transparent);
+
+  /* bottom CTA */
+  --tst-cta-bg: var(--bg-primary);
+  --tst-cta-text: white;
+  --tst-cta-badge: rgba(255,255,255,.10);
+
+  /* states */
+  --tst-state-bg: rgba(255,255,255,.82);
+  --tst-danger-border: rgba(239, 68, 68, .25);
+  --tst-danger-text: rgb(28, 99, 185);
+
+  /* Fondo + blobs */
+  --abt-bg: color-mix(in srgb, var(--sky) 22%, white);
+  --abt-blob-1: color-mix(in srgb, var(--sky) 55%, transparent);
+  --abt-blob-2: color-mix(in srgb, var(--sand) 35%, transparent);
+  --abt-blob-3: color-mix(in srgb, var(--bg-secondary) 12%, transparent);
+
+  /* Texto */
+  --abt-title: var(--bg-primary);
+  --abt-body: color-mix(in srgb, var(--bg-primary) 72%, transparent);
+  --abt-muted: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+
+  /* Links / breadcrumb */
+  --abt-link: var(--bg-secondary);
+  --abt-link-muted: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+  --abt-sep: color-mix(in srgb, var(--bg-primary) 28%, transparent);
+
+  /* Superficies */
+  --abt-card-bg: rgba(255,255,255,.84);
+  --abt-card-bg-strong: rgba(255,255,255,.92);
+  --abt-border: color-mix(in srgb, var(--bg-primary) 10%, transparent);
+
+  /* Pill / chips */
+  --abt-pill-bg: color-mix(in srgb, var(--sky) 35%, transparent);
+  --abt-pill-text: var(--bg-primary);
+
+  /* Acentos */
+  --abt-accent-bar: linear-gradient(90deg, var(--accent), var(--bg-secondary), var(--sky));
+  --abt-underline: color-mix(in srgb, var(--accent) 30%, transparent);
+
+  /* Photo */
+  --abt-photo-frame: color-mix(in srgb, var(--sky) 25%, transparent);
+  --abt-photo-overlay: linear-gradient(to top, color-mix(in srgb, var(--bg-primary) 35%, transparent), transparent);
+
+  /* Tags */
+  --abt-tag-bg: color-mix(in srgb, var(--bg-primary) 5%, white);
+  --abt-tag-border: color-mix(in srgb, var(--bg-primary) 12%, transparent);
+
+  /* WA */
+  --abt-wa-bg: rgba(37, 211, 102, .14);
+
+   /* page */
+  --svc-bg: color-mix(in srgb, var(--sky) 22%, white);
+
+  /* blobs + pattern */
+  --svc-blob-1: color-mix(in srgb, var(--sky) 55%, transparent);
+  --svc-blob-2: color-mix(in srgb, var(--bg-secondary) 12%, transparent);
+  --svc-blob-3: color-mix(in srgb, var(--sand) 28%, transparent);
+  --svc-dot: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+
+  /* text */
+  --svc-title: var(--bg-primary);
+  --svc-body: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+  --svc-muted: color-mix(in srgb, var(--bg-primary) 55%, transparent);
+  --svc-link: var(--bg-secondary);
+  --svc-sep: color-mix(in srgb, var(--bg-primary) 30%, transparent);
+
+  /* surfaces */
+  --svc-card-bg: rgba(255,255,255,.72);
+  --svc-card-bg-strong: rgba(255,255,255,.82);
+  --svc-border: color-mix(in srgb, var(--bg-primary) 10%, transparent);
+
+  /* pills / chips */
+  --svc-pill-bg: color-mix(in srgb, var(--sky) 40%, transparent);
+  --svc-pill-text: var(--bg-primary);
+
+  /* accents */
+  --svc-accent: var(--accent);
+  --svc-rail: linear-gradient(90deg, var(--accent), var(--bg-secondary), var(--sky));
+  --svc-rail-2: linear-gradient(90deg, var(--sky), var(--bg-secondary), var(--accent));
+  --svc-underline: color-mix(in srgb, var(--accent) 30%, transparent);
+
+  /* focus */
+  --svc-ring: color-mix(in srgb, var(--sky) 35%, transparent);
+  --svc-border-active: color-mix(in srgb, var(--bg-secondary) 30%, transparent);
+
+  /* count card gradient */
+  --svc-count-grad: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+
+  /* service card border gradient */
+  --svc-card-grad: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 25%, transparent),
+    color-mix(in srgb, var(--bg-secondary) 22%, transparent),
+    color-mix(in srgb, var(--sky) 55%, transparent)
+  );
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-
-  --brand-navy: 14 40 89;    /* #0E2859 */
-  --brand-orange: 206 108 55;/* #CE6C37 */
-  --brand-blue: 33 94 187;   /* #215EBB */
-  --brand-sky: 175 206 227;  /* #AFCEE3 */
-  --brand-sand: 195 182 146; /* #C3B692 */
-
+/* Controls */
+.svc-ctrl {
+  background: var(--svc-ctrl-bg);
+  color: var(--svc-ctrl-text);
+  border: 1px solid color-mix(in srgb, var(--svc-ctrl-bg) 85%, white 15%);
+}
+.svc-ctrl:hover {
+  background: var(--svc-ctrl-bg-hover);
+}
+.svc-ctrl:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
-@theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-   /* ✅ Brand tokens for Tailwind utilities */
-  --color-brand-navy: rgb(var(--brand-navy) / <alpha-value>);
-  --color-brand-orange: rgb(var(--brand-orange) / <alpha-value>);
-  --color-brand-blue: rgb(var(--brand-blue) / <alpha-value>);
-  --color-brand-sky: rgb(var(--brand-sky) / <alpha-value>);
-  --color-brand-sand: rgb(var(--brand-sand) / <alpha-value>);
-
-
+/* Cards */
+.svc-card {
+  border: 1px solid var(--svc-card-border);
+  background: var(--svc-card-bg-2);
+  box-shadow: var(--svc-card-shadow);
+}
+.svc-card:hover {
+  box-shadow: 0 28px 70px -55px rgba(5, 10, 48, 0.55);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Icon bubble */
+.svc-icon {
+  background: var(--svc-icon-bg);
+  border: 1px solid var(--svc-icon-border);
 }
 
+/* CTA */
+.svc-btn {
+  background: var(--svc-btn-bg);
+  color: #fff;
+}
+
+
+/* Horizontal stepper line (desktop) */
+.proc-stepper-line{
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--proc-line),
+    transparent
+  );
+}
+
+/* little connector dot between steps */
+.proc-connector-dot{
+  background: var(--proc-line);
+}

@@ -1,0 +1,40 @@
+/* ✅ Desktop stepper grid: se adapta a N pasos sin romper */
+.proc-stepper{
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: start;
+}
+
+/* ✅ Node + connector */
+.proc-step{
+  position: relative;
+}
+
+.proc-nodeWrap{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Línea que conecta al siguiente step */
+.proc-nodeWrap::after{
+  content: "";
+  position: absolute;
+  top: 24px;              /* mitad del nodo (h-12) */
+  left: calc(50% + 32px); /* sale del nodo hacia la derecha */
+  right: -12px;           /* llega casi al borde del step */
+  height: 1px;
+  background: var(--proc-line);
+}
+
+/* El último step no tiene línea */
+.proc-step:last-child .proc-nodeWrap::after{
+  display: none;
+}
+
+/* Si el grid se va a 1 columna por espacio, también quitamos conectores */
+@media (max-width: 1023px){
+  .proc-nodeWrap::after{ display:none; }
+}

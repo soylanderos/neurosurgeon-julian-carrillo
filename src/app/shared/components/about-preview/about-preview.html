@@ -1,17 +1,157 @@
-<!-- About Doctor Preview (modern) -->
-<section class="relative overflow-hidden bg-[#F7FAFF] py-20 md:py-28">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+<!-- ABOUT v2 (premium + scannable) -->
+<section class="relative overflow-hidden py-20 md:py-28" style="background: var(--about-bg);">
+  <!-- auras + grid -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute -top-24 -right-28 h-[420px] w-[420px] rounded-full blur-3xl bg-[color:var(--about-aura-a)]"></div>
+    <div class="absolute -bottom-28 -left-28 h-[520px] w-[520px] rounded-full blur-3xl bg-[color:var(--about-aura-b)]"></div>
+
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="
+        background-image:
+          linear-gradient(to right, rgba(5,10,48,.14) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(5,10,48,.14) 1px, transparent 1px);
+        background-size: 64px 64px;
+      "
+    ></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-12 gap-12 items-center">
-      <!-- LEFT: Image mosaic -->
+      <!-- LEFT: Copy (scannable) -->
+      <div class="lg:col-span-6">
+        <!-- badge -->
+        <div
+          class="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur border px-4 py-2 shadow-sm"
+          style="border-color: var(--about-border);"
+        >
+          <span class="h-2 w-2 rounded-full bg-[var(--bg-secondary)]"></span>
+          <span class="text-xs font-extrabold tracking-[0.18em] uppercase" style="color: var(--bg-primary);">
+            Sobre mí
+          </span>
+        </div>
+
+        <!-- headline -->
+        <h2 class="mt-5 text-3xl md:text-4xl lg:text-5xl font-black leading-[1.05] text-balance" style="color: var(--bg-primary);">
+          Atención humana, precisa y
+          <span class="relative inline-block">
+            basada en evidencia
+            <span class="absolute -bottom-2 left-0 right-0 h-2 rounded-full bg-[color:var(--bg-secondary)]/22"></span>
+          </span>
+        </h2>
+
+        <p class="mt-5 text-lg leading-relaxed text-pretty max-w-xl" style="color: var(--about-muted);">
+          Neurocirujano certificado enfocado en diagnóstico claro, opciones de tratamiento bien explicadas
+          y acompañamiento real durante tu recuperación.
+        </p>
+
+        <!-- proof chips -->
+        <div class="mt-7 flex flex-wrap gap-2">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/70 border px-4 py-2 text-sm font-extrabold"
+                style="border-color: var(--about-border); color: var(--bg-primary);">
+            <span class="h-2 w-2 rounded-full bg-[var(--accent)]"></span>
+            Cerebro &amp; Columna
+          </span>
+
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/70 border px-4 py-2 text-sm font-extrabold"
+                style="border-color: var(--about-border); color: var(--bg-primary);">
+            <span class="h-2 w-2 rounded-full bg-[var(--accent-2)]"></span>
+            Protocolos seguros
+          </span>
+
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/70 border px-4 py-2 text-sm font-extrabold"
+                style="border-color: var(--about-border); color: var(--bg-primary);">
+            <span class="h-2 w-2 rounded-full bg-[var(--bg-secondary)]"></span>
+            Explicación simple
+          </span>
+        </div>
+
+        <!-- feature cards (clean) -->
+        <div class="mt-8 grid gap-3">
+          <div class="rounded-3xl bg-white/85 backdrop-blur border p-5 shadow-sm"
+               style="border-color: var(--about-border); box-shadow: var(--about-shadow);">
+            <div class="flex items-start gap-4">
+              <div class="h-12 w-12 rounded-2xl grid place-items-center border bg-white"
+                   style="border-color: var(--about-border);">
+                <lucide-icon [img]="iShield" class="h-6 w-6" style="color: var(--bg-primary);"></lucide-icon>
+              </div>
+              <div class="min-w-0">
+                <p class="text-base font-black" style="color: var(--bg-primary);">Atención confiable</p>
+                <p class="mt-1 text-sm leading-relaxed" style="color: var(--about-muted);">
+                  Te digo qué está pasando, qué opciones hay y por qué. Sin humo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/85 backdrop-blur border p-5 shadow-sm"
+               style="border-color: var(--about-border);">
+            <div class="flex items-start gap-4">
+              <div class="h-12 w-12 rounded-2xl grid place-items-center border"
+                   style="border-color: color-mix(in srgb, var(--bg-secondary) 25%, transparent);
+                          background: color-mix(in srgb, var(--bg-secondary) 14%, white);">
+                <lucide-icon [img]="iAward" class="h-6 w-6" style="color: var(--bg-primary);"></lucide-icon>
+              </div>
+              <div class="min-w-0">
+                <p class="text-base font-black" style="color: var(--bg-primary);">Experiencia y certificación</p>
+                <p class="mt-1 text-sm leading-relaxed" style="color: var(--about-muted);">
+                  Formación especializada en cirugía de cerebro y columna, con enfoque personalizado por paciente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a
+            [routerLink]="['/dr-julian-carrillo']"
+            class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-extrabold text-white
+                   hover:brightness-110 transition shadow-sm"
+            style="background: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary));"
+          >
+            <lucide-icon [img]="iUser" class="h-5 w-5"></lucide-icon>
+            Conocer más
+            <span class="font-black" style="color: var(--accent);">→</span>
+          </a>
+
+          <a
+            routerLink="/contacto"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-white border px-7 py-3 text-sm font-extrabold
+                   hover:bg-[color:var(--bg-primary)]/5 transition"
+            style="border-color: var(--about-border); color: var(--bg-primary);"
+          >
+            <lucide-icon [img]="iCalendar" class="h-5 w-5" style="color: var(--accent-2);"></lucide-icon>
+            Agendar cita
+          </a>
+        </div>
+
+        <!-- micro note -->
+        <p class="mt-5 text-xs leading-relaxed max-w-xl" style="color: color-mix(in srgb, var(--bg-primary) 45%, transparent);">
+          La información en este sitio es general y no sustituye una consulta médica.
+        </p>
+      </div>
+
+      <!-- RIGHT: Mosaic (premium) -->
       <div class="lg:col-span-6">
         <div class="relative">
-          <!-- accent card behind -->
-          <div class="absolute -inset-6 rounded-[28px] bg-white/50 border border-[#0E2859]/10 backdrop-blur"></div>
+          <!-- frame -->
+          <div class="absolute -inset-6 rounded-[32px] bg-white/55 backdrop-blur border"
+               style="border-color: var(--about-border);"></div>
+
+          <!-- top floating badge -->
+          <div class="absolute -top-4 left-6 z-10">
+            <div class="rounded-full bg-white/85 backdrop-blur border px-4 py-2 text-xs font-extrabold shadow-sm"
+                 style="border-color: var(--about-border); color: var(--bg-primary);">
+              Hospital Ángeles Cd. Juárez · Consultorio 675
+            </div>
+          </div>
 
           <div class="relative grid grid-cols-12 gap-4">
-            <!-- big portrait -->
+            <!-- portrait -->
             <div class="col-span-7">
-              <div class="relative overflow-hidden rounded-3xl border border-[#0E2859]/10 bg-white shadow-xl">
+              <div class="relative overflow-hidden rounded-3xl border bg-white"
+                   style="border-color: var(--about-border); box-shadow: var(--about-shadow);">
                 <div class="aspect-[4/5]">
                   <img
                     src="https://scontent.fcuu4-1.fna.fbcdn.net/v/t51.82787-15/604423565_17921606262211672_2398744168122886309_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFH-DpSKV9IVMUvzGDZTATsdXP0u0SVWMx1c_S7RJVYzCqRsZzg3pj2Fa9RqBgCKO_jpJJlY485QqhsfCxJDn4v&_nc_ohc=oPRFf2BWN-sQ7kNvwGck72K&_nc_oc=Adn7IRT7HhRt241_gs39v8iyXWObKjqNfKsNduuKHGOzhvOWvY1z9chAP8IgpZbgtcY&_nc_zt=23&_nc_ht=scontent.fcuu4-1.fna&_nc_gid=dx21v8_oY0P_rWm-SDxdmg&oh=00_Afl0-9W3KqVhXSJFSBzfyKniQL9b84oeZz-AvMAqgFA4ow&oe=69579A82"
@@ -22,18 +162,23 @@
                   />
                 </div>
 
-                <!-- bottom label -->
+                <!-- gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--bg-primary)]/22 via-transparent to-transparent"></div>
+
+                <!-- label -->
                 <div class="absolute left-4 bottom-4">
-                  <div class="rounded-full bg-white/85 backdrop-blur px-3 py-1 text-xs font-extrabold text-[#0E2859] border border-[#0E2859]/10">
+                  <div class="rounded-full bg-white/85 backdrop-blur border px-3 py-1 text-xs font-extrabold"
+                       style="border-color: var(--about-border); color: var(--bg-primary);">
                     Neurocirugía · Cerebro &amp; Columna
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- two small tiles -->
+            <!-- right stack -->
             <div class="col-span-5 grid gap-4">
-              <div class="relative overflow-hidden rounded-3xl border border-[#0E2859]/10 bg-white shadow-lg">
+              <div class="relative overflow-hidden rounded-3xl border bg-white"
+                   style="border-color: var(--about-border); box-shadow: 0 18px 55px -45px rgba(5,10,48,.35);">
                 <div class="aspect-[4/3]">
                   <img
                     src="https://scontent.fcuu4-1.fna.fbcdn.net/v/t51.82787-15/588123465_17918349318211672_760394320158936008_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF3vxCixSnWfWl6RqCOoHRiGEmuGYo-7uwYSa4Zij7u7CatUhjd_W0zN8LvrC1n8A2LjITNEEL-DgPw1GJ4BgIq&_nc_ohc=A8NCw-A5jp0Q7kNvwHQbzel&_nc_oc=AdnHSFEVh_z-o3NzMx3fBHBaqlofpjHozdvCDBQne44pUVkK2TSCbavxXCDK13co_ew&_nc_zt=23&_nc_ht=scontent.fcuu4-1.fna&_nc_gid=qnhX4-3NuY7yicX2lDzwdg&oh=00_AfnLQtpmuwC8rkcw-AxQqAduvUd3DienHw-Ym5-TIemJNg&oe=6957BAC0"
@@ -43,129 +188,48 @@
                     decoding="async"
                   />
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0E2859]/20 via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--bg-primary)]/16 via-transparent to-transparent"></div>
               </div>
 
-              <div class="relative overflow-hidden rounded-3xl border border-[#0E2859]/10 bg-white shadow-lg">
-                <div class="aspect-[4/3]">
-                  <img
-                    src="https://scontent.fcuu4-1.fna.fbcdn.net/v/t51.75761-15/488830964_17892266235211672_4967212990980837487_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFo9TCUBIW3nXxLDtNhETrf-Yx3EMO4Xnn5jHcQw7heeXsVBIyOsF_S936LWSIabwIkIiuteKIW0F-Jijq8AEb6&_nc_ohc=1BXJRMZhsBsQ7kNvwG0rdjQ&_nc_oc=AdlHB3LBHacJyz3nhiRtkHyCnP2juLoVnQpUonRvzKZSdzdbg7E3EhufvwSaJbvn6h8&_nc_zt=23&_nc_ht=scontent.fcuu4-1.fna&_nc_gid=7fwJEGVgwLYO_4ayirXeIw&oh=00_AflX_lI78u219dbzOVWVeYoOwwwKX31Ao4vHCYhMm2QBDQ&oe=6957B026"
-                    alt="Atención médica"
-                    class="h-full w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
+              <!-- mini proof card instead of 2nd image: looks more premium -->
+              <div class="rounded-3xl border bg-white/85 backdrop-blur p-5"
+                   style="border-color: var(--about-border); box-shadow: 0 18px 55px -45px rgba(5,10,48,.35);">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-xs font-extrabold uppercase tracking-[0.14em]" style="color: var(--about-muted);">
+                      En consulta
+                    </p>
+                    <p class="mt-1 text-base font-black" style="color: var(--bg-primary);">
+                      Explicación simple
+                    </p>
+                    <p class="mt-1 text-sm leading-relaxed" style="color: var(--about-muted);">
+                      Entiendes el plan y sales con claridad.
+                    </p>
+                  </div>
+                  <span class="grid h-11 w-11 place-items-center rounded-2xl border"
+                        style="border-color: var(--about-border);
+                               background: color-mix(in srgb, var(--accent) 18%, white);">
+                    <lucide-icon [img]="iBadgeCheck" class="h-6 w-6" style="color: var(--bg-secondary);"></lucide-icon>
+                  </span>
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0E2859]/15 via-transparent to-transparent"></div>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold border"
+                        style="border-color: var(--about-border); color: var(--bg-primary); background: rgba(255,255,255,.65);">
+                    Segunda opinión
+                  </span>
+                  <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold border"
+                        style="border-color: var(--about-border); color: var(--bg-primary); background: rgba(255,255,255,.65);">
+                    Seguimiento
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- tiny accent dots -->
-          <div class="absolute -right-3 -top-3 h-3 w-3 rounded-full bg-[#CE6C37]"></div>
-          <div class="absolute -left-3 bottom-10 h-2.5 w-2.5 rounded-full bg-[#215EBB]"></div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Copy + cards -->
-      <div class="lg:col-span-6">
-        <!-- badge -->
-        <div class="inline-flex items-center gap-2 rounded-full bg-white/85 backdrop-blur border border-[#0E2859]/10 px-4 py-2 shadow-sm">
-          <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
-          <span class="text-xs font-extrabold tracking-[0.18em] uppercase text-[#0E2859]">
-            Sobre Mí
-          </span>
-        </div>
-
-        <h2 class="mt-5 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0E2859] leading-tight text-balance">
-          Atención humana, precisa y sin vueltas
-          <span class="relative inline-block">
-            basada en evidencia
-            <span class="absolute -bottom-2 left-0 right-0 h-2 rounded-full bg-[#CE6C37]/30"></span>
-          </span>
-        </h2>
-
-        <p class="mt-5 text-lg text-[#0E2859]/70 leading-relaxed text-pretty max-w-xl">
-          Neurocirujano certificado enfocado en diagnóstico claro, opciones de tratamiento bien explicadas
-          y acompañamiento real durante tu recuperación.
-        </p>
-
-        <p class="mt-4 text-[#0E2859]/65 leading-relaxed text-pretty max-w-xl">
-          Formación especializada en cirugía de cerebro y columna, apoyado en tecnología moderna y un enfoque
-          personalizado para cada paciente.
-        </p>
-
-        <!-- mini highlights row -->
-        <div class="mt-8 grid sm:grid-cols-3 gap-3">
-          <div class="rounded-2xl bg-white/85 backdrop-blur border border-[#0E2859]/10 p-4 shadow-sm">
-            <p class="text-xs font-extrabold text-[#0E2859]/60 uppercase tracking-[0.14em]">Enfoque</p>
-            <p class="mt-1 text-sm font-extrabold text-[#0E2859]">Diagnóstico preciso</p>
-          </div>
-
-          <div class="rounded-2xl bg-white/85 backdrop-blur border border-[#0E2859]/10 p-4 shadow-sm">
-            <p class="text-xs font-extrabold text-[#0E2859]/60 uppercase tracking-[0.14em]">Tratamiento</p>
-            <p class="mt-1 text-sm font-extrabold text-[#0E2859]">Plan claro</p>
-          </div>
-
-          <div class="rounded-2xl bg-white/85 backdrop-blur border border-[#0E2859]/10 p-4 shadow-sm">
-            <p class="text-xs font-extrabold text-[#0E2859]/60 uppercase tracking-[0.14em]">Seguimiento</p>
-            <p class="mt-1 text-sm font-extrabold text-[#0E2859]">Acompañamiento</p>
-          </div>
-        </div>
-
-        <!-- feature cards -->
-        <div class="mt-6 grid gap-4">
-          <div class="rounded-3xl border border-[#0E2859]/10 bg-white/90 backdrop-blur p-5 shadow-sm hover:shadow-md transition">
-            <div class="flex items-start gap-4">
-              <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#AFCEE3]/55 via-white to-[#C3B692]/25 ring-1 ring-[#0E2859]/10 grid place-items-center">
-                <lucide-icon [img]="iShield" class="h-6 w-6 text-[#0E2859]"></lucide-icon>
-              </div>
-              <div class="min-w-0">
-                <p class="text-base font-extrabold text-[#0E2859]">Atención confiable</p>
-                <p class="mt-1 text-sm text-[#0E2859]/65 leading-relaxed">
-                  Explicaciones claras, decisiones informadas y protocolos seguros para tu tranquilidad.
-                </p>
-              </div>
-              <span class="ml-auto mt-1 h-2.5 w-2.5 rounded-full bg-[#CE6C37]"></span>
-            </div>
-          </div>
-
-          <div class="rounded-3xl border border-[#0E2859]/10 bg-white/90 backdrop-blur p-5 shadow-sm hover:shadow-md transition">
-            <div class="flex items-start gap-4">
-              <div class="h-12 w-12 rounded-2xl bg-[#CE6C37]/15 ring-1 ring-[#CE6C37]/20 grid place-items-center">
-                <lucide-icon [img]="iAward" class="h-6 w-6 text-[#0E2859]"></lucide-icon>
-              </div>
-              <div class="min-w-0">
-                <p class="text-base font-extrabold text-[#0E2859]">Experiencia y certificación</p>
-                <p class="mt-1 text-sm text-[#0E2859]/65 leading-relaxed">
-                  Preparación formal y práctica enfocada en cerebro y columna.
-                </p>
-              </div>
-              <span class="ml-auto mt-1 h-2.5 w-2.5 rounded-full bg-[#215EBB]"></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTAs -->
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <a
-            [routerLink]="['/dr-julian-carrillo']"
-            class="inline-flex items-center justify-center gap-2 rounded-full bg-[#0E2859] text-white px-7 py-3 text-sm font-extrabold
-                   shadow-sm hover:shadow-md hover:-translate-y-0.5 transition"
-          >
-            <lucide-icon [img]="iUser" class="h-5 w-5"></lucide-icon>
-            Conocer más
-            <span class="text-[#CE6C37] font-black">→</span>
-          </a>
-
-          <a
-            routerLink="/contacto"
-            class="inline-flex items-center justify-center gap-2 rounded-full bg-white border border-[#0E2859]/15 px-7 py-3 text-sm font-extrabold text-[#0E2859]
-                   hover:bg-[#0E2859]/5 transition"
-          >
-            <lucide-icon [img]="iCalendar" class="h-5 w-5 text-[#215EBB]"></lucide-icon>
-            Agendar cita
-          </a>
+          <!-- accents -->
+          <div class="absolute -right-3 -top-3 h-3 w-3 rounded-full bg-[var(--bg-secondary)]"></div>
+          <div class="absolute -left-3 bottom-10 h-2.5 w-2.5 rounded-full bg-[var(--accent-2)]"></div>
         </div>
       </div>
     </div>

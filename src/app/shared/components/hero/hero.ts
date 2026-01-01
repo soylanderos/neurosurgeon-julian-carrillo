@@ -17,13 +17,14 @@ import {
   User,
   Plus,
   Activity,
-  ArrowBigRight
+  Bone,
+  ArrowBigRight,
+  MessageCircle
 } from 'lucide-angular';
 
 // Si no existe "Bone" en tu versión, usa "Bone" si está o "Backpack" no; mejor:
 // en lucide suele ser "Bone" o "BoneIcon" dependiendo wrapper.
 // Si no te compila, cámbialo por "Activity" o "HeartPulse".
-import { Bone } from 'lucide-angular';
 @Component({
   selector: 'app-hero',
   imports: [RouterLink, LucideAngularModule],
@@ -38,10 +39,9 @@ export class Hero {
 
   iCalendar = CalendarCheck;
   iPhone = Phone;
-  iWhatsapp = Activity; // cámbialo por icono WhatsApp si usas uno custom
+  iWhatsapp = MessageCircle; // cámbialo por icono WhatsApp si usas uno custom
   iMapPin = MapPin;
   iBrain = Brain;
-  iBone = Bone;
   iBadgeCheck = BadgeCheck;
   iChevronDown = ChevronDown;
   iStethoscope = Stethoscope;
@@ -49,6 +49,8 @@ export class Hero {
   iPlus = Plus;
   iPulse = Activity; // o HeartPulse si lo tienes
   iArrowRight = ArrowBigRight
+  iBone = Bone
+  
   readonly pageTitle =
     'Dr. Julián Carrillo - Neurocirujano Especialista en Cerebro y Columna | Ciudad Juárez';
 

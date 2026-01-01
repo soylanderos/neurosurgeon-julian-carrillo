@@ -1,94 +1,109 @@
 @if (error()) {
-  <div class="rounded-2xl border border-red-200 bg-red-50 p-5 text-red-700 text-center">
-    {{ error() }}
-  </div>
+<div
+  class="rounded-2xl border p-5 text-center"
+  style="
+    border-color: color-mix(in srgb, var(--bg-primary) 18%, transparent);
+    background: color-mix(in srgb, var(--accent) 22%, white);
+    color: var(--bg-primary);
+  "
+>
+  {{ error() }}
+</div>
 } @else {
+<div class="relative">
+  <!-- controls -->
+  <button
+    type="button"
+    (click)="prev()"
+    [disabled]="!canPrev()"
+    class="svc-ctrl absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 h-11 w-11 rounded-full grid place-items-center shadow-md hover:shadow-lg transition disabled:opacity-40 disabled:cursor-not-allowed"
+    aria-label="Anterior"
+  >
+    <lucide-icon [img]="iLeft" class="h-5 w-5"></lucide-icon>
+  </button>
 
-  <div class="relative">
-    <!-- controls -->
-    <button
-      type="button"
-      (click)="prev()"
-      [disabled]="!canPrev()"
-      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10
-             h-11 w-11 rounded-full grid place-items-center
-             bg-[#0E2859] text-white shadow-md hover:shadow-lg transition
-             disabled:opacity-40 disabled:cursor-not-allowed"
-      aria-label="Anterior"
+  <button
+    type="button"
+    (click)="next()"
+    [disabled]="!canNext()"
+    class="svc-ctrl absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 h-11 w-11 rounded-full grid place-items-center shadow-md hover:shadow-lg transition disabled:opacity-40 disabled:cursor-not-allowed"
+    aria-label="Siguiente"
+  >
+    <lucide-icon [img]="iRight" class="h-5 w-5"></lucide-icon>
+  </button>
+
+  <!-- content -->
+  @if (loading()) {
+  <div class="grid lg:grid-cols-2 gap-6">
+    @for (_ of [1,2]; track $index) {
+    <div
+      class="rounded-[28px] p-8 shadow-sm animate-pulse"
+      style="background: var(--svc-card-bg); border: 1px solid var(--svc-card-border)"
     >
-      <lucide-icon [img]="iLeft" class="h-5 w-5"></lucide-icon>
-    </button>
-
-    <button
-      type="button"
-      (click)="next()"
-      [disabled]="!canNext()"
-      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10
-             h-11 w-11 rounded-full grid place-items-center
-             bg-[#0E2859] text-white shadow-md hover:shadow-lg transition
-             disabled:opacity-40 disabled:cursor-not-allowed"
-      aria-label="Siguiente"
-    >
-      <lucide-icon [img]="iRight" class="h-5 w-5"></lucide-icon>
-    </button>
-
-    <!-- content -->
-    @if (loading()) {
-      <div class="grid lg:grid-cols-2 gap-6">
-        @for (_ of [1,2]; track $index) {
-          <div class="rounded-[28px] bg-white/70 border border-[#0E2859]/10 p-8 shadow-sm animate-pulse">
-            <div class="h-12 w-12 rounded-2xl bg-slate-200 mb-6"></div>
-            <div class="h-6 w-2/3 bg-slate-200 rounded mb-4"></div>
-            <div class="h-4 w-full bg-slate-200 rounded mb-2"></div>
-            <div class="h-4 w-5/6 bg-slate-200 rounded mb-8"></div>
-            <div class="h-10 w-32 bg-slate-200 rounded-full"></div>
-          </div>
-        }
-      </div>
-
-    } @else {
-
-      <div class="grid lg:grid-cols-2 gap-6">
-        @for (c of visibleCards(); track trackBySlug($index, c)) {
-          <article
-            class="rounded-[28px] p-8 shadow-sm border border-[#0E2859]/10
-                   hover:shadow-xl hover:-translate-y-1 transition"
-            [class.bg-[#EAF3FF]]="c.tone === 'sky'"
-            [class.bg-[#F5EBDD]]="c.tone === 'sand'"
-          >
-            <!-- icon -->
-            <div class="h-12 w-12 rounded-full grid place-items-center bg-white/70 border border-white/40 shadow-sm mb-6">
-              @if (c.icon === 'brain') {
-                <lucide-icon [img]="iBrain" class="h-6 w-6 text-[#0E2859]"></lucide-icon>
-              } @else {
-                <lucide-icon [img]="iActivity" class="h-6 w-6 text-[#0E2859]"></lucide-icon>
-              }
-            </div>
-
-            <h3 class="text-2xl font-extrabold text-[#0E2859] mb-3">
-              {{ c.title }}
-            </h3>
-
-            <p class="text-[#0E2859]/70 leading-relaxed mb-6 text-pretty">
-              {{ c.description }}
-            </p>
-
-            <div class="h-px w-16 bg-[#0E2859]/20 mb-6"></div>
-
-            <a
-              [routerLink]="['/servicios', c.slug]"
-              class="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold
-                     bg-[#0E2859] text-white hover:brightness-110 transition"
-            >
-              Saber más
-              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
-                <lucide-icon [img]="iArrow" class="h-4 w-4"></lucide-icon>
-              </span>
-              <span class="text-[#CE6C37] font-black">•</span>
-            </a>
-          </article>
-        }
-      </div>
+      <div class="h-12 w-12 rounded-2xl bg-black/10 mb-6"></div>
+      <div class="h-6 w-2/3 bg-black/10 rounded mb-4"></div>
+      <div class="h-4 w-full bg-black/10 rounded mb-2"></div>
+      <div class="h-4 w-5/6 bg-black/10 rounded mb-8"></div>
+      <div class="h-10 w-32 bg-black/10 rounded-full"></div>
+    </div>
     }
   </div>
+  } @else {
+  <div class="grid lg:grid-cols-2 gap-6">
+    @for (c of visibleCards(); track trackBySlug($index, c)) {
+    <article
+      class="svc-card rounded-[28px] p-8 hover:-translate-y-1 transition"
+      [style.background]="
+        c.tone === 'sky'
+          ? 'var(--svc-tone-sky)'
+          : c.tone === 'sand'
+          ? 'var(--svc-tone-sand)'
+          : 'var(--svc-card-bg-2)'
+      "
+    >
+      <!-- icon -->
+      <div class="svc-icon h-12 w-12 rounded-full grid place-items-center shadow-sm mb-6">
+        @if (c.icon === 'brain') {
+        <lucide-icon [img]="iBrain" class="h-6 w-6" style="color: var(--svc-title)"></lucide-icon>
+        } @else {
+        <lucide-icon
+          [img]="iActivity"
+          class="h-6 w-6"
+          style="color: var(--svc-title)"
+        ></lucide-icon>
+        }
+      </div>
+
+      <h3 class="text-2xl font-extrabold mb-3" style="color: var(--svc-title)">
+        {{ c.title }}
+      </h3>
+
+      <p class="leading-relaxed mb-6 text-pretty" style="color: var(--svc-body)">
+        {{ c.description }}
+      </p>
+
+      <div
+        class="h-px w-16 mb-6"
+        style="background: color-mix(in srgb, var(--bg-primary) 20%, transparent)"
+      ></div>
+
+      <a
+        [routerLink]="['/servicios', c.slug]"
+        class="svc-btn inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold hover:brightness-110 transition"
+      >
+        Saber más
+        <span
+          class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/12 ring-1 ring-white/15"
+        >
+          <lucide-icon [img]="iArrow" class="h-4 w-4"></lucide-icon>
+        </span>
+
+        <!-- dot accent (ya no naranja) -->
+        <span class="font-black" style="color: var(--svc-btn-dot)">•</span>
+      </a>
+    </article>
+    }
+  </div>
+  }
+</div>
 }

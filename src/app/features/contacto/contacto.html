@@ -1,69 +1,106 @@
-<section class="relative overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white py-16 md:py-24">
+<section
+  class="relative overflow-hidden py-16 md:py-24"
+  style="background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--brand-300) 10%, white),
+    white,
+    white
+  );"
+>
   <!-- Ambient background -->
   <div class="pointer-events-none absolute inset-0">
-    <div class="absolute -top-28 -left-28 h-[520px] w-[520px] rounded-full bg-[#AFCEE3]/50 blur-3xl"></div>
-    <div class="absolute -bottom-32 -right-32 h-[560px] w-[560px] rounded-full bg-[#C3B692]/30 blur-3xl"></div>
-    <div class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full bg-[#215EBB]/10 blur-3xl"></div>
+    <div
+      class="absolute -top-28 -left-28 h-[520px] w-[520px] rounded-full blur-3xl"
+      style="background: color-mix(in srgb, var(--brand-300) 50%, transparent);"
+    ></div>
+    <div
+      class="absolute -bottom-32 -right-32 h-[560px] w-[560px] rounded-full blur-3xl"
+      style="background: color-mix(in srgb, var(--brand-200) 30%, transparent);"
+    ></div>
+    <div
+      class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full blur-3xl"
+      style="background: color-mix(in srgb, var(--brand-500) 12%, transparent);"
+    ></div>
     <div
       class="absolute inset-0 opacity-[0.06]"
-      style="background-image: radial-gradient(rgba(14,40,89,.55) 0.6px, transparent 0.6px); background-size: 18px 18px;"
+      style="background-image: radial-gradient(color-mix(in srgb, var(--brand-950) 70%, transparent) 0.6px, transparent 0.6px); background-size: 18px 18px;"
     ></div>
   </div>
 
   <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb -->
-    <nav class="text-sm text-slate-600 mb-10 max-w-6xl mx-auto">
-      <a routerLink="/" class="hover:text-[#215EBB] transition">Inicio</a>
+    <nav
+      class="text-sm mb-10 max-w-6xl mx-auto"
+      style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);"
+    >
+      <a routerLink="/" class="transition hover:opacity-80" style="color: var(--brand-600);">Inicio</a>
       <span class="mx-2">/</span>
-      <span class="text-[#0E2859] font-semibold">Contacto</span>
+      <span class="font-semibold" style="color: var(--brand-950);">Contacto</span>
     </nav>
 
-    <!-- Header (clean, less “cardy”) -->
+    <!-- Header -->
     <header class="max-w-6xl mx-auto mb-10 md:mb-14">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div class="max-w-3xl">
           <span
-            class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
-                   bg-white/80 text-[#0E2859] border border-[#0E2859]/10 backdrop-blur"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide border backdrop-blur"
+            style="
+              background: rgba(255,255,255,.82);
+              color: var(--brand-950);
+              border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+            "
           >
-            <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+            <span class="h-2 w-2 rounded-full" style="background: var(--brand-500);"></span>
             Atención con cita
           </span>
 
-          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold text-[#0E2859] leading-[1.06] text-balance">
+          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold leading-[1.06] text-balance" style="color: var(--brand-950);">
             Agenda tu consulta
           </h1>
 
-          <p class="mt-3 text-lg md:text-xl text-[#0E2859]/70 leading-relaxed text-pretty">
+          <p class="mt-3 text-lg md:text-xl leading-relaxed text-pretty" style="color: color-mix(in srgb, var(--brand-800) 72%, transparent);">
             Envíanos tu solicitud y te contactamos para confirmar disponibilidad. Para respuesta rápida, WhatsApp.
           </p>
 
           <div class="mt-5 flex flex-wrap gap-2">
-            <span class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70">
+            <span
+              class="inline-flex items-center rounded-full border bg-white/80 px-3 py-1.5 text-xs font-extrabold"
+              style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-600) 85%, transparent);"
+            >
               Respuesta por WhatsApp o llamada
             </span>
-            <span class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70">
+            <span
+              class="inline-flex items-center rounded-full border bg-white/80 px-3 py-1.5 text-xs font-extrabold"
+              style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-600) 85%, transparent);"
+            >
               Ubicación lista para abrir en Maps
             </span>
-            <span class="inline-flex items-center rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#0E2859]/70">
+            <span
+              class="inline-flex items-center rounded-full border bg-white/80 px-3 py-1.5 text-xs font-extrabold"
+              style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-600) 85%, transparent);"
+            >
               Confirmación según disponibilidad
             </span>
           </div>
         </div>
 
-        <!-- Quick CTAs (no repeats later) -->
+        <!-- Quick CTAs -->
         <div class="flex flex-col sm:flex-row gap-3">
           <a
-            class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-5 py-3 text-white font-extrabold shadow-sm hover:bg-[#0E2859]/95 transition"
+            class="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-white font-extrabold shadow-sm transition hover:opacity-95"
             [href]="whatsappUrl"
             target="_blank"
             rel="noopener"
+            style="background: var(--brand-950);"
           >
             WhatsApp
           </a>
           <a
-            class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-[#0E2859] font-extrabold border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+            class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 font-extrabold border transition hover:opacity-90"
             [href]="telUrl"
+            style="
+              color: var(--brand-950);
+              border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+            "
           >
             Llamar
           </a>
@@ -71,25 +108,37 @@
       </div>
     </header>
 
-    <!-- MAIN (Bento): Sticky actions + Form -->
+    <!-- MAIN -->
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[.92fr_1.08fr] gap-8 lg:gap-10 items-start">
-      <!-- LEFT: Sticky Bento Actions -->
+      <!-- LEFT -->
       <aside class="lg:sticky lg:top-24 space-y-6">
         <!-- Action Bento -->
-        <section class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm overflow-hidden">
-          <div class="p-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
-            <h3 class="text-lg font-extrabold text-[#0E2859]">Acciones rápidas</h3>
-            <p class="mt-1 text-sm text-[#0E2859]/65">Elige el canal más rápido para ti.</p>
+        <section
+          class="rounded-3xl backdrop-blur shadow-sm overflow-hidden border"
+          style="background: rgba(255,255,255,.82); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+        >
+          <div
+            class="p-6 border-b"
+            style="
+              border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+              background: linear-gradient(to bottom, color-mix(in srgb, var(--brand-300) 18%, white), white);
+            "
+          >
+            <h3 class="text-lg font-extrabold" style="color: var(--brand-950);">Acciones rápidas</h3>
+            <p class="mt-1 text-sm" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Elige el canal más rápido para ti.</p>
           </div>
 
           <div class="p-6 grid grid-cols-2 gap-3">
             <!-- WhatsApp tile -->
             <a
-              class="col-span-2 group rounded-2xl border border-[#0E2859]/10 bg-gradient-to-br from-[#215EBB] to-[#0E2859]
-                     p-5 text-white shadow-sm hover:shadow-md transition"
+              class="col-span-2 group rounded-2xl p-5 text-white shadow-sm hover:shadow-md transition border"
               [href]="whatsappUrl"
               target="_blank"
               rel="noopener"
+              style="
+                background: linear-gradient(135deg, var(--brand-800), var(--brand-950));
+                border-color: color-mix(in srgb, white 18%, transparent);
+              "
             >
               <div class="flex items-start justify-between gap-4">
                 <div>
@@ -101,284 +150,337 @@
                   <lucide-icon [img]="iWhatsapp" class="h-6 w-6 text-white"></lucide-icon>
                 </span>
               </div>
-              <div class="mt-4 h-[3px] w-10 rounded-full bg-[#CE6C37] group-hover:w-16 transition-all"></div>
+              <div class="mt-4 h-[3px] w-10 rounded-full bg-white/60 group-hover:w-16 transition-all"></div>
             </a>
 
             <!-- Call tile -->
             <a
-              class="rounded-2xl border border-[#0E2859]/10 bg-white p-4 hover:border-[#215EBB]/25 transition"
+              class="rounded-2xl bg-white p-4 transition border hover:opacity-90"
               [href]="telUrl"
+              style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
             >
               <div class="flex items-start gap-3">
-                <span class="grid h-11 w-11 place-items-center rounded-2xl bg-[#AFCEE3]/35 border border-[#0E2859]/10">
-                  <lucide-icon [img]="iPhone" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                <span
+                  class="grid h-11 w-11 place-items-center rounded-2xl border"
+                  style="
+                    background: color-mix(in srgb, var(--brand-300) 25%, white);
+                    border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+                  "
+                >
+                  <lucide-icon [img]="iPhone" class="h-5 w-5" style="color: var(--brand-950);"></lucide-icon>
                 </span>
                 <div>
-                  <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">LLAMADA</p>
-                  <p class="mt-1 font-extrabold text-[#0E2859]">Hablar ahora</p>
-                  <p class="mt-1 text-xs text-[#0E2859]/60">Directo y claro.</p>
+                  <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">LLAMADA</p>
+                  <p class="mt-1 font-extrabold" style="color: var(--brand-950);">Hablar ahora</p>
+                  <p class="mt-1 text-xs" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Directo y claro.</p>
                 </div>
               </div>
             </a>
 
             <!-- Maps tile -->
             <a
-              class="rounded-2xl border border-[#0E2859]/10 bg-white p-4 hover:border-[#215EBB]/25 transition"
+              class="rounded-2xl bg-white p-4 transition border hover:opacity-90"
               [href]="mapsUrl"
               target="_blank"
               rel="noopener"
+              style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
             >
               <div class="flex items-start gap-3">
-                <span class="grid h-11 w-11 place-items-center rounded-2xl bg-[#C3B692]/25 border border-[#0E2859]/10">
-                  <lucide-icon [img]="iMapPin" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                <span
+                  class="grid h-11 w-11 place-items-center rounded-2xl border"
+                  style="
+                    background: color-mix(in srgb, var(--brand-200) 22%, white);
+                    border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+                  "
+                >
+                  <lucide-icon [img]="iMapPin" class="h-5 w-5" style="color: var(--brand-950);"></lucide-icon>
                 </span>
                 <div>
-                  <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">MAPS</p>
-                  <p class="mt-1 font-extrabold text-[#0E2859]">Cómo llegar</p>
-                  <p class="mt-1 text-xs text-[#0E2859]/60">Ruta en 1 click.</p>
+                  <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">MAPS</p>
+                  <p class="mt-1 font-extrabold" style="color: var(--brand-950);">Cómo llegar</p>
+                  <p class="mt-1 text-xs" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Ruta en 1 click.</p>
                 </div>
               </div>
             </a>
           </div>
 
           <div class="px-6 pb-6">
-            <div class="rounded-2xl border border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white p-4">
+            <div
+              class="rounded-2xl border p-4"
+              style="
+                border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+                background: linear-gradient(to bottom, color-mix(in srgb, var(--brand-300) 16%, white), white);
+              "
+            >
               <div class="flex items-start gap-3">
-                <span class="grid h-11 w-11 place-items-center rounded-2xl bg-white border border-[#0E2859]/10">
-                  <lucide-icon [img]="iClock" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                <span class="grid h-11 w-11 place-items-center rounded-2xl bg-white border"
+                      style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);">
+                  <lucide-icon [img]="iClock" class="h-5 w-5" style="color: var(--brand-950);"></lucide-icon>
                 </span>
                 <div class="min-w-0">
-                  <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">HORARIO</p>
-                  <p class="mt-1 text-sm font-extrabold text-[#0E2859]">L–V 9:00–18:00 · Sáb 9:00–14:00</p>
-                  <p class="mt-1 text-xs text-[#0E2859]/60">Atención con cita.</p>
+                  <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">HORARIO</p>
+                  <p class="mt-1 text-sm font-extrabold" style="color: var(--brand-950);">{{ officeHours }}</p>
+                  <p class="mt-1 text-xs" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Atención con cita.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Copy block (single source of truth) -->
-        <section class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm overflow-hidden">
-          <div class="p-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
-            <h3 class="text-lg font-extrabold text-[#0E2859]">Datos</h3>
-            <p class="mt-1 text-sm text-[#0E2859]/65">Copiar rápido, sin buscar.</p>
+        <!-- Datos -->
+        <section
+          class="rounded-3xl backdrop-blur shadow-sm overflow-hidden border"
+          style="background: rgba(255,255,255,.82); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+        >
+          <div
+            class="p-6 border-b"
+            style="
+              border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+              background: linear-gradient(to bottom, color-mix(in srgb, var(--brand-300) 18%, white), white);
+            "
+          >
+            <h3 class="text-lg font-extrabold" style="color: var(--brand-950);">Datos</h3>
+            <p class="mt-1 text-sm" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Copiar rápido, sin buscar.</p>
           </div>
 
           <div class="p-6 grid gap-3">
             <button
               type="button"
               (click)="copyText(fullAddress)"
-              class="rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-left hover:border-[#215EBB]/25 transition"
+              class="rounded-2xl border bg-white px-4 py-3 text-left transition hover:opacity-90"
+              style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
             >
-              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">DIRECCIÓN</p>
-              <p class="mt-1 font-extrabold text-[#0E2859] line-clamp-2">{{ fullAddress }}</p>
-              <p class="mt-1 text-xs text-[#0E2859]/60">Toca para copiar</p>
+              <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">DIRECCIÓN</p>
+              <p class="mt-1 font-extrabold line-clamp-2" style="color: var(--brand-950);">{{ fullAddress }}</p>
+              <p class="mt-1 text-xs" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Toca para copiar</p>
             </button>
 
             <div class="grid grid-cols-2 gap-3">
               <button
                 type="button"
                 (click)="copyText(phone)"
-                class="rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-left hover:border-[#215EBB]/25 transition"
+                class="rounded-2xl border bg-white px-4 py-3 text-left transition hover:opacity-90"
+                style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
               >
-                <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">TEL</p>
-                <p class="mt-1 font-extrabold text-[#0E2859]">{{ phone }}</p>
-                <p class="mt-1 text-xs text-[#0E2859]/60">Copiar</p>
+                <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">TEL</p>
+                <p class="mt-1 font-extrabold" style="color: var(--brand-950);">{{ phone }}</p>
+                <p class="mt-1 text-xs" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Copiar</p>
               </button>
 
               <button
                 type="button"
                 (click)="copyText(email)"
-                class="rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-left hover:border-[#215EBB]/25 transition"
+                class="rounded-2xl border bg-white px-4 py-3 text-left transition hover:opacity-90"
+                style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
               >
-                <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">EMAIL</p>
-                <p class="mt-1 font-extrabold text-[#0E2859] truncate">{{ email }}</p>
-                <p class="mt-1 text-xs text-[#0E2859]/60">Copiar</p>
+                <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">EMAIL</p>
+                <p class="mt-1 font-extrabold truncate" style="color: var(--brand-950);">{{ email }}</p>
+                <p class="mt-1 text-xs" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Copiar</p>
               </button>
             </div>
           </div>
         </section>
       </aside>
 
-      <!-- RIGHT: Form (primary) -->
-      <section class="rounded-3xl border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm overflow-hidden">
-        <!-- Top bar + Stepper -->
-        <div class="px-6 md:px-8 py-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
+      <!-- RIGHT: Form -->
+      <section
+        class="rounded-3xl backdrop-blur shadow-sm overflow-hidden border"
+        style="background: rgba(255,255,255,.82); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+      >
+        <div
+          class="px-6 md:px-8 py-6 border-b"
+          style="
+            border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--brand-300) 18%, white), white);
+          "
+        >
           <div class="flex items-start justify-between gap-4 flex-wrap">
             <div>
-              <h2 class="text-lg md:text-xl font-extrabold text-[#0E2859]">Solicitud de cita</h2>
-              <p class="mt-1 text-sm text-[#0E2859]/65">
+              <h2 class="text-lg md:text-xl font-extrabold" style="color: var(--brand-950);">Solicitud de cita</h2>
+              <p class="mt-1 text-sm" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">
                 Completa lo básico. Lo demás lo resolvemos contigo por WhatsApp o llamada.
               </p>
             </div>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold bg-white/80 text-[#0E2859] border border-[#0E2859]/10">
+            <span
+              class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold border bg-white/80"
+              style="color: var(--brand-950); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+            >
               ~ 2–3 min
             </span>
           </div>
 
-          <!-- visual stepper (solo UI, sin lógica) -->
           <div class="mt-5 grid grid-cols-3 gap-2">
-            <div class="rounded-2xl border border-[#0E2859]/10 bg-white/80 px-4 py-3">
-              <p class="text-xs font-extrabold text-[#0E2859]/55">1</p>
-              <p class="text-sm font-extrabold text-[#0E2859]">Tus datos</p>
+            <div class="rounded-2xl border bg-white/80 px-4 py-3"
+                 style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);">
+              <p class="text-xs font-extrabold" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">1</p>
+              <p class="text-sm font-extrabold" style="color: var(--brand-950);">Tus datos</p>
             </div>
-            <div class="rounded-2xl border border-[#0E2859]/10 bg-white/70 px-4 py-3">
-              <p class="text-xs font-extrabold text-[#0E2859]/55">2</p>
-              <p class="text-sm font-extrabold text-[#0E2859]">Preferencias</p>
+            <div class="rounded-2xl border bg-white/70 px-4 py-3"
+                 style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);">
+              <p class="text-xs font-extrabold" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">2</p>
+              <p class="text-sm font-extrabold" style="color: var(--brand-950);">Preferencias</p>
             </div>
-            <div class="rounded-2xl border border-[#0E2859]/10 bg-white/70 px-4 py-3">
-              <p class="text-xs font-extrabold text-[#0E2859]/55">3</p>
-              <p class="text-sm font-extrabold text-[#0E2859]">Motivo</p>
+            <div class="rounded-2xl border bg-white/70 px-4 py-3"
+                 style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);">
+              <p class="text-xs font-extrabold" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">3</p>
+              <p class="text-sm font-extrabold" style="color: var(--brand-950);">Motivo</p>
             </div>
           </div>
         </div>
 
         <div class="p-6 md:p-8">
           <form class="grid sm:grid-cols-2 gap-4" [formGroup]="form" (ngSubmit)="submit()">
-            <!-- Block: Datos -->
             <div class="sm:col-span-2 mt-1">
-              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">TUS DATOS</p>
-              <div class="mt-3 h-px w-full bg-[#0E2859]/10"></div>
+              <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">TUS DATOS</p>
+              <div class="mt-3 h-px w-full" style="background: color-mix(in srgb, var(--brand-200) 55%, transparent);"></div>
             </div>
 
             <div class="sm:col-span-2">
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Nombre completo</label>
+              <label class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Nombre completo</label>
               <input
                 type="text"
                 formControlName="full_name"
-                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
-                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                class="mt-2 w-full rounded-2xl border bg-white px-4 py-3 placeholder:opacity-60 focus:outline-none focus:ring-4"
+                [style]="
+                  'border-color: ' + 'color-mix(in srgb, var(--brand-200) 55%, transparent)' + ';' +
+                  'color: var(--brand-950);' +
+                  'caret-color: var(--brand-950);' +
+                  'outline: none;'
+                "
+                style="--tw-ring-color: color-mix(in srgb, var(--brand-300) 35%, transparent);"
                 placeholder="Ej. Juan Pérez"
                 autocomplete="name"
               />
               @if (showErr('full_name')) {
-                <p class="mt-1 text-xs font-semibold text-red-700">Escribe tu nombre (mínimo 3 caracteres).</p>
+                <p class="mt-1 text-xs font-semibold" style="color: #b91c1c;">Escribe tu nombre (mínimo 3 caracteres).</p>
               }
             </div>
 
             <div>
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Teléfono</label>
+              <label class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Teléfono</label>
               <input
                 type="tel"
                 formControlName="phone"
-                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
-                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                class="mt-2 w-full rounded-2xl border bg-white px-4 py-3 placeholder:opacity-60 focus:outline-none focus:ring-4"
+                style="--tw-ring-color: color-mix(in srgb, var(--brand-300) 35%, transparent); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
                 placeholder="Ej. +52 656 000 0000"
                 autocomplete="tel"
               />
               @if (showErr('phone')) {
-                <p class="mt-1 text-xs font-semibold text-red-700">Teléfono inválido (mínimo 8 dígitos).</p>
+                <p class="mt-1 text-xs font-semibold" style="color: #b91c1c;">Teléfono inválido (mínimo 8 dígitos).</p>
               }
             </div>
 
             <div>
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Email (opcional)</label>
+              <label class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Email (opcional)</label>
               <input
                 type="email"
                 formControlName="email"
-                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
-                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                class="mt-2 w-full rounded-2xl border bg-white px-4 py-3 placeholder:opacity-60 focus:outline-none focus:ring-4"
+                style="--tw-ring-color: color-mix(in srgb, var(--brand-300) 35%, transparent); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
                 placeholder="correo@ejemplo.com"
                 autocomplete="email"
               />
               @if (showErr('email')) {
-                <p class="mt-1 text-xs font-semibold text-red-700">Email inválido.</p>
+                <p class="mt-1 text-xs font-semibold" style="color: #b91c1c;">Email inválido.</p>
               }
             </div>
 
-            <!-- Block: Preferencias -->
             <div class="sm:col-span-2 mt-4">
-              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">PREFERENCIAS</p>
-              <div class="mt-3 h-px w-full bg-[#0E2859]/10"></div>
+              <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">PREFERENCIAS</p>
+              <div class="mt-3 h-px w-full" style="background: color-mix(in srgb, var(--brand-200) 55%, transparent);"></div>
             </div>
 
             <div>
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Fecha preferida (opcional)</label>
+              <label class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Fecha preferida (opcional)</label>
               <input
                 type="date"
                 formControlName="preferred_date"
-                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859]
-                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                class="mt-2 w-full rounded-2xl border bg-white px-4 py-3 focus:outline-none focus:ring-4"
+                style="--tw-ring-color: color-mix(in srgb, var(--brand-300) 35%, transparent); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
               />
             </div>
 
             <div>
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Hora preferida (opcional)</label>
+              <label class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Hora preferida (opcional)</label>
               <input
                 type="time"
                 formControlName="preferred_time"
-                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859]
-                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                class="mt-2 w-full rounded-2xl border bg-white px-4 py-3 focus:outline-none focus:ring-4"
+                style="--tw-ring-color: color-mix(in srgb, var(--brand-300) 35%, transparent); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
               />
             </div>
 
-            <!-- Block: Motivo -->
             <div class="sm:col-span-2 mt-4">
-              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">MOTIVO</p>
-              <div class="mt-3 h-px w-full bg-[#0E2859]/10"></div>
+              <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">MOTIVO</p>
+              <div class="mt-3 h-px w-full" style="background: color-mix(in srgb, var(--brand-200) 55%, transparent);"></div>
             </div>
 
             <div class="sm:col-span-2">
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Motivo de la consulta</label>
+              <label class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Motivo de la consulta</label>
               <textarea
                 rows="4"
                 formControlName="reason"
-                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
-                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                class="mt-2 w-full rounded-2xl border bg-white px-4 py-3 placeholder:opacity-60 focus:outline-none focus:ring-4"
+                style="--tw-ring-color: color-mix(in srgb, var(--brand-300) 35%, transparent); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
                 placeholder="Describe síntomas, diagnóstico o motivo principal."
               ></textarea>
               @if (showErr('reason')) {
-                <p class="mt-1 text-xs font-semibold text-red-700">Describe el motivo (mínimo 10 caracteres).</p>
+                <p class="mt-1 text-xs font-semibold" style="color: #b91c1c;">Describe el motivo (mínimo 10 caracteres).</p>
               }
             </div>
 
             <div class="sm:col-span-2">
-              <label class="text-xs font-extrabold tracking-wide text-[#0E2859]/60">Notas (opcional)</label>
+              <label class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Notas (opcional)</label>
               <input
                 type="text"
                 formControlName="notes"
-                class="mt-2 w-full rounded-2xl border border-[#0E2859]/10 bg-white px-4 py-3 text-[#0E2859] placeholder:text-[#0E2859]/35
-                       focus:outline-none focus:ring-4 focus:ring-[#AFCEE3]/35 focus:border-[#215EBB]/30"
+                class="mt-2 w-full rounded-2xl border bg-white px-4 py-3 placeholder:opacity-60 focus:outline-none focus:ring-4"
+                style="--tw-ring-color: color-mix(in srgb, var(--brand-300) 35%, transparent); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
                 placeholder="Ej. Tengo estudios previos / dolor desde hace 3 semanas."
               />
             </div>
 
-            <!-- Actions -->
             <div class="sm:col-span-2 mt-2 flex flex-col sm:flex-row gap-3">
               <button
                 type="submit"
                 [disabled]="submitting() || form.invalid"
-                class="inline-flex items-center justify-center rounded-2xl bg-[#215EBB] px-5 py-3 text-white font-extrabold
-                       hover:bg-[#215EBB]/95 transition disabled:opacity-60 disabled:cursor-not-allowed"
+                class="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-white font-extrabold transition disabled:opacity-60 disabled:cursor-not-allowed"
+                style="background: var(--brand-950);"
               >
                 @if (submitting()) { Enviando… } @else { Enviar solicitud }
               </button>
 
               <a
-                class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-[#0E2859] font-extrabold
-                       border border-[#0E2859]/10 hover:border-[#CE6C37]/30 hover:text-[#CE6C37] transition"
+                class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 font-extrabold border transition hover:opacity-90"
                 [href]="whatsappUrl"
                 target="_blank"
                 rel="noopener"
+                style="color: var(--brand-950); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
               >
                 Prefiero WhatsApp
               </a>
             </div>
 
             @if (submitError()) {
-              <div class="sm:col-span-2 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-700">
+              <div class="sm:col-span-2 rounded-2xl border bg-white/85 backdrop-blur p-4" style="border-color: #fecaca; color: #b91c1c;">
                 <p class="font-semibold">No se pudo enviar.</p>
                 <p class="text-sm mt-1">{{ submitError() }}</p>
               </div>
             }
 
-            <!-- One clean “tip” (single) -->
-            <div class="sm:col-span-2 mt-3 rounded-2xl border border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white p-5">
-              <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">TIP</p>
-              <p class="mt-1 text-sm text-[#0E2859]/75 leading-relaxed">
+            <div
+              class="sm:col-span-2 mt-3 rounded-2xl border p-5"
+              style="
+                border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+                background: linear-gradient(to bottom, color-mix(in srgb, var(--brand-300) 16%, white), white);
+              "
+            >
+              <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">TIP</p>
+              <p class="mt-1 text-sm leading-relaxed" style="color: color-mix(in srgb, var(--brand-800) 78%, transparent);">
                 Si cuentas con estudios previos, menciónalos en “Notas”. Esto agiliza el seguimiento.
               </p>
-              <p class="mt-3 text-xs text-[#0E2859]/55 leading-relaxed">
+              <p class="mt-3 text-xs leading-relaxed" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">
                 Nota: Esta solicitud no sustituye una valoración médica. La confirmación depende de disponibilidad.
               </p>
             </div>
@@ -387,20 +489,30 @@
       </section>
     </div>
 
-    <!-- MAP (single, full-width, clean) -->
+    <!-- MAP -->
     <div class="max-w-6xl mx-auto mt-10 lg:mt-12">
-      <section class="rounded-3xl overflow-hidden border border-[#0E2859]/10 bg-white/80 backdrop-blur shadow-sm">
-        <div class="px-6 md:px-8 py-6 border-b border-[#0E2859]/10 bg-gradient-to-b from-[#AFCEE3]/20 to-white">
+      <section
+        class="rounded-3xl overflow-hidden border backdrop-blur shadow-sm"
+        style="background: rgba(255,255,255,.82); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+      >
+        <div
+          class="px-6 md:px-8 py-6 border-b"
+          style="
+            border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--brand-300) 18%, white), white);
+          "
+        >
           <div class="flex items-center justify-between gap-4 flex-wrap">
             <div>
-              <h3 class="text-lg font-extrabold text-[#0E2859]">Ubicación</h3>
-              <p class="mt-1 text-sm text-[#0E2859]/65">Abre Maps para obtener ruta.</p>
+              <h3 class="text-lg font-extrabold" style="color: var(--brand-950);">Ubicación</h3>
+              <p class="mt-1 text-sm" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Abre Maps para obtener ruta.</p>
             </div>
             <a
-              class="inline-flex items-center gap-2 rounded-2xl bg-white px-4 py-2 text-sm font-extrabold border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+              class="inline-flex items-center gap-2 rounded-2xl bg-white px-4 py-2 text-sm font-extrabold border transition hover:opacity-90"
               [href]="mapsUrl"
               target="_blank"
               rel="noopener"
+              style="color: var(--brand-950); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
             >
               <lucide-icon [img]="iNav" class="h-4 w-4"></lucide-icon>
               Abrir en Maps
@@ -408,7 +520,7 @@
           </div>
         </div>
 
-        <div class="relative aspect-[16/9] w-full bg-slate-100">
+        <div class="relative aspect-[16/9] w-full" style="background: color-mix(in srgb, var(--brand-200) 20%, white);">
           @if (mapEmbedUrl) {
             <iframe
               class="absolute inset-0 w-full h-full"
@@ -419,11 +531,14 @@
             ></iframe>
           } @else {
             <div class="absolute inset-0 grid place-items-center p-8 text-center">
-              <div class="mx-auto h-14 w-14 rounded-2xl bg-[#215EBB]/10 border border-[#215EBB]/15 grid place-items-center">
-                <lucide-icon [img]="iMapPin" class="h-7 w-7 text-[#215EBB]"></lucide-icon>
+              <div
+                class="mx-auto h-14 w-14 rounded-2xl border grid place-items-center"
+                style="background: color-mix(in srgb, var(--brand-500) 12%, white); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+              >
+                <lucide-icon [img]="iMapPin" class="h-7 w-7" style="color: var(--brand-500);"></lucide-icon>
               </div>
-              <p class="mt-4 font-extrabold text-[#0E2859]">Mapa disponible</p>
-              <p class="mt-1 text-sm text-[#0E2859]/60">Abre la ubicación en Google Maps.</p>
+              <p class="mt-4 font-extrabold" style="color: var(--brand-950);">Mapa disponible</p>
+              <p class="mt-1 text-sm" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">Abre la ubicación en Google Maps.</p>
             </div>
           }
         </div>
@@ -434,12 +549,25 @@
   <!-- Sticky mobile CTA -->
   <div class="fixed inset-x-0 bottom-0 z-[55] lg:hidden">
     <div class="mx-auto w-[min(96vw,560px)] mb-3">
-      <div class="rounded-3xl border border-[#0E2859]/10 bg-white/90 backdrop-blur shadow-2xl p-3">
+      <div
+        class="rounded-3xl border bg-white/90 backdrop-blur shadow-2xl p-3"
+        style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+      >
         <div class="grid grid-cols-2 gap-2">
-          <a class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-4 py-3 text-white font-extrabold" [href]="whatsappUrl" target="_blank" rel="noopener">
+          <a
+            class="inline-flex items-center justify-center rounded-2xl px-4 py-3 text-white font-extrabold"
+            [href]="whatsappUrl"
+            target="_blank"
+            rel="noopener"
+            style="background: var(--brand-950);"
+          >
             WhatsApp
           </a>
-          <a class="inline-flex items-center justify-center rounded-2xl bg-white px-4 py-3 text-[#0E2859] font-extrabold border border-[#0E2859]/10" [href]="telUrl">
+          <a
+            class="inline-flex items-center justify-center rounded-2xl bg-white px-4 py-3 font-extrabold border"
+            [href]="telUrl"
+            style="color: var(--brand-950); border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+          >
             Llamar
           </a>
         </div>
@@ -447,18 +575,26 @@
     </div>
   </div>
 
-  <!-- TOAST (keep yours) -->
+  <!-- TOAST -->
   <div class="toast fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] w-[min(92vw,520px)]" [class.toast--open]="toastOpen()" aria-live="polite">
-    <div class="rounded-2xl border border-slate-200 bg-white shadow-2xl px-4 py-3 flex items-start gap-3">
+    <div
+      class="rounded-2xl border bg-white shadow-2xl px-4 py-3 flex items-start gap-3"
+      style="border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);"
+    >
       <div class="mt-0.5">
-        <lucide-icon [img]="iOk" class="w-5 h-5 text-emerald-600"></lucide-icon>
+        <lucide-icon [img]="iOk" class="w-5 h-5" style="color: var(--brand-500);"></lucide-icon>
       </div>
       <div class="min-w-0">
-        <p class="font-semibold text-slate-900">{{ toastTitle() }}</p>
-        <p class="text-sm text-slate-600">{{ toastDesc() }}</p>
+        <p class="font-semibold" style="color: var(--brand-950);">{{ toastTitle() }}</p>
+        <p class="text-sm" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">{{ toastDesc() }}</p>
       </div>
-      <button type="button" class="ml-auto rounded-lg p-2 hover:bg-slate-100 transition" (click)="closeToast()" aria-label="Cerrar">
-        <lucide-icon [img]="iX" class="w-4 h-4 text-slate-500"></lucide-icon>
+      <button
+        type="button"
+        class="ml-auto rounded-lg p-2 transition hover:opacity-80"
+        (click)="closeToast()"
+        aria-label="Cerrar"
+      >
+        <lucide-icon [img]="iX" class="w-4 h-4" style="color: var(--brand-600);"></lucide-icon>
       </button>
     </div>
   </div>

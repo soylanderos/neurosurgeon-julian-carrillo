@@ -1,123 +1,69 @@
-<section class="relative overflow-hidden bg-[#F7FAFF]">
-  <!-- Background decor (palette) -->
+<section class="relative overflow-hidden bg-[var(--brand-950)]/0">
+  <!-- Background decor (NEW palette only) -->
   <div class="pointer-events-none absolute inset-0">
-    <div class="absolute -top-32 -left-28 h-[520px] w-[520px] rounded-full bg-[#AFCEE3]/55 blur-3xl"></div>
-    <div class="absolute top-32 -right-28 h-[560px] w-[560px] rounded-full bg-[#215EBB]/12 blur-3xl"></div>
-    <div class="absolute bottom-0 left-1/3 h-[520px] w-[520px] rounded-full bg-[#C3B692]/28 blur-3xl"></div>
+    <div class="absolute -top-32 -left-28 h-[520px] w-[520px] rounded-full bg-[var(--brand-300)]/55 blur-3xl"></div>
+    <div class="absolute top-32 -right-28 h-[560px] w-[560px] rounded-full bg-[var(--brand-500)]/18 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-[520px] w-[520px] rounded-full bg-[var(--brand-200)]/30 blur-3xl"></div>
+
     <div
-      class="absolute inset-0 opacity-[0.06]"
-      style="background-image: radial-gradient(rgba(14,40,89,.55) 0.6px, transparent 0.6px); background-size: 18px 18px;"
+      class="absolute inset-0 opacity-[0.08]"
+      style="background-image: radial-gradient(color-mix(in srgb, var(--brand-800) 70%, transparent) 0.6px, transparent 0.6px); background-size: 18px 18px;"
     ></div>
   </div>
 
   <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 max-w-6xl">
     @if (error()) {
-      <div class="rounded-[2rem] border border-red-200 bg-white/80 backdrop-blur p-6 text-center text-red-700 shadow-sm">
+      <div
+        class="rounded-[2rem] bg-white/80 backdrop-blur p-6 text-center text-red-700 shadow-sm"
+        style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent);"
+      >
         {{ error() }}
       </div>
     } @else {
 
       @if (loading()) {
-        <!-- Premium skeleton (palette) -->
-        <div class="animate-pulse">
-          <div class="max-w-6xl mx-auto">
-            <div class="h-8 w-56 bg-[#AFCEE3]/40 rounded-full mb-8"></div>
-
-            <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 backdrop-blur p-8 md:p-10 mb-10 shadow-sm">
-              <div class="h-10 bg-[#AFCEE3]/45 rounded w-4/5 mb-4"></div>
-              <div class="h-6 bg-[#AFCEE3]/35 rounded w-2/3 mb-6"></div>
-              <div class="h-5 bg-[#AFCEE3]/30 rounded w-full mb-2"></div>
-              <div class="h-5 bg-[#AFCEE3]/30 rounded w-5/6 mb-2"></div>
-              <div class="h-5 bg-[#AFCEE3]/30 rounded w-2/3"></div>
-
-              <div class="mt-8 flex gap-3">
-                <div class="h-12 w-40 bg-[#AFCEE3]/35 rounded-2xl"></div>
-                <div class="h-12 w-44 bg-[#AFCEE3]/30 rounded-2xl"></div>
-              </div>
-            </div>
-
-            <div class="grid lg:grid-cols-[1fr_360px] gap-8">
-              <div class="space-y-6">
-                <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 backdrop-blur p-7 shadow-sm">
-                  <div class="h-7 w-56 bg-[#AFCEE3]/40 rounded mb-5"></div>
-                  <div class="grid md:grid-cols-2 gap-3">
-                    @for (i of skeletonLines; track i) {
-                      <div class="h-14 bg-white/70 border border-[#0E2859]/10 rounded-2xl"></div>
-                    }
-                  </div>
-                </div>
-
-                <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 backdrop-blur p-7 shadow-sm">
-                  <div class="h-7 w-56 bg-[#AFCEE3]/40 rounded mb-5"></div>
-                  <div class="space-y-3">
-                    @for (i of skeletonLines; track i) {
-                      <div class="h-16 bg-white/70 border border-[#0E2859]/10 rounded-2xl"></div>
-                    }
-                  </div>
-                </div>
-
-                <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 backdrop-blur p-7 shadow-sm">
-                  <div class="h-7 w-56 bg-[#AFCEE3]/40 rounded mb-5"></div>
-                  <div class="space-y-3">
-                    @for (i of skeletonLines; track i) {
-                      <div class="h-20 bg-white/70 border border-[#0E2859]/10 rounded-2xl"></div>
-                    }
-                  </div>
-                </div>
-              </div>
-
-              <div class="space-y-6">
-                <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 backdrop-blur p-7 shadow-sm">
-                  <div class="h-6 w-40 bg-[#AFCEE3]/40 rounded mb-4"></div>
-                  <div class="h-12 bg-[#AFCEE3]/35 rounded-2xl mb-3"></div>
-                  <div class="h-12 bg-[#AFCEE3]/30 rounded-2xl"></div>
-                </div>
-
-                <div class="rounded-[2rem] border border-[#0E2859]/10 bg-white/80 backdrop-blur p-7 shadow-sm">
-                  <div class="h-6 w-40 bg-[#AFCEE3]/40 rounded mb-4"></div>
-                  <div class="h-5 bg-[#AFCEE3]/30 rounded w-full mb-2"></div>
-                  <div class="h-5 bg-[#AFCEE3]/30 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="text-[var(--brand-600)]">Cargando…</div>
       } @else {
 
         @if (servicio(); as s) {
 
           <!-- Breadcrumb (pill) -->
-          <nav class="text-sm text-[#0E2859]/65 mb-6">
-            <div class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 backdrop-blur px-4 py-2 shadow-sm">
-              <a routerLink="/" class="hover:text-[#215EBB] transition">Inicio</a>
-              <span class="text-[#0E2859]/35">/</span>
-              <a routerLink="/servicios" class="hover:text-[#215EBB] transition">Servicios</a>
-              <span class="text-[#0E2859]/35">/</span>
-              <span class="text-[#0E2859] font-extrabold">{{ s.breadcrumb }}</span>
+          <nav class="text-sm mb-6">
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-4 py-2 shadow-sm"
+              style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent); color: color-mix(in srgb, var(--brand-800) 80%, transparent);"
+            >
+              <a routerLink="/" class="hover:opacity-80 transition" style="color: var(--brand-600);">Inicio</a>
+              <span style="color: color-mix(in srgb, var(--brand-600) 55%, transparent);">/</span>
+              <a routerLink="/servicios" class="hover:opacity-80 transition" style="color: var(--brand-600);">Servicios</a>
+              <span style="color: color-mix(in srgb, var(--brand-600) 55%, transparent);">/</span>
+              <span class="font-extrabold" style="color: var(--brand-950);">{{ s.breadcrumb }}</span>
             </div>
           </nav>
 
-          <!-- HERO (editorial + image panel) -->
+          <!-- HERO -->
           <header
-            class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl
-                   shadow-[0_30px_90px_-55px_rgba(14,40,89,.6)]"
+            class="relative overflow-hidden rounded-[2rem] bg-white/70 backdrop-blur-xl
+                   shadow-[0_30px_90px_-55px_rgba(5,10,48,.55)]"
+            style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);"
           >
             <!-- accents -->
             <div class="pointer-events-none absolute inset-0">
-              <div class="absolute -top-20 -right-24 h-72 w-72 rounded-full bg-[#215EBB]/12 blur-3xl"></div>
-              <div class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#CE6C37]/10 blur-3xl"></div>
+              <div class="absolute -top-16 -right-20 h-72 w-72 rounded-full bg-[var(--brand-500)]/14 blur-3xl"></div>
+              <div class="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[var(--brand-300)]/26 blur-3xl"></div>
               <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent"></div>
             </div>
 
             <div class="relative p-7 md:p-10">
-              <div class="grid lg:grid-cols-[1fr_360px] gap-8 items-start">
-                <!-- LEFT: content -->
+              <div class="grid lg:grid-cols-[1fr_380px] gap-8 items-start">
+                <!-- LEFT -->
                 <div>
                   <div class="flex items-center justify-between gap-4 flex-wrap">
                     <span
-                      class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-xs font-extrabold text-[#0E2859]/75"
+                      class="inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1 text-xs font-extrabold"
+                      style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-800) 85%, transparent);"
                     >
-                      <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+                      <span class="h-2 w-2 rounded-full bg-[var(--brand-500)]"></span>
                       Servicio
                     </span>
 
@@ -126,44 +72,47 @@
                       <a
                         [routerLink]="[]"
                         fragment="sintomas"
-                        class="rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-[#0E2859]/75 hover:text-[#215EBB] hover:border-[#215EBB]/25 transition"
+                        class="rounded-full bg-white/85 px-3 py-1 hover:opacity-80 transition"
+                        style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-800) 80%, transparent);"
                       >
                         Síntomas
                       </a>
                       <a
                         [routerLink]="[]"
                         fragment="tratamientos"
-                        class="rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-[#0E2859]/75 hover:text-[#215EBB] hover:border-[#215EBB]/25 transition"
+                        class="rounded-full bg-white/85 px-3 py-1 hover:opacity-80 transition"
+                        style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-800) 80%, transparent);"
                       >
                         Tratamientos
                       </a>
                       <a
                         [routerLink]="[]"
                         fragment="faq"
-                        class="rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-[#0E2859]/75 hover:text-[#215EBB] hover:border-[#215EBB]/25 transition"
+                        class="rounded-full bg-white/85 px-3 py-1 hover:opacity-80 transition"
+                        style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-800) 80%, transparent);"
                       >
                         Preguntas
                       </a>
                     </div>
                   </div>
 
-                  <h1 class="mt-4 text-4xl md:text-5xl font-black text-[#0E2859] tracking-tight text-balance leading-[1.05]">
+                  <h1 class="mt-4 text-4xl md:text-5xl font-black tracking-tight text-balance leading-[1.05]" style="color: var(--brand-950);">
                     {{ s.title }}
                   </h1>
 
-                  <p class="mt-4 text-lg md:text-xl font-extrabold text-[#215EBB] text-pretty">
+                  <p class="mt-4 text-lg md:text-xl font-extrabold text-pretty" style="color: var(--brand-500);">
                     {{ s.subtitle }}
                   </p>
 
-                  <p class="mt-4 text-lg text-[#0E2859]/70 leading-relaxed text-pretty">
+                  <p class="mt-4 text-lg leading-relaxed text-pretty" style="color: color-mix(in srgb, var(--brand-800) 72%, transparent);">
                     {{ s.description }}
                   </p>
 
                   <div class="mt-6 flex flex-col sm:flex-row gap-3">
                     <a
                       routerLink="/cita"
-                      class="inline-flex items-center justify-center rounded-2xl bg-[#0E2859] px-5 py-3 text-white font-extrabold
-                             shadow-sm hover:brightness-110 transition"
+                      class="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-white font-extrabold shadow-sm hover:brightness-110 transition"
+                      style="background: var(--brand-950);"
                     >
                       Agendar cita
                     </a>
@@ -171,28 +120,28 @@
                     <a
                       [routerLink]="[]"
                       fragment="tratamientos"
-                      class="inline-flex items-center justify-center rounded-2xl bg-white/90 px-5 py-3 text-[#0E2859] font-extrabold
-                             border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+                      class="inline-flex items-center justify-center rounded-2xl bg-white/90 px-5 py-3 font-extrabold hover:opacity-90 transition"
+                      style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
                     >
-                      Ver opciones de tratamiento
+                      Ver tratamientos
                     </a>
                   </div>
 
-                  <div class="mt-7 h-px w-full bg-gradient-to-r from-transparent via-[#0E2859]/15 to-transparent"></div>
+                  <div class="mt-7 h-px w-full" style="background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand-200) 70%, transparent), transparent);"></div>
 
                   <!-- mini stats -->
                   <div class="mt-6 grid sm:grid-cols-3 gap-3">
-                    <div class="rounded-2xl border border-[#0E2859]/10 bg-white/80 p-4">
-                      <div class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">ENFOQUE</div>
-                      <div class="mt-1 text-sm font-extrabold text-[#0E2859]">Evaluación integral</div>
+                    <div class="rounded-2xl bg-white/85 p-4" style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent);">
+                      <div class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">ENFOQUE</div>
+                      <div class="mt-1 text-sm font-extrabold" style="color: var(--brand-950);">Evaluación integral</div>
                     </div>
-                    <div class="rounded-2xl border border-[#0E2859]/10 bg-white/80 p-4">
-                      <div class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">PLAN</div>
-                      <div class="mt-1 text-sm font-extrabold text-[#0E2859]">Opciones claras y por etapas</div>
+                    <div class="rounded-2xl bg-white/85 p-4" style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent);">
+                      <div class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">PLAN</div>
+                      <div class="mt-1 text-sm font-extrabold" style="color: var(--brand-950);">Por etapas, sin humo</div>
                     </div>
-                    <div class="rounded-2xl border border-[#0E2859]/10 bg-white/80 p-4">
-                      <div class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">OBJETIVO</div>
-                      <div class="mt-1 text-sm font-extrabold text-[#0E2859]">Recuperación y seguridad</div>
+                    <div class="rounded-2xl bg-white/85 p-4" style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent);">
+                      <div class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">OBJETIVO</div>
+                      <div class="mt-1 text-sm font-extrabold" style="color: var(--brand-950);">Seguridad y recuperación</div>
                     </div>
                   </div>
                 </div>
@@ -201,12 +150,16 @@
                 <div class="relative">
                   <div
                     class="rounded-[2rem] p-[1px]"
-                    style="background: linear-gradient(135deg, rgba(206,108,55,.25), rgba(33,94,187,.22), rgba(175,206,227,.55));"
+                    style="background: linear-gradient(135deg,
+                      color-mix(in srgb, var(--brand-500) 28%, transparent),
+                      color-mix(in srgb, var(--brand-300) 55%, transparent),
+                      color-mix(in srgb, var(--brand-200) 40%, transparent)
+                    );"
                   >
-                    <div class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur shadow-sm">
-                      <div class="absolute inset-0 bg-gradient-to-t from-[#0E2859]/25 via-transparent to-transparent"></div>
+                    <div class="relative overflow-hidden rounded-[2rem] bg-white/80 backdrop-blur shadow-sm"
+                         style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);">
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
 
-                      <!-- Puedes cambiar esta imagen por una de consultorio/quirófano si luego quieres -->
                       <img
                         src="https://hospitalangeles.com/assets/img/medicos/julian-octavio-carrillo-gonzalez.jpg"
                         alt="Dr. Julián Octavio Carrillo"
@@ -217,24 +170,29 @@
                       />
 
                       <div class="relative p-5">
-                        <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">ORIENTACIÓN</p>
-                        <p class="mt-1 text-sm text-[#0E2859]/75 leading-relaxed">
-                          Si tienes estudios previos, llévalos a la valoración. Ayuda a definir el plan con mayor precisión.
+                        <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">ORIENTACIÓN</p>
+                        <p class="mt-1 text-sm leading-relaxed" style="color: color-mix(in srgb, var(--brand-800) 72%, transparent);">
+                          Si tienes estudios previos, llévalos. Acelera decisiones y evita vueltas innecesarias.
                         </p>
 
-                        <div class="mt-4 flex flex-wrap gap-2">
-                          <span class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-xs font-extrabold text-[#0E2859]/70">
-                            <span class="h-2 w-2 rounded-full bg-[#215EBB]"></span>
-                            Brain &amp; Spine
-                          </span>
-                          <span class="inline-flex items-center gap-2 rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1 text-xs font-extrabold text-[#0E2859]/70">
-                            <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
-                            Atención con cita
-                          </span>
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                          <div class="rounded-2xl bg-white/85 p-3" style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent);">
+                            <div class="flex items-center gap-2 text-xs font-extrabold" style="color: color-mix(in srgb, var(--brand-800) 80%, transparent);">
+                              <span class="h-2 w-2 rounded-full bg-[var(--brand-500)]"></span>
+                              Brain &amp; Spine
+                            </div>
+                          </div>
+                          <div class="rounded-2xl bg-white/85 p-3" style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent);">
+                            <div class="flex items-center gap-2 text-xs font-extrabold" style="color: color-mix(in srgb, var(--brand-800) 80%, transparent);">
+                              <span class="h-2 w-2 rounded-full bg-[var(--brand-300)]"></span>
+                              Plan por etapas
+                            </div>
+                          </div>
                         </div>
                       </div>
 
-                      <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #CE6C37, #215EBB, #AFCEE3);"></div>
+                      <!-- rail -->
+                      <div class="h-1.5 w-full" style="background: linear-gradient(90deg, var(--brand-950), var(--brand-800), var(--brand-500), var(--brand-300));"></div>
                     </div>
                   </div>
                 </div>
@@ -246,122 +204,119 @@
           <div class="mt-10 grid lg:grid-cols-[1fr_360px] gap-8 lg:gap-10">
             <!-- MAIN -->
             <main class="space-y-8">
-              <!-- SECTION: sintomas -->
+              <!-- sintomas -->
               <section
                 id="sintomas"
-                class="scroll-mt-28 rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur
-                       shadow-[0_14px_40px_-26px_rgba(14,40,89,.35)] p-7 md:p-8"
+                class="scroll-mt-28 rounded-[2rem] bg-white/80 backdrop-blur p-7 md:p-8"
+                style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent); box-shadow: 0 14px 40px -26px rgba(5,10,48,.22);"
               >
                 <div class="flex items-end justify-between gap-6 flex-wrap">
                   <div>
-                    <h2 class="text-2xl md:text-3xl font-black text-[#0E2859]">
+                    <h2 class="text-2xl md:text-3xl font-black" style="color: var(--brand-950);">
                       {{ s.symptoms_title || 'Síntomas comunes' }}
                     </h2>
-                    <p class="mt-2 text-[#0E2859]/65">
-                      Si presentas uno o más de estos síntomas, se recomienda valoración.
+                    <p class="mt-2" style="color: color-mix(in srgb, var(--brand-600) 90%, transparent);">
+                      Si presentas uno o más, conviene valoración para definir el siguiente paso.
                     </p>
                   </div>
 
                   <a
                     [routerLink]="[]"
                     fragment="faq"
-                    class="text-sm font-extrabold text-[#215EBB] hover:opacity-80 transition"
+                    class="text-sm font-extrabold hover:opacity-80 transition"
+                    style="color: var(--brand-500);"
                   >
-                    Ver preguntas frecuentes →
+                    Ver FAQ →
                   </a>
                 </div>
 
                 <div class="mt-6 grid md:grid-cols-2 gap-3 items-stretch">
                   @for (item of s.symptoms; track item) {
-                    <div
-                      class="group rounded-2xl border border-[#0E2859]/10 bg-white/70 p-4
-                             hover:bg-white hover:border-[#215EBB]/25 transition"
-                    >
+                    <div class="group rounded-2xl bg-white/75 p-4 hover:bg-white transition"
+                         style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);">
                       <div class="flex items-start gap-3">
-                        <span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#215EBB]"></span>
-                        <p class="text-[#0E2859]/75 leading-relaxed">{{ item }}</p>
+                        <span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[var(--brand-500)]"></span>
+                        <p class="leading-relaxed" style="color: color-mix(in srgb, var(--brand-800) 72%, transparent);">{{ item }}</p>
                       </div>
                     </div>
                   }
                 </div>
               </section>
 
-              <!-- SECTION: tratamientos -->
+              <!-- tratamientos -->
               <section
                 id="tratamientos"
-                class="scroll-mt-28 rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur
-                       shadow-[0_14px_40px_-26px_rgba(14,40,89,.35)] p-7 md:p-8"
+                class="scroll-mt-28 rounded-[2rem] bg-white/80 backdrop-blur p-7 md:p-8"
+                style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent); box-shadow: 0 14px 40px -26px rgba(5,10,48,.22);"
               >
                 <div>
-                  <h2 class="text-2xl md:text-3xl font-black text-[#0E2859]">
+                  <h2 class="text-2xl md:text-3xl font-black" style="color: var(--brand-950);">
                     {{ s.treatments_title || 'Opciones de tratamiento' }}
                   </h2>
-                  <p class="mt-2 text-[#0E2859]/65">
-                    El plan se define según diagnóstico, estudios y objetivos clínicos.
+                  <p class="mt-2" style="color: color-mix(in srgb, var(--brand-600) 90%, transparent);">
+                    El plan depende del diagnóstico, estudios y objetivos clínicos.
                   </p>
                 </div>
 
                 <div class="mt-6 space-y-3">
                   @for (t of s.treatments; track t; let i = $index) {
-                    <div
-                      class="relative overflow-hidden rounded-2xl border border-[#0E2859]/10 bg-white/80 p-5
-                             hover:shadow-sm transition"
-                    >
+                    <div class="relative overflow-hidden rounded-2xl bg-white/85 p-5 hover:shadow-sm transition"
+                         style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);">
                       <div class="flex items-start gap-4">
                         <div class="shrink-0">
                           <div
-                            class="h-9 w-9 rounded-2xl bg-[#0E2859] text-white flex items-center justify-center text-sm font-black"
+                            class="h-9 w-9 rounded-2xl text-white flex items-center justify-center text-sm font-black"
+                            style="background: var(--brand-950);"
                           >
                             {{ i + 1 }}
                           </div>
                         </div>
                         <div class="flex-1">
-                          <p class="text-[#0E2859]/75 leading-relaxed">{{ t }}</p>
+                          <p class="leading-relaxed" style="color: color-mix(in srgb, var(--brand-800) 72%, transparent);">{{ t }}</p>
                         </div>
                       </div>
 
-                      <div class="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full bg-[#AFCEE3]/45 blur-2xl"></div>
-                      <div class="pointer-events-none absolute -bottom-10 -left-10 h-28 w-28 rounded-full bg-[#CE6C37]/10 blur-2xl"></div>
+                      <div class="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full bg-[var(--brand-300)]/40 blur-2xl"></div>
+                      <div class="pointer-events-none absolute -bottom-10 -left-10 h-28 w-28 rounded-full bg-[var(--brand-200)]/25 blur-2xl"></div>
                     </div>
                   }
                 </div>
               </section>
 
-              <!-- SECTION: faq -->
+              <!-- faq -->
               <section
                 id="faq"
-                class="scroll-mt-28 rounded-[2rem] border border-white/70 bg-white/80 backdrop-blur
-                       shadow-[0_14px_40px_-26px_rgba(14,40,89,.35)] p-7 md:p-8"
+                class="scroll-mt-28 rounded-[2rem] bg-white/80 backdrop-blur p-7 md:p-8"
+                style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent); box-shadow: 0 14px 40px -26px rgba(5,10,48,.22);"
               >
                 <div class="flex items-end justify-between gap-6 flex-wrap">
                   <div>
-                    <h2 class="text-2xl md:text-3xl font-black text-[#0E2859]">Preguntas frecuentes</h2>
-                    <p class="mt-2 text-[#0E2859]/65">
-                      Respuestas rápidas para que tomes decisiones con confianza.
-                    </p>
+                    <h2 class="text-2xl md:text-3xl font-black" style="color: var(--brand-950);">Preguntas frecuentes</h2>
+                    <p class="mt-2" style="color: color-mix(in srgb, var(--brand-600) 90%, transparent);">Respuestas claras para decidir con confianza.</p>
                   </div>
 
                   <a
                     [routerLink]="[]"
                     fragment="sintomas"
-                    class="text-sm font-extrabold text-[#0E2859]/70 hover:text-[#215EBB] transition"
+                    class="text-sm font-extrabold hover:opacity-80 transition"
+                    style="color: var(--brand-600);"
                   >
-                    Volver a síntomas ↑
+                    Volver ↑
                   </a>
                 </div>
 
                 <div class="mt-6 space-y-3">
                   @for (f of s.faqs; track f.question) {
-                    <details class="group rounded-2xl border border-[#0E2859]/10 bg-white/80 open:bg-white transition">
+                    <details class="group rounded-2xl bg-white/85 open:bg-white transition"
+                             style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);">
                       <summary class="cursor-pointer list-none p-5 flex items-start justify-between gap-4">
-                        <h3 class="font-extrabold text-[#0E2859] leading-relaxed">
+                        <h3 class="font-extrabold leading-relaxed" style="color: var(--brand-950);">
                           {{ f.question }}
                         </h3>
 
                         <span
-                          class="mt-0.5 shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full
-                                 border border-[#0E2859]/10 bg-white text-[#0E2859]
-                                 group-open:rotate-45 transition-transform"
+                          class="mt-0.5 shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white transition-transform group-open:rotate-45"
+                          style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent); color: var(--brand-950);"
                         >
                           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -369,7 +324,7 @@
                         </span>
                       </summary>
 
-                      <div class="px-5 pb-5 text-[#0E2859]/70 leading-relaxed">
+                      <div class="px-5 pb-5 leading-relaxed" style="color: color-mix(in srgb, var(--brand-800) 70%, transparent);">
                         {{ f.answer }}
                       </div>
                     </details>
@@ -381,55 +336,59 @@
             <!-- SIDEBAR -->
             <aside class="lg:sticky lg:top-6 h-fit space-y-6">
               <!-- CTA bento -->
-              <div class="rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl shadow-sm overflow-hidden">
+              <div class="rounded-[2rem] bg-white/70 backdrop-blur-xl shadow-sm overflow-hidden"
+                   style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);">
                 <div class="p-6">
-                  <p class="text-xs font-extrabold tracking-wide text-[#CE6C37]">SIGUIENTE PASO</p>
-                  <h3 class="mt-1 text-lg font-black text-[#0E2859]">Agenda una valoración</h3>
-                  <p class="mt-2 text-sm text-[#0E2859]/65">
-                    Si tienes síntomas o dudas, una valoración ayuda a definir el plan.
+                  <p class="text-xs font-extrabold tracking-wide" style="color: var(--brand-500);">SIGUIENTE PASO</p>
+                  <h3 class="mt-1 text-lg font-black" style="color: var(--brand-950);">Agenda una valoración</h3>
+                  <p class="mt-2 text-sm" style="color: color-mix(in srgb, var(--brand-600) 90%, transparent);">
+                    Si tienes síntomas o dudas, una valoración define el plan con claridad.
                   </p>
 
                   <div class="mt-5 space-y-3">
                     <a
-                      routerLink="/cita"
-                      class="w-full inline-flex items-center justify-center rounded-2xl bg-[#215EBB] px-5 py-3 text-white font-extrabold
-                             shadow-[0_18px_50px_-30px_rgba(33,94,187,.7)] hover:brightness-110 transition"
+                      routerLink="/contacto"
+                      class="w-full inline-flex items-center justify-center rounded-2xl px-5 py-3 text-white font-extrabold hover:brightness-110 transition"
+                      style="background: var(--brand-950); box-shadow: 0 18px 50px -30px rgba(5,10,48,.65);"
                     >
                       Agendar cita
                     </a>
 
                     <a
                       routerLink="/contacto"
-                      class="w-full inline-flex items-center justify-center rounded-2xl bg-white/90 px-5 py-3 text-[#0E2859] font-extrabold
-                             border border-[#0E2859]/10 hover:border-[#215EBB]/25 hover:text-[#215EBB] transition"
+                      class="w-full inline-flex items-center justify-center rounded-2xl bg-white/90 px-5 py-3 font-extrabold hover:opacity-90 transition"
+                      style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: var(--brand-950);"
                     >
                       Contacto
                     </a>
                   </div>
 
-                  <div class="mt-6 rounded-2xl border border-[#0E2859]/10 bg-white/80 p-4">
-                    <p class="text-xs font-extrabold tracking-wide text-[#0E2859]/55">TIP</p>
-                    <p class="mt-1 text-sm text-[#0E2859]/75">
-                      Lleva estudios previos (si los tienes) y anota síntomas con fechas.
+                  <div class="mt-6 rounded-2xl bg-white/85 p-4"
+                       style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);">
+                    <p class="text-xs font-extrabold tracking-wide" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">TIP</p>
+                    <p class="mt-1 text-sm" style="color: color-mix(in srgb, var(--brand-800) 75%, transparent);">
+                      Anota síntomas + fechas y lleva estudios previos (si tienes).
                     </p>
                   </div>
                 </div>
 
-                <div class="h-1.5 w-full" style="background: linear-gradient(90deg, #AFCEE3, #215EBB, #CE6C37);"></div>
+                <div class="h-1.5 w-full" style="background: linear-gradient(90deg, var(--brand-950), var(--brand-800), var(--brand-500), var(--brand-300));"></div>
               </div>
 
-              <!-- Warning / alarm -->
-              <div class="rounded-[2rem] border border-[#CE6C37]/20 bg-[#CE6C37]/10 backdrop-blur p-6">
+              <!-- Alarm / warning (NO orange) -->
+              <div class="rounded-[2rem] backdrop-blur p-6"
+                   style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent); background: color-mix(in srgb, var(--brand-200) 18%, white 82%);">
                 <div class="flex items-start justify-between gap-4">
                   <div>
-                    <h3 class="text-lg font-black text-[#0E2859]">Señales de alarma</h3>
-                    <p class="mt-2 text-sm text-[#0E2859]/75 leading-relaxed">
+                    <h3 class="text-lg font-black" style="color: var(--brand-950);">Señales de alarma</h3>
+                    <p class="mt-2 text-sm leading-relaxed" style="color: color-mix(in srgb, var(--brand-800) 75%, transparent);">
                       {{ s.warning_text }}
                     </p>
                   </div>
 
-                  <div class="h-10 w-10 rounded-2xl bg-white/70 border border-[#CE6C37]/20 flex items-center justify-center">
-                    <svg class="h-5 w-5 text-[#0E2859]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <div class="h-10 w-10 rounded-2xl bg-white/75 flex items-center justify-center"
+                       style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent); color: var(--brand-950);">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M12 9v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                       <path d="M12 17h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
                       <path
@@ -439,30 +398,41 @@
                     </svg>
                   </div>
                 </div>
+
+                <div class="mt-5 h-px w-full" style="background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand-200) 70%, transparent), transparent);"></div>
+
+                <div class="mt-4 flex items-center gap-2 text-xs font-extrabold" style="color: color-mix(in srgb, var(--brand-800) 80%, transparent);">
+                  <span class="h-2 w-2 rounded-full bg-[var(--brand-500)]"></span>
+                  Si es súbito o progresivo, acude a urgencias.
+                </div>
               </div>
 
               <!-- Sections quick nav -->
-              <div class="rounded-[2rem] border border-white/70 bg-white/70 backdrop-blur-xl shadow-sm p-6">
-                <h3 class="text-sm font-extrabold text-[#0E2859]">Secciones</h3>
+              <div class="rounded-[2rem] bg-white/70 backdrop-blur-xl shadow-sm p-6"
+                   style="border: 1px solid color-mix(in srgb, var(--brand-200) 45%, transparent);">
+                <h3 class="text-sm font-extrabold" style="color: var(--brand-950);">Secciones</h3>
                 <div class="mt-3 flex flex-wrap gap-2">
                   <a
                     [routerLink]="[]"
                     fragment="sintomas"
-                    class="rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-sm font-extrabold text-[#0E2859]/75 hover:text-[#215EBB] hover:border-[#215EBB]/25 transition"
+                    class="rounded-full bg-white/85 px-3 py-1.5 text-sm font-extrabold hover:opacity-80 transition"
+                    style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-800) 80%, transparent);"
                   >
                     Síntomas
                   </a>
                   <a
                     [routerLink]="[]"
                     fragment="tratamientos"
-                    class="rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-sm font-extrabold text-[#0E2859]/75 hover:text-[#215EBB] hover:border-[#215EBB]/25 transition"
+                    class="rounded-full bg-white/85 px-3 py-1.5 text-sm font-extrabold hover:opacity-80 transition"
+                    style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-800) 80%, transparent);"
                   >
                     Tratamientos
                   </a>
                   <a
                     [routerLink]="[]"
                     fragment="faq"
-                    class="rounded-full border border-[#0E2859]/10 bg-white/80 px-3 py-1.5 text-sm font-extrabold text-[#0E2859]/75 hover:text-[#215EBB] hover:border-[#215EBB]/25 transition"
+                    class="rounded-full bg-white/85 px-3 py-1.5 text-sm font-extrabold hover:opacity-80 transition"
+                    style="border: 1px solid color-mix(in srgb, var(--brand-200) 55%, transparent); color: color-mix(in srgb, var(--brand-800) 80%, transparent);"
                   >
                     Preguntas
                   </a>
@@ -472,7 +442,7 @@
           </div>
 
         } @else {
-          <div class="text-center text-[#0E2859]/70 py-24">Cargando…</div>
+          <div class="text-center py-24" style="color: var(--brand-600);">Cargando…</div>
         }
 
       }

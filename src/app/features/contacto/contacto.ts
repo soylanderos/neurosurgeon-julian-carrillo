@@ -3,9 +3,35 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { LucideAngularModule, MapPin, Navigation, Phone, Mail, Clock, CheckCircle2, X, ExternalLink, ArrowRight, MessageCircle } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  MapPin,
+  Navigation,
+  Phone,
+  Clock,
+  CheckCircle2,
+  X,
+  MessageCircle,
+} from 'lucide-angular';
 
 import { AppointmentsApi } from './data/appointments.api';
+
+type ContactInfo = {
+  officeName: string;
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+  state: string;
+  postal?: string;
+  phone: string;
+  whatsapp: string;
+  email: string;
+  officeHours: string;
+  mapsUrl: string;
+
+  /** Opcional: pega aquí un embed de Google Maps (iframe src) */
+  mapsEmbedSrc?: string;
+};
 
 @Component({
   selector: 'app-contacto',
@@ -21,24 +47,69 @@ export class Contacto {
   private fb = inject(FormBuilder);
   private appointmentsApi = inject(AppointmentsApi);
 
-  // ====== Datos (ajusta)
-  readonly addressLine1 = 'Consultorio de Neurocirugía';
-  readonly city = 'Ciudad Juárez, Chihuahua';
-  readonly postal = 'C.P. 00000';
-  readonly phone = '+52 000 000 0000';
-  readonly whatsapp = '+52 000 000 0000';
-  readonly email = 'contacto@tudominio.com';
-  readonly mapsUrl = 'https://maps.app.goo.gl/y3LLNxPW2osvtZ5a8';
+  // =========================================================
+  // ✅ Pega aquí tus datos NUEVOS y correctos (1 sola vez)
+  // =========================================================
+  readonly CONTACT: ContactInfo = {
+    officeName: 'Consultorio de Neurocirugía',
+    addressLine1: 'PON AQUÍ LA DIRECCIÓN REAL (Calle + número)',
+    addressLine2: 'Piso / consultorio (opcional)',
+    city: 'Ciudad Juárez',
+    state: 'Chihuahua',
+    postal: 'C.P. XXXXX',
+    phone: '+52 656 000 0000',
+    whatsapp: '+52 656 000 0000',
+    email: 'contacto@tudominio.com',
+    officeHours: 'PON AQUÍ EL HORARIO REAL (ej. L–V 9:00–17:00 · Sáb 9:00–13:00)',
+    mapsUrl: 'https://maps.app.goo.gl/y3LLNxPW2osvtZ5a8',
 
-  // Si luego consigues embed real:
-  readonly mapEmbedUrl: SafeResourceUrl | null = null;
+    // Si tienes embed (src del iframe) pégalo aquí:
+    // mapsEmbedSrc: 'https://www.google.com/maps/embed?pb=...'
+  };
 
-  // ====== Toast
+  // ===== Derivados para template
+  get phone() {
+    return this.CONTACT.phone;
+  }
+  get email() {
+    return this.CONTACT.email;
+  }
+  get officeHours() {
+    return this.CONTACT.officeHours;
+  }
+  get mapsUrl() {
+    return this.CONTACT.mapsUrl;
+  }
+
+  get fullAddress() {
+    const p1 = this.CONTACT.addressLine1;
+    const p2 = this.CONTACT.addressLine2 ? `, ${this.CONTACT.addressLine2}` : '';
+    const postal = this.CONTACT.postal ? `, ${this.CONTACT.postal}` : '';
+    return `${this.CONTACT.officeName} — ${p1}${p2}, ${this.CONTACT.city}, ${this.CONTACT.state}${postal}`;
+  }
+
+  get telUrl() {
+    const digits = this.CONTACT.phone.replace(/[^\d+]/g, '');
+    return `tel:${digits}`;
+  }
+
+  get whatsappUrl() {
+    const digits = this.CONTACT.whatsapp.replace(/[^\d]/g, '');
+    const msg = 'Hola, me gustaría agendar una consulta. ¿Me pueden apoyar por favor?';
+    return `https://wa.me/${digits}?text=${encodeURIComponent(msg)}`;
+  }
+
+  get mapEmbedUrl(): SafeResourceUrl | null {
+    if (!this.CONTACT.mapsEmbedSrc) return null;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.CONTACT.mapsEmbedSrc);
+  }
+
+  // ===== Toast
   readonly toastOpen = signal(false);
   readonly toastTitle = signal('Listo');
   readonly toastDesc = signal('Acción completada.');
 
-  // ====== Form state
+  // ===== Form state
   readonly submitting = signal(false);
   readonly submitError = signal<string | null>(null);
 
@@ -46,44 +117,19 @@ export class Contacto {
     full_name: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(3)]),
     phone: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(8)]),
     email: this.fb.nonNullable.control('', [Validators.email]),
-    preferred_date: this.fb.nonNullable.control(''), // YYYY-MM-DD
-    preferred_time: this.fb.nonNullable.control(''), // HH:mm
+    preferred_date: this.fb.nonNullable.control(''),
+    preferred_time: this.fb.nonNullable.control(''),
     reason: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(10)]),
     notes: this.fb.nonNullable.control(''),
   });
 
-  // ====== Links derivados
-  get telUrl() {
-    const digits = this.phone.replace(/[^\d+]/g, '');
-    return `tel:${digits}`;
-  }
-
-  get whatsappUrl() {
-    const digits = this.whatsapp.replace(/[^\d]/g, '');
-    return `https://wa.me/${digits}?text=${encodeURIComponent('Hola, me gustaría agendar una consulta. ¿Me pueden apoyar por favor?')}`;
-  }
-
-  get mailtoUrl() {
-    const subject = encodeURIComponent('Solicitud de cita');
-    const body = encodeURIComponent('Hola, me gustaría agendar una consulta. Comparto mi nombre y motivo de consulta:');
-    return `mailto:${this.email}?subject=${subject}&body=${body}`;
-  }
-
-  get fullAddress() {
-    return `${this.addressLine1} — ${this.city} — ${this.postal}`;
-  }
-
-  // ====== Icons
+  // ===== Icons
   readonly iMapPin = MapPin;
   readonly iNav = Navigation;
   readonly iPhone = Phone;
-  readonly iMail = Mail;
   readonly iClock = Clock;
   readonly iOk = CheckCircle2;
   readonly iX = X;
-  readonly iExternal = ExternalLink;
-  readonly iArrow = ArrowRight;
-  readonly iWhats = MessageCircle;
   readonly iWhatsapp = MessageCircle;
 
   showErr(name: keyof typeof this.form.controls) {
@@ -93,7 +139,6 @@ export class Contacto {
 
   async submit() {
     this.submitError.set(null);
-
     if (!this.isBrowser) return;
 
     this.form.markAllAsTouched();
@@ -103,8 +148,6 @@ export class Contacto {
       this.submitting.set(true);
 
       const v = this.form.getRawValue();
-
-      // Normaliza opcionales
       const payload = {
         full_name: v.full_name.trim(),
         phone: v.phone.trim(),

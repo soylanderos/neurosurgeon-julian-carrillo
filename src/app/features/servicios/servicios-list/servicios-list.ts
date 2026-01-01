@@ -18,6 +18,14 @@ type Category = 'all' | 'brain' | 'spine' | 'pain' | 'consult';
 export class ServiciosList {
   private api = inject(ServiciosApi);
 
+  readonly categories: ReadonlyArray<{ key: Category; label: string }> = [
+    { key: 'all', label: 'Todos' },
+    { key: 'brain', label: 'Cerebro' },
+    { key: 'spine', label: 'Columna' },
+    { key: 'pain', label: 'Dolor / Nervios' },
+    { key: 'consult', label: 'Consulta' },
+  ];
+
   // UI state
   loading = signal(true);
   error = signal<string | null>(null);
@@ -34,13 +42,13 @@ export class ServiciosList {
       this.error.set('No se pudieron cargar los servicios. Intenta de nuevo.');
       return of([] as Servicio[]);
     }),
-    finalize(() => this.loading.set(false)),
+    finalize(() => this.loading.set(false))
   );
 
   servicios = toSignal(this.serviciosStream$, { initialValue: [] as Servicio[] });
 
   serviciosSorted = computed(() =>
-    [...this.servicios()].sort((a, b) => (a.card_title ?? '').localeCompare(b.card_title ?? '')),
+    [...this.servicios()].sort((a, b) => (a.card_title ?? '').localeCompare(b.card_title ?? ''))
   );
 
   // ✅ Lista final: orden + categoría + búsqueda
@@ -91,11 +99,19 @@ export class ServiciosList {
     if (/(consulta|valoracion|evaluacion|segunda opinion|seguimiento)/.test(text)) return 'consult';
 
     // spine
-    if (/(columna|cervical|lumbar|dorsal|hernia|disco|ciatica|escoliosis|estenosis|radiculopatia)/.test(text))
+    if (
+      /(columna|cervical|lumbar|dorsal|hernia|disco|ciatica|escoliosis|estenosis|radiculopatia)/.test(
+        text
+      )
+    )
       return 'spine';
 
     // brain
-    if (/(cerebro|tumor|aneurisma|hidrocefalia|epilepsia|meningioma|glioma|neurovascular|craneo)/.test(text))
+    if (
+      /(cerebro|tumor|aneurisma|hidrocefalia|epilepsia|meningioma|glioma|neurovascular|craneo)/.test(
+        text
+      )
+    )
       return 'brain';
 
     // pain / nerves

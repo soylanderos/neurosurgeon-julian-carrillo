@@ -1,9 +1,9 @@
-<div class="relative overflow-hidden bg-[#F7FAFF]">
+<div class="relative overflow-hidden" style="background: var(--abt-bg);">
   <!-- soft blobs background -->
   <div class="pointer-events-none absolute inset-0">
-    <div class="absolute -top-28 -left-28 h-[560px] w-[560px] rounded-full bg-[#AFCEE3]/55 blur-3xl"></div>
-    <div class="absolute -bottom-28 -right-28 h-[560px] w-[560px] rounded-full bg-[#C3B692]/35 blur-3xl"></div>
-    <div class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full bg-[#215EBB]/10 blur-3xl"></div>
+    <div class="absolute -top-28 -left-28 h-[560px] w-[560px] rounded-full blur-3xl" style="background: var(--abt-blob-1);"></div>
+    <div class="absolute -bottom-28 -right-28 h-[560px] w-[560px] rounded-full blur-3xl" style="background: var(--abt-blob-2);"></div>
+    <div class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full blur-3xl" style="background: var(--abt-blob-3);"></div>
   </div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 relative">
@@ -12,37 +12,48 @@
       <!-- Header -->
       <div class="mb-10 md:mb-12">
         <nav class="text-sm mb-5">
-          <a routerLink="/" class="text-[#0E2859]/60 hover:text-[#215EBB] transition">Inicio</a>
-          <span class="mx-2 text-[#0E2859]/30">/</span>
-          <span class="text-[#0E2859] font-semibold">{{ profile().name }}</span>
+          <a
+            routerLink="/"
+            class="transition hover:opacity-100"
+            style="color: var(--abt-link-muted);"
+          >
+            Inicio
+          </a>
+          <span class="mx-2" style="color: var(--abt-sep);">/</span>
+          <span class="font-semibold" style="color: var(--abt-title);">{{ profile().name }}</span>
         </nav>
 
         <span
-          class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide
-                 bg-[#AFCEE3]/35 text-[#0E2859]"
+          class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide"
+          style="background: var(--abt-pill-bg); color: var(--abt-pill-text);"
         >
-          <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+          <span class="h-2 w-2 rounded-full" style="background: var(--accent);"></span>
           Sobre el doctor
         </span>
 
         <div class="mt-4 grid lg:grid-cols-[1fr_auto] gap-4 items-start">
           <div>
-            <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.05] text-[#0E2859] text-balance">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.05] text-balance" style="color: var(--abt-title);">
               {{ profile().name }}
             </h1>
-            <p class="mt-2 text-lg md:text-xl font-bold text-[#215EBB]">
+
+            <p class="mt-2 text-lg md:text-xl font-bold" style="color: var(--abt-link);">
               {{ profile().professional_title }}
             </p>
-            <p class="mt-4 text-[15px] md:text-base text-[#0E2859]/70 leading-relaxed text-pretty max-w-3xl">
+
+            <p class="mt-4 text-[15px] md:text-base leading-relaxed text-pretty max-w-3xl" style="color: var(--abt-body);">
               {{ profile().intro }}
             </p>
           </div>
 
           <!-- Small trust chip -->
           <div class="hidden lg:block">
-            <div class="rounded-2xl bg-white/80 backdrop-blur border border-[#0E2859]/10 px-4 py-3 shadow-sm">
-              <p class="text-xs font-semibold text-[#0E2859]/55">Atención</p>
-              <p class="text-sm font-extrabold text-[#0E2859]">Clara · Humana · Basada en evidencia</p>
+            <div
+              class="rounded-2xl backdrop-blur border px-4 py-3 shadow-sm"
+              style="background: var(--abt-card-bg); border-color: var(--abt-border);"
+            >
+              <p class="text-xs font-semibold" style="color: var(--abt-muted);">Atención</p>
+              <p class="text-sm font-extrabold" style="color: var(--abt-title);">Clara · Humana · Basada en evidencia</p>
             </div>
           </div>
         </div>
@@ -55,12 +66,17 @@
         <aside class="lg:col-span-5 lg:sticky lg:top-24 space-y-5">
 
           <!-- Photo card -->
-          <div class="relative rounded-3xl bg-white/85 backdrop-blur border border-[#0E2859]/10 shadow-xl overflow-hidden">
-            <div class="h-1.5 w-full bg-gradient-to-r from-[#CE6C37] via-[#215EBB] to-[#AFCEE3]"></div>
+          <div
+            class="relative rounded-3xl backdrop-blur border shadow-xl overflow-hidden"
+            style="background: var(--abt-card-bg); border-color: var(--abt-border);"
+          >
+            <div class="h-1.5 w-full" style="background: var(--abt-accent-bar);"></div>
 
             <div class="p-6 sm:p-7">
-              <div class="relative rounded-3xl overflow-hidden border border-[#0E2859]/10 shadow-lg bg-[#AFCEE3]/25">
-                <!-- ✅ cambia este src por tu foto -->
+              <div
+                class="relative rounded-3xl overflow-hidden border shadow-lg"
+                style="border-color: var(--abt-border); background: var(--abt-photo-frame);"
+              >
                 <img
                   src="https://hospitalangeles.com/assets/img/medicos/julian-octavio-carrillo-gonzalez.jpg"
                   alt="{{ profile().name }}"
@@ -69,10 +85,14 @@
                   decoding="async"
                   referrerpolicy="no-referrer"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0E2859]/30 via-transparent to-transparent"></div>
+
+                <div class="absolute inset-0" style="background: var(--abt-photo-overlay);"></div>
 
                 <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
-                  <div class="rounded-full bg-white/90 backdrop-blur px-4 py-1.5 text-xs font-extrabold text-[#0E2859] border border-[#0E2859]/10">
+                  <div
+                    class="rounded-full backdrop-blur px-4 py-1.5 text-xs font-extrabold border"
+                    style="background: rgba(255,255,255,.9); color: var(--abt-title); border-color: var(--abt-border);"
+                  >
                     {{ profile().name }}
                   </div>
                 </div>
@@ -82,13 +102,13 @@
               <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a
                   routerLink="/contacto"
-                  class="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
-                         text-sm font-extrabold text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition
-                         bg-gradient-to-r from-[#0E2859] to-[#215EBB] ring-1 ring-[#0E2859]/10"
+                  class="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-extrabold text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition ring-1"
+                  style="background: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary)); --tw-ring-color: var(--abt-border);"
                 >
                   Agendar cita
-                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/12 ring-1 ring-white/15">
-                    <span class="text-[#CE6C37] font-extrabold">→</span>
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-full ring-1"
+                        style="background: rgba(255,255,255,.12); --tw-ring-color: rgba(255,255,255,.15);">
+                    <span class="font-extrabold" style="color: var(--accent);">→</span>
                   </span>
                 </a>
 
@@ -96,17 +116,17 @@
                   href="https://wa.me/52XXXXXXXXXX"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-extrabold
-                         bg-white border border-[#0E2859]/15 text-[#0E2859] hover:bg-[#0E2859]/5 transition"
+                  class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-extrabold border transition"
+                  style="background: rgba(255,255,255,.92); border-color: var(--abt-border); color: var(--abt-title);"
                 >
-                  <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]/15">
-                    <span class="text-[#0E2859] font-extrabold">WA</span>
+                  <span class="inline-flex h-9 w-9 items-center justify-center rounded-full" style="background: var(--abt-wa-bg);">
+                    <span class="font-extrabold" style="color: var(--abt-title);">WA</span>
                   </span>
                   WhatsApp
                 </a>
               </div>
 
-              <p class="mt-3 text-xs text-[#0E2859]/55 text-center">
+              <p class="mt-3 text-xs text-center" style="color: var(--abt-muted);">
                 Respuesta rápida · orientación clara · seguimiento
               </p>
             </div>
@@ -114,28 +134,28 @@
 
           <!-- Quick facts -->
           <div class="grid grid-cols-2 gap-3">
-            <div class="rounded-2xl border border-[#0E2859]/10 bg-white/90 backdrop-blur p-4 shadow-sm">
+            <div class="rounded-2xl border backdrop-blur p-4 shadow-sm" style="background: var(--abt-card-bg-strong); border-color: var(--abt-border);">
               <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-[#CE6C37]/15 grid place-items-center">
-                  <lucide-icon [img]="iAward" class="h-5 w-5 text-[#CE6C37]"></lucide-icon>
+                <div class="h-10 w-10 rounded-2xl grid place-items-center" style="background: color-mix(in srgb, var(--accent) 15%, transparent);">
+                  <lucide-icon [img]="iAward" class="h-5 w-5" style="color: var(--accent);"></lucide-icon>
                 </div>
                 <div class="min-w-0">
-                  <p class="text-xs font-semibold text-[#0E2859]/55">Cédula</p>
-                  <p class="text-sm font-extrabold text-[#0E2859] truncate">
+                  <p class="text-xs font-semibold" style="color: var(--abt-muted);">Cédula</p>
+                  <p class="text-sm font-extrabold truncate" style="color: var(--abt-title);">
                     {{ profile().cedula || '—' }}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div class="rounded-2xl border border-[#0E2859]/10 bg-white/90 backdrop-blur p-4 shadow-sm">
+            <div class="rounded-2xl border backdrop-blur p-4 shadow-sm" style="background: var(--abt-card-bg-strong); border-color: var(--abt-border);">
               <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-[#215EBB]/12 grid place-items-center">
-                  <lucide-icon [img]="iBuilding2" class="h-5 w-5 text-[#215EBB]"></lucide-icon>
+                <div class="h-10 w-10 rounded-2xl grid place-items-center" style="background: color-mix(in srgb, var(--bg-secondary) 12%, transparent);">
+                  <lucide-icon [img]="iBuilding2" class="h-5 w-5" style="color: var(--bg-secondary);"></lucide-icon>
                 </div>
                 <div class="min-w-0">
-                  <p class="text-xs font-semibold text-[#0E2859]/55">Ubicación</p>
-                  <p class="text-sm font-extrabold text-[#0E2859] truncate">Ciudad Juárez</p>
+                  <p class="text-xs font-semibold" style="color: var(--abt-muted);">Ubicación</p>
+                  <p class="text-sm font-extrabold truncate" style="color: var(--abt-title);">Ciudad Juárez</p>
                 </div>
               </div>
             </div>
@@ -149,81 +169,81 @@
           <!-- Enfoque + Formación (2 cards) -->
           <div class="grid md:grid-cols-2 gap-4">
             @if (profile().care_approach) {
-              <div class="rounded-3xl bg-white/80 backdrop-blur border border-[#0E2859]/10 p-6 shadow-sm">
+              <div class="rounded-3xl backdrop-blur border p-6 shadow-sm" style="background: var(--abt-card-bg); border-color: var(--abt-border);">
                 <div class="flex items-center gap-3 mb-3">
-                  <div class="h-11 w-11 rounded-2xl bg-[#CE6C37]/15 grid place-items-center border border-[#0E2859]/10">
-                    <lucide-icon [img]="iHeart" class="h-5 w-5 text-[#CE6C37]"></lucide-icon>
+                  <div class="h-11 w-11 rounded-2xl grid place-items-center border" style="background: color-mix(in srgb, var(--accent) 15%, transparent); border-color: var(--abt-border);">
+                    <lucide-icon [img]="iHeart" class="h-5 w-5" style="color: var(--accent);"></lucide-icon>
                   </div>
-                  <h2 class="text-base font-extrabold text-[#0E2859]">Enfoque de Atención</h2>
+                  <h2 class="text-base font-extrabold" style="color: var(--abt-title);">Enfoque de Atención</h2>
                 </div>
-                <p class="text-sm text-[#0E2859]/70 leading-relaxed text-pretty">
+                <p class="text-sm leading-relaxed text-pretty" style="color: var(--abt-body);">
                   {{ profile().care_approach }}
                 </p>
               </div>
             }
 
             @if (profile().academic_background) {
-              <div class="rounded-3xl bg-white/80 backdrop-blur border border-[#0E2859]/10 p-6 shadow-sm">
+              <div class="rounded-3xl backdrop-blur border p-6 shadow-sm" style="background: var(--abt-card-bg); border-color: var(--abt-border);">
                 <div class="flex items-center gap-3 mb-3">
-                  <div class="h-11 w-11 rounded-2xl bg-[#215EBB]/12 grid place-items-center border border-[#0E2859]/10">
-                    <lucide-icon [img]="iGraduationCap" class="h-5 w-5 text-[#215EBB]"></lucide-icon>
+                  <div class="h-11 w-11 rounded-2xl grid place-items-center border" style="background: color-mix(in srgb, var(--bg-secondary) 12%, transparent); border-color: var(--abt-border);">
+                    <lucide-icon [img]="iGraduationCap" class="h-5 w-5" style="color: var(--bg-secondary);"></lucide-icon>
                   </div>
-                  <h2 class="text-base font-extrabold text-[#0E2859]">Formación Académica</h2>
+                  <h2 class="text-base font-extrabold" style="color: var(--abt-title);">Formación Académica</h2>
                 </div>
-                <p class="text-sm text-[#0E2859]/70 leading-relaxed text-pretty">
+                <p class="text-sm leading-relaxed text-pretty" style="color: var(--abt-body);">
                   {{ profile().academic_background }}
                 </p>
               </div>
             }
           </div>
 
-          <!-- Credenciales (compacto) -->
-          <div class="rounded-3xl bg-white border border-[#0E2859]/10 shadow-sm overflow-hidden">
-            <div class="p-6 bg-gradient-to-b from-[#AFCEE3]/30 via-white to-white border-b border-[#0E2859]/10">
+          <!-- Credenciales -->
+          <div class="rounded-3xl border shadow-sm overflow-hidden" style="background: rgba(255,255,255,.92); border-color: var(--abt-border);">
+            <div class="p-6 border-b" style="background: linear-gradient(180deg, color-mix(in srgb, var(--sky) 30%, transparent), white); border-color: var(--abt-border);">
               <div class="flex items-center gap-3">
-                <div class="h-11 w-11 rounded-2xl bg-[#CE6C37]/15 grid place-items-center">
-                  <lucide-icon [img]="iAward" class="h-5 w-5 text-[#CE6C37]"></lucide-icon>
+                <div class="h-11 w-11 rounded-2xl grid place-items-center" style="background: color-mix(in srgb, var(--accent) 15%, transparent);">
+                  <lucide-icon [img]="iAward" class="h-5 w-5" style="color: var(--accent);"></lucide-icon>
                 </div>
                 <div>
-                  <h2 class="text-base font-extrabold text-[#0E2859]">Cédula y Certificaciones</h2>
-                  <p class="text-sm text-[#0E2859]/60">Información profesional</p>
+                  <h2 class="text-base font-extrabold" style="color: var(--abt-title);">Cédula y Certificaciones</h2>
+                  <p class="text-sm" style="color: var(--abt-muted);">Información profesional</p>
                 </div>
               </div>
             </div>
 
             <div class="p-6 grid sm:grid-cols-2 gap-4">
               @if (profile().cedula) {
-                <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-4">
-                  <p class="text-xs font-semibold text-[#0E2859]/55 mb-1">Cédula Profesional</p>
-                  <p class="text-sm font-extrabold text-[#0E2859]">{{ profile().cedula }}</p>
+                <div class="rounded-2xl border p-4" style="background: white; border-color: var(--abt-border);">
+                  <p class="text-xs font-semibold mb-1" style="color: var(--abt-muted);">Cédula Profesional</p>
+                  <p class="text-sm font-extrabold" style="color: var(--abt-title);">{{ profile().cedula }}</p>
                 </div>
               }
 
               @if (profile().university) {
-                <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-4">
-                  <p class="text-xs font-semibold text-[#0E2859]/55 mb-1">Universidad</p>
-                  <p class="text-sm font-extrabold text-[#0E2859]">{{ profile().university }}</p>
+                <div class="rounded-2xl border p-4" style="background: white; border-color: var(--abt-border);">
+                  <p class="text-xs font-semibold mb-1" style="color: var(--abt-muted);">Universidad</p>
+                  <p class="text-sm font-extrabold" style="color: var(--abt-title);">{{ profile().university }}</p>
                 </div>
               }
 
               @if (profile().certifications) {
-                <div class="rounded-2xl border border-[#0E2859]/10 bg-white p-4 sm:col-span-2">
-                  <p class="text-xs font-semibold text-[#0E2859]/55 mb-1">Certificaciones</p>
-                  <p class="text-sm font-semibold text-[#0E2859]">{{ profile().certifications }}</p>
+                <div class="rounded-2xl border p-4 sm:col-span-2" style="background: white; border-color: var(--abt-border);">
+                  <p class="text-xs font-semibold mb-1" style="color: var(--abt-muted);">Certificaciones</p>
+                  <p class="text-sm font-semibold" style="color: var(--abt-title);">{{ profile().certifications }}</p>
                 </div>
               }
             </div>
           </div>
 
-          <!-- Especializaciones (tags) -->
-          <div class="rounded-3xl bg-white/80 backdrop-blur border border-[#0E2859]/10 p-6 shadow-sm">
+          <!-- Especializaciones -->
+          <div class="rounded-3xl backdrop-blur border p-6 shadow-sm" style="background: var(--abt-card-bg); border-color: var(--abt-border);">
             <div class="flex items-center gap-3 mb-4">
-              <div class="h-11 w-11 rounded-2xl bg-[#AFCEE3]/35 grid place-items-center border border-[#0E2859]/10">
-                <lucide-icon [img]="iBookOpen" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+              <div class="h-11 w-11 rounded-2xl grid place-items-center border" style="background: color-mix(in srgb, var(--sky) 35%, transparent); border-color: var(--abt-border);">
+                <lucide-icon [img]="iBookOpen" class="h-5 w-5" style="color: var(--abt-title);"></lucide-icon>
               </div>
               <div>
-                <h2 class="text-base font-extrabold text-[#0E2859]">Áreas de Especialización</h2>
-                <p class="text-sm text-[#0E2859]/60">Cerebro · Columna · Procedimientos</p>
+                <h2 class="text-base font-extrabold" style="color: var(--abt-title);">Áreas de Especialización</h2>
+                <p class="text-sm" style="color: var(--abt-muted);">Cerebro · Columna · Procedimientos</p>
               </div>
             </div>
 
@@ -231,43 +251,43 @@
               <div class="flex flex-wrap gap-2">
                 @for (item of profile().specializations; track item) {
                   <span
-                    class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold
-                           bg-[#0E2859]/5 text-[#0E2859] border border-[#0E2859]/10"
+                    class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold border"
+                    style="background: var(--abt-tag-bg); color: var(--abt-title); border-color: var(--abt-tag-border);"
                   >
                     {{ item }}
                   </span>
                 }
               </div>
             } @else {
-              <p class="text-[#0E2859]/70 text-sm">[Por definir especializaciones]</p>
+              <p class="text-sm" style="color: var(--abt-body);">[Por definir especializaciones]</p>
             }
           </div>
 
-          <!-- Hospitales + Idiomas (2 cols) -->
+          <!-- Hospitales + Idiomas -->
           <div class="grid md:grid-cols-2 gap-4">
             @if (profile().hospitals) {
-              <div class="rounded-3xl bg-white/80 backdrop-blur border border-[#0E2859]/10 p-6 shadow-sm">
+              <div class="rounded-3xl backdrop-blur border p-6 shadow-sm" style="background: var(--abt-card-bg); border-color: var(--abt-border);">
                 <div class="flex items-center gap-3 mb-3">
-                  <div class="h-11 w-11 rounded-2xl bg-[#C3B692]/25 grid place-items-center border border-[#0E2859]/10">
-                    <lucide-icon [img]="iBuilding2" class="h-5 w-5 text-[#0E2859]"></lucide-icon>
+                  <div class="h-11 w-11 rounded-2xl grid place-items-center border" style="background: color-mix(in srgb, var(--sand) 25%, transparent); border-color: var(--abt-border);">
+                    <lucide-icon [img]="iBuilding2" class="h-5 w-5" style="color: var(--abt-title);"></lucide-icon>
                   </div>
-                  <h2 class="text-base font-extrabold text-[#0E2859]">Hospitales de Atención</h2>
+                  <h2 class="text-base font-extrabold" style="color: var(--abt-title);">Hospitales de Atención</h2>
                 </div>
-                <p class="text-sm text-[#0E2859]/70 leading-relaxed text-pretty">
+                <p class="text-sm leading-relaxed text-pretty" style="color: var(--abt-body);">
                   {{ profile().hospitals }}
                 </p>
               </div>
             }
 
             @if (profile().languages) {
-              <div class="rounded-3xl bg-white/80 backdrop-blur border border-[#0E2859]/10 p-6 shadow-sm">
+              <div class="rounded-3xl backdrop-blur border p-6 shadow-sm" style="background: var(--abt-card-bg); border-color: var(--abt-border);">
                 <div class="flex items-center gap-3 mb-3">
-                  <div class="h-11 w-11 rounded-2xl bg-[#215EBB]/12 grid place-items-center border border-[#0E2859]/10">
-                    <lucide-icon [img]="iLanguages" class="h-5 w-5 text-[#215EBB]"></lucide-icon>
+                  <div class="h-11 w-11 rounded-2xl grid place-items-center border" style="background: color-mix(in srgb, var(--bg-secondary) 12%, transparent); border-color: var(--abt-border);">
+                    <lucide-icon [img]="iLanguages" class="h-5 w-5" style="color: var(--bg-secondary);"></lucide-icon>
                   </div>
-                  <h2 class="text-base font-extrabold text-[#0E2859]">Idiomas</h2>
+                  <h2 class="text-base font-extrabold" style="color: var(--abt-title);">Idiomas</h2>
                 </div>
-                <p class="text-sm text-[#0E2859]/70 leading-relaxed text-pretty">
+                <p class="text-sm leading-relaxed text-pretty" style="color: var(--abt-body);">
                   {{ profile().languages }}
                 </p>
               </div>

@@ -1,22 +1,28 @@
 <!-- Symptoms (Features-style) -->
-<section class="py-20 md:py-28 bg-[#FAF6F2] relative overflow-hidden">
-
-
+<section class="py-20 md:py-28 relative overflow-hidden" style="background: var(--symp-bg)">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <!-- header -->
     <div class="text-center mb-14 max-w-3xl mx-auto">
       <span
-        class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide bg-[#AFCEE3]/40 text-[#0E2859]"
+        class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-extrabold tracking-wide border"
+        style="
+          background: var(--symp-pill-bg);
+          color: var(--symp-pill-text);
+          border-color: var(--symp-card-border);
+        "
       >
-        <span class="h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+        <span class="h-2 w-2 rounded-full" style="background: var(--bg-secondary)"></span>
         Síntomas
       </span>
 
-      <h2 class="mt-5 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0E2859] text-balance">
+      <h2
+        class="mt-5 text-3xl md:text-4xl lg:text-5xl font-extrabold text-balance"
+        style="color: var(--symp-title)"
+      >
         Señales por las que deberías consultarme
       </h2>
 
-      <p class="mt-4 text-base md:text-lg text-[#0E2859]/70 text-pretty">
+      <p class="mt-4 text-base md:text-lg text-pretty" style="color: var(--symp-body)">
         Si te identificas con alguno de estos síntomas, vale la pena evaluarlo para evitar que
         avance.
       </p>
@@ -28,29 +34,38 @@
         <div class="grid md:grid-cols-2 gap-5">
           @for (symptom of symptoms; track $index) {
           <article
-            class="group rounded-[26px] bg-white/80 backdrop-blur border border-[#0E2859]/10 p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition"
+            class="group rounded-[26px] backdrop-blur p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition border"
+            style="background: var(--symp-card-bg); border-color: var(--symp-card-border)"
           >
             <div class="flex items-start gap-4">
               <!-- icon badge -->
               <div
-                class="h-12 w-12 rounded-2xl grid place-items-center bg-gradient-to-br from-[#AFCEE3]/55 via-white to-[#C3B692]/25 ring-1 ring-[#0E2859]/10"
+                class="h-12 w-12 rounded-2xl grid place-items-center ring-1"
+                style="background: var(--symp-icon-bg); ring-color: var(--symp-card-border)"
               >
                 <div
-                  class="h-8 w-8 rounded-full bg-[#0E2859] text-white grid place-items-center shadow-sm"
+                  class="h-8 w-8 rounded-full text-white grid place-items-center shadow-sm"
+                  style="background: var(--symp-check-bg)"
                 >
                   <span class="text-xs font-black">✓</span>
                 </div>
               </div>
 
               <div class="min-w-0">
-                <p class="text-[15px] md:text-base font-extrabold text-[#0E2859] leading-snug">
+                <p
+                  class="text-[15px] md:text-base font-extrabold leading-snug"
+                  style="color: var(--symp-title)"
+                >
                   {{ symptom }}
                 </p>
 
-                <!-- micro-line (like the ref underline accent) -->
-                <div class="mt-3 h-[3px] w-10 rounded-full bg-[#CE6C37]/90"></div>
+                <!-- micro underline accent -->
+                <div
+                  class="mt-3 h-[3px] w-10 rounded-full"
+                  style="background: var(--symp-underline)"
+                ></div>
 
-                <p class="mt-3 text-sm text-[#0E2859]/65 leading-relaxed">
+                <p class="mt-3 text-sm leading-relaxed" style="color: var(--symp-body)">
                   Si es persistente o limita tu vida diaria, conviene revisarlo con estudios y
                   exploración.
                 </p>
@@ -64,42 +79,65 @@
       <!-- Right: alarm panel -->
       <aside class="lg:col-span-4">
         <div
-          class="rounded-[28px] bg-[#EAF3FF] border border-[#0E2859]/10 p-7 shadow-sm sticky top-24"
+          class="rounded-[28px] border p-7 shadow-sm sticky top-24 backdrop-blur"
+          style="background: var(--alarm-bg); border-color: var(--symp-card-border)"
         >
           <div class="flex items-center gap-3">
             <div
-              class="h-12 w-12 rounded-2xl bg-[#CE6C37] text-white grid place-items-center shadow-sm"
+              class="h-12 w-12 rounded-2xl text-white grid place-items-center shadow-sm"
+              style="background: linear-gradient(135deg, var(--alarm-accent), var(--bg-primary))"
             >
               <span class="text-sm font-black">!</span>
             </div>
             <div>
-              <p class="text-lg font-extrabold text-[#0E2859]">Señales de alarma</p>
-              <p class="text-sm text-[#0E2859]/65">Urgencias / atención inmediata</p>
+              <p class="text-lg font-extrabold" style="color: var(--symp-title)">
+                Señales de alarma
+              </p>
+              <p class="text-sm" style="color: var(--symp-body)">Urgencias / atención inmediata</p>
             </div>
           </div>
 
-          <div class="mt-6 space-y-3 text-sm text-[#0E2859]/75 leading-relaxed">
+          <div class="mt-6 space-y-3 text-sm leading-relaxed" style="color: var(--symp-body)">
             <div class="flex gap-3">
-              <span class="mt-2 h-2 w-2 rounded-full bg-[#CE6C37]"></span>
+              <span
+                class="mt-2 h-2 w-2 rounded-full"
+                style="background: var(--alarm-accent)"
+              ></span>
               <p>
-                <strong class="text-[#0E2859]">Pérdida súbita de fuerza</strong> en brazo o pierna.
+                <strong style="color: var(--symp-title)">Pérdida súbita de fuerza</strong> en brazo
+                o pierna.
               </p>
             </div>
 
             <div class="flex gap-3">
-              <span class="mt-2 h-2 w-2 rounded-full bg-[#CE6C37]"></span>
-              <p><strong class="text-[#0E2859]">Entumecimiento severo</strong> o progresivo.</p>
+              <span
+                class="mt-2 h-2 w-2 rounded-full"
+                style="background: var(--alarm-accent)"
+              ></span>
+              <p>
+                <strong style="color: var(--symp-title)">Entumecimiento severo</strong> o
+                progresivo.
+              </p>
             </div>
 
             <div class="flex gap-3">
-              <span class="mt-2 h-2 w-2 rounded-full bg-[#CE6C37]"></span>
-              <p><strong class="text-[#0E2859]">Pérdida de control</strong> de esfínteres.</p>
+              <span
+                class="mt-2 h-2 w-2 rounded-full"
+                style="background: var(--alarm-accent)"
+              ></span>
+              <p>
+                <strong style="color: var(--symp-title)">Pérdida de control</strong> de esfínteres.
+              </p>
             </div>
 
-            <div class="mt-6 rounded-2xl bg-white/70 border border-[#0E2859]/10 p-4">
-              <p class="text-xs text-[#0E2859]/70">
-                Si presentas cualquiera de estas señales, <strong>acude a urgencias</strong>. Luego
-                agendamos seguimiento.
+            <div
+              class="mt-6 rounded-2xl border p-4"
+              style="background: rgba(255, 255, 255, 0.7); border-color: var(--symp-card-border)"
+            >
+              <p class="text-xs" style="color: var(--symp-body)">
+                Si presentas cualquiera de estas señales,
+                <strong style="color: var(--symp-title)">acude a urgencias</strong>. Luego agendamos
+                seguimiento.
               </p>
             </div>
           </div>
@@ -107,23 +145,30 @@
           <!-- CTA -->
           <a
             [routerLink]="['/contacto']"
-            class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 bg-[#0E2859] text-white text-sm font-extrabold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition"
+            class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition"
+            style="background: var(--symp-cta-bg); color: white"
           >
             Agendar evaluación
-            <span class="text-[#CE6C37] font-black">•</span>
+            <span class="font-black" style="color: var(--symp-cta-dot)">•</span>
           </a>
 
           <a
             href="https://wa.me/52XXXXXXXXXX"
             target="_blank"
             rel="noopener"
-            class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 bg-white border border-[#0E2859]/15 text-[#0E2859] text-sm font-extrabold hover:bg-[#0E2859]/5 transition"
+            class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold border transition"
+            style="
+              background: var(--symp-wa-bg);
+              border-color: var(--symp-wa-border);
+              color: var(--symp-title);
+            "
           >
             WhatsApp
             <span
-              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366]/15"
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full"
+              style="background: color-mix(in srgb, var(--accent) 22%, white)"
             >
-              <span class="text-[#0E2859]">✦</span>
+              <span style="color: var(--symp-title)">✦</span>
             </span>
           </a>
         </div>
