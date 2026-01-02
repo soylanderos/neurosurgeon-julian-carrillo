@@ -1,17 +1,22 @@
 <footer class="relative overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)]">
   <!-- top accent bar -->
-  <div class="h-1 w-full bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-secondary)] to-[var(--accent)]"></div>
+  <div
+    class="h-1 w-full bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-secondary)] to-[var(--accent)]"
+  ></div>
 
   <!-- subtle background glow -->
   <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[color:var(--accent-2)]/12 blur-3xl"></div>
-    <div class="absolute -bottom-32 -left-28 h-80 w-80 rounded-full bg-[color:var(--accent)]/10 blur-3xl"></div>
+    <div
+      class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[color:var(--accent-2)]/12 blur-3xl"
+    ></div>
+    <div
+      class="absolute -bottom-32 -left-28 h-80 w-80 rounded-full bg-[color:var(--accent)]/10 blur-3xl"
+    ></div>
   </div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div class="py-12 md:py-16">
       <div class="grid gap-10 lg:grid-cols-12">
-
         <!-- Brand / About -->
         <div class="lg:col-span-4">
           <a [routerLink]="['/']" class="group inline-flex items-center gap-3">
@@ -21,36 +26,50 @@
               ></span>
 
               <div
-                class="relative h-11 w-11 rounded-2xl bg-white/10 ring-1 ring-[color:var(--ring-soft)] grid place-items-center shadow-sm"
+                class="relative h-10 w-10 overflow-hidden rounded-2xl bg-[var(--bg-primary)] shadow-sm ring-1 ring-[color:var(--ring-soft)]"
               >
-                <span class="text-sm font-extrabold tracking-wide">JC</span>
+                <img
+                  src="/dr_carrillo.svg"
+                  alt="Dr. Julián Carrillo"
+                  class="h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+
+                <!-- opcional: overlay sutil para que siempre se vea “premium” -->
+                <div class="pointer-events-none absolute inset-0 ring-1 ring-white/10"></div>
               </div>
             </div>
 
             <div class="leading-tight">
               <p class="text-[15px] font-extrabold">
                 Dr. Julián Carrillo Gonzáles
-                <span class="ml-2 inline-flex h-2 w-2 rounded-full bg-[var(--accent)] align-middle"></span>
+                <span
+                  class="ml-2 inline-flex h-2 w-2 rounded-full bg-[var(--accent)] align-middle"
+                ></span>
               </p>
               <p class="text-xs text-[var(--text-muted)]">Neurocirugía · Cerebro &amp; Columna</p>
             </div>
           </a>
 
           <p class="mt-4 text-sm text-[var(--text-muted)] leading-relaxed max-w-sm">
-            Neurocirujano certificado enfocado en diagnóstico preciso, opciones claras y atención humana.
+            Neurocirujano certificado enfocado en diagnóstico preciso, opciones claras y atención
+            humana.
           </p>
 
           <!-- Quick CTAs -->
           <div class="mt-6 flex flex-wrap gap-2">
             <a
               [href]="phoneUrl"
-              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold
-                     bg-white/10 hover:bg-white/15 border border-[color:var(--border-soft)] transition"
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold bg-white/10 hover:bg-white/15 border border-[color:var(--border-soft)] transition"
             >
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M22 16.9v3a2 2 0 0 1-2.2 2c-2.6-.3-5.1-1.2-7.3-2.7a20 20 0 0 1-6.2-6.2C4.3 10.8 3.4 8.3 3.1 5.7A2 2 0 0 1 5.1 3.5h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L9 13a16 16 0 0 0 6 6l3.1-1.2a2 2 0 0 1 2.1.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
               Llamar
@@ -60,18 +79,17 @@
               [href]="whatsappUrl"
               target="_blank"
               rel="noopener"
-              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold
-                     bg-[color:var(--bg-secondary)]/35 hover:bg-[color:var(--bg-secondary)]/45 border border-[color:var(--accent-2)]/25 transition"
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold bg-[color:var(--bg-secondary)]/35 hover:bg-[color:var(--bg-secondary)]/45 border border-[color:var(--accent-2)]/25 transition"
             >
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10">💬</span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10"
+                >💬</span
+              >
               WhatsApp
             </a>
 
             <a
               [routerLink]="['/contacto']"
-              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold
-                     bg-gradient-to-r from-[var(--bg-secondary)] to-[var(--bg-primary)]
-                     hover:brightness-110 border border-[color:var(--border-soft)] transition"
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold bg-gradient-to-r from-[var(--bg-secondary)] to-[var(--bg-primary)] hover:brightness-110 border border-[color:var(--border-soft)] transition"
             >
               Agendar cita <span class="text-[var(--accent)]">→</span>
             </a>
@@ -104,10 +122,20 @@
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
-                  stroke="currentColor" stroke-width="2"
+                  stroke="currentColor"
+                  stroke-width="2"
                 />
-                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2" />
-                <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path
+                  d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M17.5 6.5h.01"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             </a>
           </div>
@@ -116,43 +144,47 @@
         <!-- Servicios dinámicos -->
         <div class="lg:col-span-3">
           <p class="text-sm font-extrabold">Servicios</p>
-          <p class="mt-1 text-xs text-[var(--text-muted)]">Principales tratamientos y procedimientos</p>
+          <p class="mt-1 text-xs text-[var(--text-muted)]">
+            Principales tratamientos y procedimientos
+          </p>
 
           @if (loadingServicios()) {
-            <div class="mt-4 space-y-2">
-              @for (_ of [1,2,3,4,5]; track $index) {
-                <div class="h-9 rounded-xl bg-white/10 animate-pulse"></div>
-              }
-            </div>
+          <div class="mt-4 space-y-2">
+            @for (_ of [1,2,3,4,5]; track $index) {
+            <div class="h-9 rounded-xl bg-white/10 animate-pulse"></div>
+            }
+          </div>
           } @else if (serviciosError()) {
-            <div class="mt-4 rounded-2xl border border-[color:var(--border-soft)] bg-white/10 p-4 text-sm text-[var(--text-muted)]">
-              {{ serviciosError() }}
-            </div>
+          <div
+            class="mt-4 rounded-2xl border border-[color:var(--border-soft)] bg-white/10 p-4 text-sm text-[var(--text-muted)]"
+          >
+            {{ serviciosError() }}
+          </div>
           } @else {
-            <ul class="mt-4 space-y-2 text-sm">
-              @for (s of serviciosFooter(); track s.slug) {
-                <li>
-                  <a
-                    [routerLink]="['/servicios', s.slug]"
-                    class="group inline-flex items-center gap-2 rounded-xl px-3 py-2
-                           text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition"
-                  >
-                    <span class="h-2 w-2 rounded-full bg-[var(--accent)] opacity-70 group-hover:opacity-100"></span>
-                    <span class="truncate font-semibold">{{ s.card_title }}</span>
-                  </a>
-                </li>
-              }
+          <ul class="mt-4 space-y-2 text-sm">
+            @for (s of serviciosFooter(); track s.slug) {
+            <li>
+              <a
+                [routerLink]="['/servicios', s.slug]"
+                class="group inline-flex items-center gap-2 rounded-xl px-3 py-2 text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition"
+              >
+                <span
+                  class="h-2 w-2 rounded-full bg-[var(--accent)] opacity-70 group-hover:opacity-100"
+                ></span>
+                <span class="truncate font-semibold">{{ s.card_title }}</span>
+              </a>
+            </li>
+            }
 
-              <li class="pt-2">
-                <a
-                  [routerLink]="['/servicios']"
-                  class="inline-flex items-center gap-2 rounded-xl px-3 py-2
-                         text-sm font-extrabold hover:bg-white/10 transition"
-                >
-                  Ver todos <span class="text-[var(--accent)]">→</span>
-                </a>
-              </li>
-            </ul>
+            <li class="pt-2">
+              <a
+                [routerLink]="['/servicios']"
+                class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-extrabold hover:bg-white/10 transition"
+              >
+                Ver todos <span class="text-[var(--accent)]">→</span>
+              </a>
+            </li>
+          </ul>
           }
         </div>
 
@@ -160,10 +192,34 @@
         <div class="lg:col-span-2">
           <p class="text-sm font-extrabold">Enlaces</p>
           <ul class="mt-4 space-y-2 text-sm">
-            <li><a [routerLink]="['/dr-julian-carrillo']" class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition">Sobre el doctor</a></li>
-            <li><a [routerLink]="['/blog']" class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition">Blog</a></li>
-            <li><a [routerLink]="['/testimonios']" class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition">Testimonios</a></li>
-            <li><a [routerLink]="['/contacto']" class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition">Contacto</a></li>
+            <li>
+              <a
+                [routerLink]="['/dr-julian-carrillo']"
+                class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition"
+                >Sobre el doctor</a
+              >
+            </li>
+            <li>
+              <a
+                [routerLink]="['/blog']"
+                class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition"
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a
+                [routerLink]="['/testimonios']"
+                class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition"
+                >Testimonios</a
+              >
+            </li>
+            <li>
+              <a
+                [routerLink]="['/contacto']"
+                class="rounded-xl px-3 py-2 inline-flex text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition"
+                >Contacto</a
+              >
+            </li>
           </ul>
         </div>
 
@@ -173,18 +229,36 @@
           <div class="mt-4 rounded-3xl border border-[color:var(--border-soft)] bg-white/10 p-5">
             <ul class="space-y-3 text-sm text-[var(--text-muted)]">
               <li class="flex items-start gap-3">
-                <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-[color:var(--border-soft)]">📍</span>
-                <span>Av. Campos Eliseos No. 9371 Fracc. Campos Eliseos, Consultorio 675 Cd. Juarez, Chih. C.P. 32420</span>
+                <span
+                  class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-[color:var(--border-soft)]"
+                  >📍</span
+                >
+                <span
+                  >Av. Campos Eliseos No. 9371 Fracc. Campos Eliseos, Consultorio 675 Cd. Juarez,
+                  Chih. C.P. 32420</span
+                >
               </li>
               <li class="flex items-start gap-3">
-                <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-[color:var(--border-soft)]">📞</span>
-                <a [href]="phoneUrl" class="hover:text-white font-semibold text-[var(--text-muted)]">
+                <span
+                  class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-[color:var(--border-soft)]"
+                  >📞</span
+                >
+                <a
+                  [href]="phoneUrl"
+                  class="hover:text-white font-semibold text-[var(--text-muted)]"
+                >
                   {{ phoneLabel }}
                 </a>
               </li>
               <li class="flex items-start gap-3">
-                <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-[color:var(--border-soft)]">✉️</span>
-                <a [href]="'mailto:' + email" class="hover:text-white font-semibold text-[var(--text-muted)]">
+                <span
+                  class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 border border-[color:var(--border-soft)]"
+                  >✉️</span
+                >
+                <a
+                  [href]="'mailto:' + email"
+                  class="hover:text-white font-semibold text-[var(--text-muted)]"
+                >
                   {{ email }}
                 </a>
               </li>
@@ -192,28 +266,35 @@
 
             <div class="mt-4 rounded-2xl bg-white/10 border border-[color:var(--border-soft)] p-4">
               <p class="text-xs text-[var(--text-muted)]/90 leading-relaxed">
-                Atención con enfoque humano y profesional. En urgencias o señales de alarma, acude a un servicio de emergencias.
+                Atención con enfoque humano y profesional. En urgencias o señales de alarma, acude a
+                un servicio de emergencias.
               </p>
             </div>
           </div>
         </div>
-
       </div>
 
       <!-- Bottom -->
       <div class="mt-12 pt-8 border-t border-[color:var(--border-soft)]">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--text-muted)]">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--text-muted)]"
+        >
           <p>© {{ currentYear() }} Dr. Julián Carrillo. Todos los derechos reservados.</p>
 
           <div class="flex items-center gap-4">
-            <a [routerLink]="['/privacidad']" class="hover:text-white transition">Aviso de Privacidad</a>
+            <a [routerLink]="['/privacidad']" class="hover:text-white transition"
+              >Aviso de Privacidad</a
+            >
             <span class="text-white/25">•</span>
             <a [routerLink]="['/aviso-medico']" class="hover:text-white transition">Aviso Médico</a>
           </div>
         </div>
 
-        <p class="mt-4 text-center md:text-left text-xs text-[var(--text-muted)]/80 leading-relaxed">
-          Este sitio web proporciona información general y no sustituye una consulta médica profesional.
+        <p
+          class="mt-4 text-center md:text-left text-xs text-[var(--text-muted)]/80 leading-relaxed"
+        >
+          Este sitio web proporciona información general y no sustituye una consulta médica
+          profesional.
         </p>
       </div>
     </div>

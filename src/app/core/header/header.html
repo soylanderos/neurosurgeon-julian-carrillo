@@ -29,9 +29,18 @@
             ></span>
 
             <div
-              class="relative h-10 w-10 rounded-2xl bg-[var(--bg-primary)] text-white grid place-items-center shadow-sm ring-1 ring-[color:var(--ring-soft)]"
+              class="relative h-10 w-10 overflow-hidden rounded-2xl bg-[var(--bg-primary)] shadow-sm ring-1 ring-[color:var(--ring-soft)]"
             >
-              <span class="text-sm font-extrabold tracking-wide">JC</span>
+              <img
+                src="/favicon-32.png"
+                alt="Dr. Julián Carrillo"
+                class="h-full w-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+
+              <!-- opcional: overlay sutil para que siempre se vea “premium” -->
+              <div class="pointer-events-none absolute inset-0 ring-1 ring-white/10"></div>
             </div>
           </div>
 
