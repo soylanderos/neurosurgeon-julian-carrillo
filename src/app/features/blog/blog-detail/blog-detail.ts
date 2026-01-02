@@ -1,7 +1,8 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
 import { BlogApi } from '../data/blog.api';
 import {
@@ -12,9 +13,6 @@ import {
   ArrowLeft,
   Link as LinkIcon,
 } from 'lucide-angular';
-
-import { marked } from 'marked';
-import DOMPurify from 'dompurify';
 
 type BlogPost = {
   slug: string;
@@ -36,7 +34,8 @@ type BlogPost = {
 export class BlogDetail {
   private api = inject(BlogApi);
   private route = inject(ActivatedRoute);
-  private sanitizer = inject(DomSanitizer);
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
 
   readonly iClock = Clock;
   readonly iCalendar = Calendar;
@@ -54,12 +53,7 @@ export class BlogDetail {
   readonly allPosts = signal<BlogPost[]>([]);
 
   // ✅ por ahora: convierte markdown simple a párrafos (sin librería)
-  readonly safeHtml = computed<SafeHtml>(() => {
-    const md = this.post()?.content_md ?? '';
-    const raw = marked.parse(md, { breaks: true }) as string; // ✅
-    const clean = DOMPurify.sanitize(raw);
-    return this.sanitizer.bypassSecurityTrustHtml(clean);
-  });
+  readonly contentText = computed(() => this.post()?.content_md ?? '');
 
   readonly related = computed(() => {
     const p = this.post();
@@ -132,6 +126,8 @@ export class BlogDetail {
   }
 
   async copyLink() {
+    if (!this.isBrowser) return;
+
     try {
       await navigator.clipboard.writeText(window.location.href);
       this.toast('Link copiado ✅');
@@ -141,6 +137,8 @@ export class BlogDetail {
   }
 
   private toast(msg: string) {
+    if (!this.isBrowser) return;
+
     const el = document.createElement('div');
     el.textContent = msg;
     el.className =
