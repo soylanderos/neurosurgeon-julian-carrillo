@@ -1,0 +1,89 @@
+.article-prose {
+  color: color-mix(in srgb, var(--brand-800) 78%, transparent);
+  line-height: 1.85;
+  font-size: 1.05rem;
+}
+
+/* Headings */
+.article-prose h1,
+.article-prose h2,
+.article-prose h3 {
+  color: var(--brand-950);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 1.15em 0 0.5em;
+}
+
+.article-prose h2 { font-size: 1.35rem; }
+.article-prose h3 { font-size: 1.15rem; }
+
+/* Paragraphs */
+.article-prose p {
+  margin: 0.85em 0; /* 👈 esto es lo que te falta */
+}
+
+/* Lists */
+.article-prose ul,
+.article-prose ol {
+  margin: 0.9em 0 1em 1.25em;
+  padding: 0;
+}
+
+.article-prose li {
+  margin: 0.45em 0;
+}
+
+/* Make list bullets look nice */
+.article-prose ul li::marker { color: var(--brand-500); }
+.article-prose ol li::marker { color: var(--brand-500); font-weight: 800; }
+
+/* Blockquote */
+.article-prose blockquote {
+  margin: 1.1rem 0;
+  padding: .9rem 1rem;
+  border-left: 4px solid var(--brand-300);
+  background: color-mix(in srgb, var(--brand-300) 14%, white);
+  border-radius: 14px;
+  color: color-mix(in srgb, var(--brand-800) 85%, transparent);
+}
+
+/* Horizontal rule */
+.article-prose hr {
+  margin: 1.25rem 0;
+  border: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--brand-200) 65%, transparent);
+}
+
+/* Links */
+.article-prose a {
+  color: var(--brand-500);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-prose ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.article-prose ul li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.article-prose ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .6em;
+  width: .45rem;
+  height: .45rem;
+  border-radius: 999px;
+  background: var(--brand-300);
+}
+
+.article-prose {
+  white-space: pre-line; /* respeta \n como salto de línea */
+}

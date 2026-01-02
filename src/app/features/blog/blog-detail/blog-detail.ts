@@ -4,7 +4,17 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { BlogApi } from '../data/blog.api';
-import { LucideAngularModule, Clock, Calendar, Tag, ArrowLeft, Link as LinkIcon } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  Clock,
+  Calendar,
+  Tag,
+  ArrowLeft,
+  Link as LinkIcon,
+} from 'lucide-angular';
+
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 
 type BlogPost = {
   slug: string;
@@ -45,20 +55,17 @@ export class BlogDetail {
 
   // ✅ por ahora: convierte markdown simple a párrafos (sin librería)
   readonly safeHtml = computed<SafeHtml>(() => {
-    const p = this.post();
-    const md = p?.content_md ?? '';
-    const html = md
-      ? `<p>${this.escapeHtml(md).replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br/>')}</p>`
-      : '';
-
-    return this.sanitizer.bypassSecurityTrustHtml(html);
+    const md = this.post()?.content_md ?? '';
+    const raw = marked.parse(md, { breaks: true }) as string; // ✅
+    const clean = DOMPurify.sanitize(raw);
+    return this.sanitizer.bypassSecurityTrustHtml(clean);
   });
 
   readonly related = computed(() => {
     const p = this.post();
     if (!p) return [];
     return this.allPosts()
-      .filter(x => x.slug !== p.slug && x.tag === p.tag)
+      .filter((x) => x.slug !== p.slug && x.tag === p.tag)
       .slice(0, 3);
   });
 
@@ -119,7 +126,8 @@ export class BlogDetail {
   }
 
   formatDate(iso: string) {
-    const d = new Date(iso);
+    // fuerza a mediodía UTC para evitar brincar de día
+    const d = new Date(iso + 'T12:00:00Z');
     return d.toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' });
   }
 
