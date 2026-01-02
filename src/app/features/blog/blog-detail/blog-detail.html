@@ -1,33 +1,47 @@
-<div class="relative overflow-hidden" style="background: color-mix(in srgb, var(--brand-300) 10%, white);">
+<div
+  class="relative overflow-hidden"
+  style="background: color-mix(in srgb, var(--brand-300) 10%, white)"
+>
   <!-- soft blobs background (NEW palette) -->
   <div class="pointer-events-none absolute inset-0">
     <div
       class="absolute -top-28 -left-28 h-[560px] w-[560px] rounded-full blur-3xl"
-      style="background: color-mix(in srgb, var(--brand-300) 55%, transparent);"
+      style="background: color-mix(in srgb, var(--brand-300) 55%, transparent)"
     ></div>
     <div
       class="absolute -bottom-28 -right-28 h-[560px] w-[560px] rounded-full blur-3xl"
-      style="background: color-mix(in srgb, var(--brand-200) 35%, transparent);"
+      style="background: color-mix(in srgb, var(--brand-200) 35%, transparent)"
     ></div>
     <div
       class="absolute top-1/3 right-1/4 h-[420px] w-[420px] rounded-full blur-3xl"
-      style="background: color-mix(in srgb, var(--brand-500) 14%, transparent);"
+      style="background: color-mix(in srgb, var(--brand-500) 14%, transparent)"
     ></div>
   </div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative">
     <div class="max-w-4xl mx-auto">
       <!-- Breadcrumb -->
-      <nav class="text-sm mb-6" style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">
-        <a routerLink="/" class="transition hover:opacity-80" style="color: var(--brand-600);">Inicio</a>
-        <span class="mx-2" style="color: color-mix(in srgb, var(--brand-600) 55%, transparent);">/</span>
-        <a routerLink="/blog" class="transition hover:opacity-80" style="color: var(--brand-600);">Blog</a>
-        <span class="mx-2" style="color: color-mix(in srgb, var(--brand-600) 55%, transparent);">/</span>
+      <nav
+        class="text-sm mb-6"
+        style="color: color-mix(in srgb, var(--brand-600) 85%, transparent)"
+      >
+        <a routerLink="/" class="transition hover:opacity-80" style="color: var(--brand-600)"
+          >Inicio</a
+        >
+        <span class="mx-2" style="color: color-mix(in srgb, var(--brand-600) 55%, transparent)"
+          >/</span
+        >
+        <a routerLink="/blog" class="transition hover:opacity-80" style="color: var(--brand-600)"
+          >Blog</a
+        >
+        <span class="mx-2" style="color: color-mix(in srgb, var(--brand-600) 55%, transparent)"
+          >/</span
+        >
 
         @if (post()) {
-          <span class="font-semibold" style="color: var(--brand-950);">{{ post()!.title }}</span>
+        <span class="font-semibold" style="color: var(--brand-950)">{{ post()!.title }}</span>
         } @else {
-          <span class="font-semibold" style="color: var(--brand-950);">Artículo</span>
+        <span class="font-semibold" style="color: var(--brand-950)">Artículo</span>
         }
       </nav>
 
@@ -37,7 +51,7 @@
           routerLink="/blog"
           class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold backdrop-blur border transition"
           style="
-            background: rgba(255,255,255,.82);
+            background: rgba(255, 255, 255, 0.82);
             border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
             color: var(--brand-950);
           "
@@ -51,7 +65,7 @@
           (click)="copyLink()"
           class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold backdrop-blur border transition"
           style="
-            background: rgba(255,255,255,.82);
+            background: rgba(255, 255, 255, 0.82);
             border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
             color: var(--brand-950);
           "
@@ -63,92 +77,124 @@
 
       <!-- Loading -->
       @if (loading()) {
-        <div
-          class="rounded-2xl backdrop-blur p-7 shadow-sm border"
-          style="
-            background: rgba(255,255,255,.85);
-            border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
-          "
-        >
-          <div class="animate-pulse">
-            <div class="h-6 w-28 rounded-full mb-5" style="background: color-mix(in srgb, var(--brand-200) 55%, white);"></div>
-            <div class="h-10 rounded-lg mb-4 w-5/6" style="background: color-mix(in srgb, var(--brand-200) 55%, white);"></div>
-            <div class="h-5 rounded-lg mb-2 w-full" style="background: color-mix(in srgb, var(--brand-200) 45%, white);"></div>
-            <div class="h-5 rounded-lg mb-6 w-4/5" style="background: color-mix(in srgb, var(--brand-200) 45%, white);"></div>
-            <div class="h-64 rounded-2xl" style="background: color-mix(in srgb, var(--brand-200) 45%, white);"></div>
-          </div>
+      <div
+        class="rounded-2xl backdrop-blur p-7 shadow-sm border"
+        style="
+          background: rgba(255, 255, 255, 0.85);
+          border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+        "
+      >
+        <div class="animate-pulse">
+          <div
+            class="h-6 w-28 rounded-full mb-5"
+            style="background: color-mix(in srgb, var(--brand-200) 55%, white)"
+          ></div>
+          <div
+            class="h-10 rounded-lg mb-4 w-5/6"
+            style="background: color-mix(in srgb, var(--brand-200) 55%, white)"
+          ></div>
+          <div
+            class="h-5 rounded-lg mb-2 w-full"
+            style="background: color-mix(in srgb, var(--brand-200) 45%, white)"
+          ></div>
+          <div
+            class="h-5 rounded-lg mb-6 w-4/5"
+            style="background: color-mix(in srgb, var(--brand-200) 45%, white)"
+          ></div>
+          <div
+            class="h-64 rounded-2xl"
+            style="background: color-mix(in srgb, var(--brand-200) 45%, white)"
+          ></div>
         </div>
+      </div>
 
       <!-- Error -->
       } @else if (error()) {
-        <div
-          class="text-center rounded-2xl border bg-white/85 backdrop-blur p-6"
-          style="
-            border-color: color-mix(in srgb, var(--brand-200) 65%, transparent);
-            color: var(--brand-950);
-          "
-        >
-          {{ error() }}
-        </div>
+      <div
+        class="text-center rounded-2xl border bg-white/85 backdrop-blur p-6"
+        style="
+          border-color: color-mix(in srgb, var(--brand-200) 65%, transparent);
+          color: var(--brand-950);
+        "
+      >
+        {{ error() }}
+      </div>
 
       <!-- Content -->
       } @else {
 
-        <article
-          class="rounded-2xl backdrop-blur shadow-sm overflow-hidden border"
-          style="
-            background: rgba(255,255,255,.86);
-            border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
-          "
-        >
-          <div class="p-7 md:p-10">
-            <!-- Tag -->
-            <div
-              class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-extrabold border mb-4"
-              style="
-                background: color-mix(in srgb, var(--brand-300) 25%, white);
-                color: var(--brand-950);
-                border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
-              "
-            >
-              <lucide-icon [img]="iTag" class="w-3.5 h-3.5"></lucide-icon>
-              {{ post()!.tag }}
-            </div>
-
-            <!-- Title -->
-            <h1 class="text-3xl md:text-4xl font-extrabold leading-[1.08] text-balance" style="color: var(--brand-950);">
-              {{ post()!.title }}
-            </h1>
-
-            <!-- Excerpt -->
-            @if (post()!.excerpt) {
-              <p class="mt-4 text-lg leading-relaxed text-pretty" style="color: color-mix(in srgb, var(--brand-800) 72%, transparent);">
-                {{ post()!.excerpt }}
-              </p>
-            }
-
-            <!-- Meta -->
-            <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
-                 style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">
-              <span class="inline-flex items-center gap-2">
-                <lucide-icon [img]="iCalendar" class="w-4 h-4"></lucide-icon>
-                {{ formatDate(post()!.published_at) }}
-              </span>
-
-              <span class="inline-flex items-center gap-2">
-                <lucide-icon [img]="iClock" class="w-4 h-4"></lucide-icon>
-                {{ post()!.read_time }}
-              </span>
-            </div>
-
-            <!-- subtle rail -->
-            <div class="mt-6 h-1.5 w-full rounded-full"
-                 style="background: linear-gradient(90deg, var(--brand-950), var(--brand-800), var(--brand-500), var(--brand-300));">
-            </div>
+      <article
+        class="rounded-2xl backdrop-blur shadow-sm overflow-hidden border"
+        style="
+          background: rgba(255, 255, 255, 0.86);
+          border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+        "
+      >
+        <div class="p-7 md:p-10">
+          <!-- Tag -->
+          <div
+            class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-extrabold border mb-4"
+            style="
+              background: color-mix(in srgb, var(--brand-300) 25%, white);
+              color: var(--brand-950);
+              border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+            "
+          >
+            <lucide-icon [img]="iTag" class="w-3.5 h-3.5"></lucide-icon>
+            {{ post()!.tag }}
           </div>
 
-          <!-- Cover (optional) -->
-          <!-- @if (post()!.cover_image_url) {
+          <!-- Title -->
+          <h1
+            class="text-3xl md:text-4xl font-extrabold leading-[1.08] text-balance"
+            style="color: var(--brand-950)"
+          >
+            {{ post()!.title }}
+          </h1>
+
+          <!-- Excerpt -->
+          @if (post()!.excerpt) {
+          <p
+            class="mt-4 text-lg leading-relaxed text-pretty"
+            style="color: color-mix(in srgb, var(--brand-800) 72%, transparent)"
+          >
+            {{ post()!.excerpt }}
+          </p>
+          }
+
+          <!-- Meta -->
+          <div
+            class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
+            style="color: color-mix(in srgb, var(--brand-600) 85%, transparent)"
+          >
+            <span class="inline-flex items-center gap-2">
+              <lucide-icon [img]="iCalendar" class="w-4 h-4"></lucide-icon>
+              {{ formatDate(post()!.published_at) }}
+            </span>
+
+            <span class="inline-flex items-center gap-2">
+              <lucide-icon [img]="iClock" class="w-4 h-4"></lucide-icon>
+              {{ post()!.read_time }}
+            </span>
+          </div>
+
+          <!-- subtle rail -->
+          <div
+            class="mt-6 h-1.5 w-full rounded-full"
+            style="
+              background: linear-gradient(
+                90deg,
+                var(--brand-950),
+                var(--brand-800),
+                var(--brand-500),
+                var(--brand-300)
+              );
+            "
+          ></div>
+        </div>
+
+        <!-- Cover (optional) -->
+        <!-- @if (post()!.cover_image_url) {
           <div class="px-7 md:px-10 pb-2">
             <img
               [src]="post()!.cover_image_url"
@@ -160,69 +206,77 @@
           </div>
           } -->
 
-          <!-- Body -->
-          <div class="px-7 md:px-10 pb-10">
-            <div class="article-prose" [innerHTML]="safeHtml()"></div>
+        <!-- Body -->
+        <div class="px-7 md:px-10 pb-10">
+          <div class="prose prose-slate max-w-none whitespace-pre-line">
+            {{ contentText() }}
           </div>
-        </article>
+        </div>
+      </article>
 
-        <!-- Related -->
-        @if (related().length > 0) {
-          <section class="mt-10 md:mt-12">
-            <h2 class="text-xl font-extrabold mb-5" style="color: var(--brand-950);">
-              Más artículos de
-              <span style="color: var(--brand-500);">{{ post()!.tag }}</span>
-            </h2>
+      <!-- Related -->
+      @if (related().length > 0) {
+      <section class="mt-10 md:mt-12">
+        <h2 class="text-xl font-extrabold mb-5" style="color: var(--brand-950)">
+          Más artículos de
+          <span style="color: var(--brand-500)">{{ post()!.tag }}</span>
+        </h2>
 
-            <div class="grid md:grid-cols-3 gap-6">
-              @for (r of related(); track r.slug) {
-                <a
-                  [routerLink]="['/blog', r.slug]"
-                  class="group block rounded-2xl backdrop-blur p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition overflow-hidden border"
-                  style="
-                    background: rgba(255,255,255,.86);
-                    border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
-                  "
-                >
-                  <div
-                    class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-extrabold border mb-4"
-                    style="
-                      background: color-mix(in srgb, var(--brand-300) 25%, white);
-                      color: var(--brand-950);
-                      border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
-                    "
-                  >
-                    <lucide-icon [img]="iTag" class="w-3.5 h-3.5"></lucide-icon>
-                    {{ r.tag }}
-                  </div>
-
-                  <div class="text-lg font-extrabold leading-snug mb-2 text-balance" style="color: var(--brand-950);">
-                    {{ r.title }}
-                  </div>
-
-                  <div class="text-sm leading-relaxed text-pretty mb-4"
-                       style="color: color-mix(in srgb, var(--brand-800) 70%, transparent);">
-                    {{ r.excerpt }}
-                  </div>
-
-                  <div class="flex items-center justify-between text-xs"
-                       style="color: color-mix(in srgb, var(--brand-600) 85%, transparent);">
-                    <span class="inline-flex items-center gap-1">
-                      <lucide-icon [img]="iCalendar" class="w-3.5 h-3.5"></lucide-icon>
-                      {{ formatDate(r.published_at) }}
-                    </span>
-
-                    <span class="inline-flex items-center gap-1">
-                      <lucide-icon [img]="iClock" class="w-3.5 h-3.5"></lucide-icon>
-                      {{ r.read_time }}
-                    </span>
-                  </div>
-                </a>
-              }
+        <div class="grid md:grid-cols-3 gap-6">
+          @for (r of related(); track r.slug) {
+          <a
+            [routerLink]="['/blog', r.slug]"
+            class="group block rounded-2xl backdrop-blur p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition overflow-hidden border"
+            style="
+              background: rgba(255, 255, 255, 0.86);
+              border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+            "
+          >
+            <div
+              class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-extrabold border mb-4"
+              style="
+                background: color-mix(in srgb, var(--brand-300) 25%, white);
+                color: var(--brand-950);
+                border-color: color-mix(in srgb, var(--brand-200) 55%, transparent);
+              "
+            >
+              <lucide-icon [img]="iTag" class="w-3.5 h-3.5"></lucide-icon>
+              {{ r.tag }}
             </div>
-          </section>
-        }
-      }
+
+            <div
+              class="text-lg font-extrabold leading-snug mb-2 text-balance"
+              style="color: var(--brand-950)"
+            >
+              {{ r.title }}
+            </div>
+
+            <div
+              class="text-sm leading-relaxed text-pretty mb-4"
+              style="color: color-mix(in srgb, var(--brand-800) 70%, transparent)"
+            >
+              {{ r.excerpt }}
+            </div>
+
+            <div
+              class="flex items-center justify-between text-xs"
+              style="color: color-mix(in srgb, var(--brand-600) 85%, transparent)"
+            >
+              <span class="inline-flex items-center gap-1">
+                <lucide-icon [img]="iCalendar" class="w-3.5 h-3.5"></lucide-icon>
+                {{ formatDate(r.published_at) }}
+              </span>
+
+              <span class="inline-flex items-center gap-1">
+                <lucide-icon [img]="iClock" class="w-3.5 h-3.5"></lucide-icon>
+                {{ r.read_time }}
+              </span>
+            </div>
+          </a>
+          }
+        </div>
+      </section>
+      } }
     </div>
   </div>
 </div>
