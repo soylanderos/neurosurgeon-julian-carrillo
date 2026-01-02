@@ -35,7 +35,7 @@ export class Hero {
   private title = inject(Title);
   private meta = inject(Meta);
 
-  phoneUrl = 'tel:+52XXXXXXXXXX';
+  phoneUrl = 'tel:+526566389017';
 
   iCalendar = CalendarCheck;
   iPhone = Phone;
@@ -50,7 +50,7 @@ export class Hero {
   iPulse = Activity; // o HeartPulse si lo tienes
   iArrowRight = ArrowBigRight
   iBone = Bone
-  
+
   readonly pageTitle =
     'Dr. Julián Carrillo - Neurocirujano Especialista en Cerebro y Columna | Ciudad Juárez';
 

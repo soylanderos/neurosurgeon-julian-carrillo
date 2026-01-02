@@ -87,6 +87,6 @@ export class HeaderComponent {
   }
 
   // Opcional: CTA links
-  whatsappUrl = 'https://wa.me/52XXXXXXXXXX';
-  phoneUrl = 'tel:+52XXXXXXXXXX';
+  whatsappUrl = 'https://wa.me/526566389017';
+  phoneUrl = 'tel:+52656389017';
 }

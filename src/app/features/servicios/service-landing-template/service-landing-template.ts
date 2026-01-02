@@ -26,6 +26,6 @@ export class ServiceLandingTemplateComponent {
   @Input() warningText = '';
   @Input() faqs: FAQ[] = [];
 
-  @Input() whatsappLink = 'https://wa.me/52XXXXXXXXXX';
+  @Input() whatsappLink = 'https://wa.me/526566389017';
   @Input() phoneLink = 'tel:+52XXXXXXXXXX';
 }

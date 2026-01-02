@@ -1,14 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, PhoneCallIcon } from 'lucide-angular';
+import { TrustItem } from '../../../features/home/home';
 
-
-export type TrustItem = {
-  key: string;
-  label: string;
-  value: string;
-  icon: 'award' | 'graduation' | 'shield' | 'filecheck';
-};
 
 @Component({
   selector: 'app-trust-strip',

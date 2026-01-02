@@ -1,13 +1,21 @@
 <header class="sticky top-0 z-50">
   <!-- top accent bar -->
-  <div class="h-1 w-full bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-secondary)] to-[var(--accent)]"></div>
+  <div
+    class="h-1 w-full bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-secondary)] to-[var(--accent)]"
+  ></div>
 
   <!-- glass bar -->
-  <div class="relative bg-[var(--glass-bg)] backdrop-blur-xl border-b border-[color:var(--glass-border)]">
+  <div
+    class="relative bg-[var(--glass-bg)] backdrop-blur-xl border-b border-[color:var(--glass-border)]"
+  >
     <!-- subtle background glow -->
     <div class="pointer-events-none absolute inset-0 -z-10">
-      <div class="absolute -top-10 -right-20 h-44 w-44 rounded-full bg-[color:var(--accent-2)]/12 blur-3xl"></div>
-      <div class="absolute -top-16 -left-24 h-56 w-56 rounded-full bg-[color:var(--accent)]/14 blur-3xl"></div>
+      <div
+        class="absolute -top-10 -right-20 h-44 w-44 rounded-full bg-[color:var(--accent-2)]/12 blur-3xl"
+      ></div>
+      <div
+        class="absolute -top-16 -left-24 h-56 w-56 rounded-full bg-[color:var(--accent)]/14 blur-3xl"
+      ></div>
     </div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,9 +38,13 @@
           <div class="min-w-0 leading-tight">
             <p class="truncate text-[15px] font-extrabold text-[var(--bg-primary)]">
               Dr. Julián Carrillo González
-              <span class="ml-2 align-middle inline-flex h-2 w-2 rounded-full bg-[var(--accent)]"></span>
+              <span
+                class="ml-2 align-middle inline-flex h-2 w-2 rounded-full bg-[var(--accent)]"
+              ></span>
             </p>
-            <p class="truncate text-xs text-[var(--text-subtle)]">Neurocirugía · Cerebro &amp; Columna</p>
+            <p class="truncate text-xs text-[var(--text-subtle)]">
+              Neurocirugía · Cerebro &amp; Columna
+            </p>
           </div>
         </a>
 
@@ -41,10 +53,7 @@
           <a
             [routerLink]="['/dr-julian-carrillo']"
             routerLinkActive="!text-[var(--bg-primary)] !bg-[color:var(--accent)]/55"
-            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)]
-                   hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition
-                   after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)]
-                   hover:after:w-6 after:transition-all"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)] hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)] hover:after:w-6 after:transition-all"
           >
             Sobre Mí
           </a>
@@ -53,10 +62,7 @@
           <div class="relative">
             <button
               type="button"
-              class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)]
-                     hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition inline-flex items-center gap-1
-                     after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)]
-                     hover:after:w-6 after:transition-all"
+              class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)] hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition inline-flex items-center gap-1 after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)] hover:after:w-6 after:transition-all"
               (mouseenter)="servicesOpen.set(true)"
               (mouseleave)="servicesOpen.set(false)"
             >
@@ -85,7 +91,9 @@
                 <div
                   class="p-4 border-b border-[color:var(--border-ink)] bg-gradient-to-b from-[color:var(--accent)]/40 via-white to-white"
                 >
-                  <p class="text-sm font-extrabold text-[var(--bg-primary)]">Servicios principales</p>
+                  <p class="text-sm font-extrabold text-[var(--bg-primary)]">
+                    Servicios principales
+                  </p>
                   <p class="text-xs text-[var(--text-subtle)] mt-0.5">
                     Diagnóstico claro · Tratamiento personalizado
                   </p>
@@ -103,18 +111,18 @@
                   } @else { @for (s of serviciosNav(); track s.slug) {
                   <a
                     [routerLink]="['/servicios', s.slug]"
-                    class="group flex items-center justify-between px-3 py-2 rounded-xl text-sm text-[var(--text-subtle)]
-                           hover:bg-[color:var(--accent)]/45 hover:text-[var(--bg-primary)] transition"
+                    class="group flex items-center justify-between px-3 py-2 rounded-xl text-sm text-[var(--text-subtle)] hover:bg-[color:var(--accent)]/45 hover:text-[var(--bg-primary)] transition"
                   >
                     <span class="truncate font-semibold">{{ s.card_title }}</span>
-                    <span class="h-2 w-2 rounded-full bg-[var(--bg-secondary)] opacity-0 group-hover:opacity-100 transition"></span>
+                    <span
+                      class="h-2 w-2 rounded-full bg-[var(--bg-secondary)] opacity-0 group-hover:opacity-100 transition"
+                    ></span>
                   </a>
                   }
 
                   <a
                     [routerLink]="['/servicios']"
-                    class="mt-2 flex items-center justify-between px-3 py-2 rounded-xl text-sm font-extrabold text-[var(--bg-primary)]
-                           hover:bg-[color:var(--bg-primary)]/5 transition"
+                    class="mt-2 flex items-center justify-between px-3 py-2 rounded-xl text-sm font-extrabold text-[var(--bg-primary)] hover:bg-[color:var(--bg-primary)]/5 transition"
                   >
                     Ver todos
                     <span class="text-[var(--bg-secondary)] font-extrabold">→</span>
@@ -128,10 +136,7 @@
           <a
             [routerLink]="['/blog']"
             routerLinkActive="!text-[var(--bg-primary)] !bg-[color:var(--accent)]/55"
-            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)]
-                   hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition
-                   after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)]
-                   hover:after:w-6 after:transition-all"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)] hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)] hover:after:w-6 after:transition-all"
           >
             Blog
           </a>
@@ -139,10 +144,7 @@
           <a
             [routerLink]="['/testimonios']"
             routerLinkActive="!text-[var(--bg-primary)] !bg-[color:var(--accent)]/55"
-            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)]
-                   hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition
-                   after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)]
-                   hover:after:w-6 after:transition-all"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)] hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)] hover:after:w-6 after:transition-all"
           >
             Testimonios
           </a>
@@ -150,10 +152,7 @@
           <a
             [routerLink]="['/contacto']"
             routerLinkActive="!text-[var(--bg-primary)] !bg-[color:var(--accent)]/55"
-            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)]
-                   hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition
-                   after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)]
-                   hover:after:w-6 after:transition-all"
+            class="relative px-3 py-2 rounded-full text-sm font-semibold text-[var(--text-subtle)] hover:text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/35 transition after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[var(--bg-secondary)] hover:after:w-6 after:transition-all"
           >
             Contacto
           </a>
@@ -163,8 +162,7 @@
         <div class="hidden lg:flex items-center gap-2">
           <a
             [href]="phoneUrl"
-            class="h-10 w-10 rounded-full border border-[color:var(--border-ink)] bg-white
-                   hover:bg-[color:var(--accent)]/25 hover:border-[color:var(--accent-2)]/30 transition grid place-items-center"
+            class="h-10 w-10 rounded-full border border-[color:var(--border-ink)] bg-white hover:bg-[color:var(--accent)]/25 hover:border-[color:var(--accent-2)]/30 transition grid place-items-center"
             aria-label="Llamar"
           >
             <lucide-icon [img]="iPhone" class="h-5 w-5 text-[var(--bg-primary)]"></lucide-icon>
@@ -174,8 +172,7 @@
             [href]="whatsappUrl"
             target="_blank"
             rel="noopener"
-            class="h-10 w-10 rounded-full border border-[color:var(--border-ink)] bg-white
-                   hover:bg-[color:var(--accent)]/25 hover:border-[color:var(--accent-2)]/30 transition grid place-items-center"
+            class="h-10 w-10 rounded-full border border-[color:var(--border-ink)] bg-white hover:bg-[color:var(--accent)]/25 hover:border-[color:var(--accent-2)]/30 transition grid place-items-center"
             aria-label="WhatsApp"
           >
             <lucide-icon [img]="iWhats" class="h-5 w-5 text-[var(--bg-primary)]"></lucide-icon>
@@ -184,16 +181,17 @@
           <!-- CTA -->
           <a
             [routerLink]="['/contacto']"
-            class="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-extrabold text-white
-                   bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary)]
-                   shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition
-                   ring-1 ring-[color:var(--border-ink)]"
+            class="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-extrabold text-white bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary)] shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition ring-1 ring-[color:var(--border-ink)]"
           >
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/12 ring-1 ring-[color:var(--ring-soft)]">
+            <span
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/12 ring-1 ring-[color:var(--ring-soft)]"
+            >
               <lucide-icon [img]="iCalendar" class="h-5 w-5"></lucide-icon>
             </span>
             Agendar cita
-            <span class="ml-1 inline-flex h-2 w-2 rounded-full bg-[var(--accent)] group-hover:scale-110 transition"></span>
+            <span
+              class="ml-1 inline-flex h-2 w-2 rounded-full bg-[var(--accent)] group-hover:scale-110 transition"
+            ></span>
           </a>
         </div>
 
@@ -221,8 +219,7 @@
         <a
           [routerLink]="['/dr-julian-carrillo']"
           (click)="closeMobileMenu()"
-          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)]
-                 hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)] hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
         >
           Sobre el doctor
         </a>
@@ -230,8 +227,7 @@
         <button
           type="button"
           (click)="toggleServices()"
-          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)]
-                 hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)] flex items-center justify-between"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)] hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)] flex items-center justify-between"
         >
           Servicios
           <lucide-icon
@@ -247,8 +243,7 @@
           <a
             [routerLink]="['/servicios', s.slug]"
             (click)="closeMobileMenu()"
-            class="block px-4 py-2 rounded-xl text-sm font-medium text-[var(--text-subtle)]
-                   hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
+            class="block px-4 py-2 rounded-xl text-sm font-medium text-[var(--text-subtle)] hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
           >
             {{ s.card_title }}
           </a>
@@ -256,8 +251,7 @@
           <a
             [routerLink]="['/servicios']"
             (click)="closeMobileMenu()"
-            class="block px-4 py-2 rounded-xl text-sm font-extrabold text-[var(--bg-primary)]
-                   hover:bg-[color:var(--bg-primary)]/5"
+            class="block px-4 py-2 rounded-xl text-sm font-extrabold text-[var(--bg-primary)] hover:bg-[color:var(--bg-primary)]/5"
           >
             Ver todos <span class="text-[var(--bg-secondary)]">→</span>
           </a>
@@ -267,8 +261,7 @@
         <a
           [routerLink]="['/blog']"
           (click)="closeMobileMenu()"
-          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)]
-                 hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)] hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
         >
           Blog
         </a>
@@ -276,8 +269,7 @@
         <a
           [routerLink]="['/testimonios']"
           (click)="closeMobileMenu()"
-          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)]
-                 hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)] hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
         >
           Testimonios
         </a>
@@ -285,8 +277,7 @@
         <a
           [routerLink]="['/contacto']"
           (click)="closeMobileMenu()"
-          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)]
-                 hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
+          class="px-4 py-3 rounded-2xl text-sm font-semibold text-[var(--text-subtle)] hover:bg-[color:var(--accent)]/35 hover:text-[var(--bg-primary)]"
         >
           Contacto
         </a>
@@ -294,8 +285,7 @@
         <div class="grid grid-cols-2 gap-2 pt-2">
           <a
             [href]="phoneUrl"
-            class="rounded-2xl border border-[color:var(--border-ink)] bg-white px-4 py-3 text-sm font-extrabold text-[var(--bg-primary)]
-                   hover:bg-[color:var(--accent)]/25 transition inline-flex items-center justify-center gap-2"
+            class="rounded-2xl border border-[color:var(--border-ink)] bg-white px-4 py-3 text-sm font-extrabold text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/25 transition inline-flex items-center justify-center gap-2"
           >
             <lucide-icon [img]="iPhone" class="h-4 w-4"></lucide-icon>
             Llamar
@@ -305,8 +295,7 @@
             [href]="whatsappUrl"
             target="_blank"
             rel="noopener"
-            class="rounded-2xl border border-[color:var(--border-ink)] bg-white px-4 py-3 text-sm font-extrabold text-[var(--bg-primary)]
-                   hover:bg-[color:var(--accent)]/25 transition inline-flex items-center justify-center gap-2"
+            class="rounded-2xl border border-[color:var(--border-ink)] bg-white px-4 py-3 text-sm font-extrabold text-[var(--bg-primary)] hover:bg-[color:var(--accent)]/25 transition inline-flex items-center justify-center gap-2"
           >
             <lucide-icon [img]="iWhats" class="h-4 w-4"></lucide-icon>
             WhatsApp
@@ -315,9 +304,7 @@
           <a
             [routerLink]="['/contacto']"
             (click)="closeMobileMenu()"
-            class="col-span-2 rounded-2xl text-white px-5 py-3 text-sm font-extrabold
-                   bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary)]
-                   shadow-sm hover:shadow-md transition inline-flex items-center justify-center gap-2"
+            class="col-span-2 rounded-2xl text-white px-5 py-3 text-sm font-extrabold bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary)] shadow-sm hover:shadow-md transition inline-flex items-center justify-center gap-2"
           >
             <lucide-icon [img]="iCalendar" class="h-5 w-5"></lucide-icon>
             Agendar cita

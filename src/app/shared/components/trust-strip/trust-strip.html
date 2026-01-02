@@ -35,13 +35,13 @@
           Respaldo profesional verificable
         </h2>
         <p class="mt-2 text-sm sm:text-base text-[color:var(--bg-primary)]/65 max-w-2xl">
-          Datos concretos: cédula, certificaciones, hospitales y experiencia.
+          Datos concretos: cédulas, certificaciones/consejos, hospitales y experiencia.
         </p>
       </div>
 
       <!-- CTA global: WhatsApp -->
       <a
-        href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20%C2%BFme%20pueden%20compartir%20las%20credenciales%20y%20certificaciones%20del%20Dr.%20Juli%C3%A1n%20Carrillo%3F"
+        href="https://wa.me/526566389017?text=Hola%2C%20%C2%BFme%20pueden%20compartir%20las%20credenciales%20y%20certificaciones%20del%20Dr.%20Juli%C3%A1n%20Carrillo%3F"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold text-white bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary)] shadow-sm hover:brightness-110 transition focus:outline-none focus-visible:ring-4 focus-visible:ring-[color:var(--accent)]/60"
@@ -182,55 +182,20 @@
                 {{ item.value }}
               </p>
 
-              <!-- micro “evidence” line + action -->
-              <div class="mt-2 flex items-center justify-between gap-3">
-                <p class="text-xs text-[color:var(--bg-primary)]/55">
-                  @switch (item.key) { @case ('cedula') { Consulta en registro nacional } @case
-                  ('cert') { Consejos y constancias disponibles } @case ('hosp') { Instituciones
-                  donde atiende } @case ('exp') { Trayectoria profesional } }
-                </p>
-
-                @switch (item.key) { @case ('cedula') {
-                <a
-                  href="https://www.cedulaprofesional.sep.gob.mx/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-xs font-bold text-[var(--bg-secondary)] hover:text-[var(--bg-primary)] underline underline-offset-4"
-                >
-                  Verificar
-                </a>
-                } @case ('cert') {
-                <a
-                  href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20%C2%BFme%20pueden%20compartir%20las%20certificaciones%20y%20constancias%20del%20Dr.%3F"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-xs font-bold text-[var(--bg-secondary)] hover:text-[var(--bg-primary)] underline underline-offset-4"
-                >
-                  Solicitar
-                </a>
-                } @case ('hosp') {
-                <a
-                  href="#locations"
-                  class="text-xs font-bold text-[var(--bg-secondary)] hover:text-[var(--bg-primary)] underline underline-offset-4"
-                >
-                  Ver
-                </a>
-                } }
-              </div>
-
-              <!-- underline accent -->
-              <div class="mt-5 flex items-center gap-2">
-                <div
-                  class="h-[3px] w-10 rounded-full bg-[var(--accent)] group-hover:w-16 group-hover:bg-[var(--bg-secondary)] transition-all"
-                ></div>
+              <!-- details chips (multi cédulas / consejos / hospitales) -->
+              @if (item.details?.length) {
+              <div class="mt-3 flex flex-wrap gap-2">
+                @for (d of item.details; track d) {
                 <span
-                  class="text-[11px] font-semibold text-[color:var(--bg-primary)]/45 group-hover:text-[color:var(--bg-primary)]/65 transition"
+                  class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold bg-white/70 text-[var(--bg-primary)] ring-1 ring-[color:var(--bg-primary)]/10"
                 >
-                  @switch (item.key) { @case ('cedula') { Fuente: SEP } @case ('cert') { Fuente:
-                  Consejos } @case ('hosp') { Fuente: Hospitales } @case ('exp') { Fuente: CV médico
-                  } }
+                  {{ d }}
                 </span>
+                }
               </div>
+              }
+
+             
             </div>
 
             <!-- corner glow -->

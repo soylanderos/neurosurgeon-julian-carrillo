@@ -23,14 +23,14 @@ export class Footer {
   currentYear = () => new Date().getFullYear();
 
   // contacto (ajusta a tus datos reales)
-  whatsappUrl = 'https://wa.me/52XXXXXXXXXX';
-  phoneUrl = 'tel:+52XXXXXXXXXX';
-  phoneLabel = '+52 (XXX) XXX-XXXX';
-  email = 'contacto@tudominio.com';
+  whatsappUrl = 'https://wa.me/526566389017';
+  phoneUrl = 'tel:+526566389017';
+  phoneLabel = '+52 (656) 638-9017';
+  email = 'jucarrillo@hotmail.com';
 
   // socials (ajusta)
-  facebookUrl = 'https://facebook.com';
-  instagramUrl = 'https://instagram.com';
+  facebookUrl = 'https://www.facebook.com/share/1Ab3ZhmBgo/?mibextid=wwXIfr';
+  instagramUrl = 'https://www.instagram.com/dr.carrillo.neurocirujano';
 
   // servicios
   loadingServicios = signal(true);

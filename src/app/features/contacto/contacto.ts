@@ -51,20 +51,20 @@ export class Contacto {
   // ✅ Pega aquí tus datos NUEVOS y correctos (1 sola vez)
   // =========================================================
   readonly CONTACT: ContactInfo = {
-    officeName: 'Consultorio de Neurocirugía',
-    addressLine1: 'PON AQUÍ LA DIRECCIÓN REAL (Calle + número)',
-    addressLine2: 'Piso / consultorio (opcional)',
-    city: 'Ciudad Juárez',
+    officeName: '',
+    addressLine1: 'Av. Campos Eliseos No. 9371 Fracc. Campos Eliseos',
+    addressLine2: 'Piso 6, Consultorio 675 ',
+    city: 'Cd. Juárez',
     state: 'Chihuahua',
-    postal: 'C.P. XXXXX',
-    phone: '+52 656 000 0000',
-    whatsapp: '+52 656 000 0000',
-    email: 'contacto@tudominio.com',
-    officeHours: 'PON AQUÍ EL HORARIO REAL (ej. L–V 9:00–17:00 · Sáb 9:00–13:00)',
+    postal: 'C.P. 32420',
+    phone: '+52 656 638 9017',
+    whatsapp: '526566389017',
+    email: 'jucarrillo@hotmail.com',
+    officeHours: 'Lun–Vie 10:00–13:00 · Sáb 10:00–14:00',
     mapsUrl: 'https://maps.app.goo.gl/y3LLNxPW2osvtZ5a8',
 
     // Si tienes embed (src del iframe) pégalo aquí:
-    // mapsEmbedSrc: 'https://www.google.com/maps/embed?pb=...'
+    mapsEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d108673.46056521045!2d-106.4955776!3d31.659971!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75d6a0412e8df%3A0xf2bd928c444ce59f!2sDr.%20Juli%C3%A1n%20Octavio%20Carrillo%20Gonz%C3%A1lez%2C%20Neurocirujano!5e0!3m2!1ses-419!2smx!4v1767319609311!5m2!1ses-419!2smx'
   };
 
   // ===== Derivados para template
@@ -85,7 +85,7 @@ export class Contacto {
     const p1 = this.CONTACT.addressLine1;
     const p2 = this.CONTACT.addressLine2 ? `, ${this.CONTACT.addressLine2}` : '';
     const postal = this.CONTACT.postal ? `, ${this.CONTACT.postal}` : '';
-    return `${this.CONTACT.officeName} — ${p1}${p2}, ${this.CONTACT.city}, ${this.CONTACT.state}${postal}`;
+    return `${this.CONTACT.officeName} ${p1}${p2}, ${this.CONTACT.city}, ${this.CONTACT.state}${postal}`;
   }
 
   get telUrl() {
