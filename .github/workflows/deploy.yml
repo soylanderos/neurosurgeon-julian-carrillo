@@ -2,7 +2,11 @@ name: Deploy to VPS
 
 on:
   push:
-    branches: [ "main" ]  # cambia si usas dev/prod
+    branches: ["main"]
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -12,27 +16,45 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy over SSH
+      - name: Deploy over SSH (build + restart)
         uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          passphrase: ${{ secrets.VPS_SSH_PASSPHRASE }}
+          command_timeout: 30m
           script: |
-            set -e
-            cd /var/www/juliancarrillo/neurosurgeon-julian-carrillo
+            set -euo pipefail
 
-            # asegura main actualizado
-            git fetch --all
+            APP_DIR="/var/www/juliancarrillo/neurosurgeon-julian-carrillo"
+            cd "$APP_DIR"
+
+            echo "== Pull latest =="
+            git fetch --all --prune
             git reset --hard origin/main
 
-            # deps + build
-            npm ci
+            echo "== Install deps =="
+            # Si no tienes package-lock.json en el repo, npm ci fallará.
+            # En ese caso usa npm install (pero CI idealmente debe tener lockfile).
+            if [ -f package-lock.json ]; then
+              npm ci
+            else
+              npm install
+            fi
+
+            echo "== Build SSR =="
             npm run build
 
-            # restart SSR
-            pm2 restart juliancarrillo-ssr
+            echo "== Restart SSR (PM2) =="
+            # Recomendado: usar un ecosystem config (ver abajo).
+            # Si no tienes ecosystem, intentamos restart y si no existe lo iniciamos.
+            if pm2 describe juliancarrillo-ssr >/dev/null 2>&1; then
+              pm2 restart juliancarrillo-ssr
+            else
+              pm2 start dist/neurosurgeon-julian-carrillo/server/server.mjs --name juliancarrillo-ssr
+            fi
             pm2 save
 
-            # sanity check
-            curl -I http://127.0.0.1:4000 | head -n 1
+            echo "== Sanity check =="
+            curl -fsSI http://127.0.0.1:4000 | head -n 1
