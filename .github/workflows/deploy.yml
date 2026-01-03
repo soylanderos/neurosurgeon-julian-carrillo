@@ -35,8 +35,6 @@ jobs:
             git reset --hard origin/main
 
             echo "== Install deps =="
-            # Si no tienes package-lock.json en el repo, npm ci fallará.
-            # En ese caso usa npm install (pero CI idealmente debe tener lockfile).
             if [ -f package-lock.json ]; then
               npm ci
             else
@@ -46,15 +44,28 @@ jobs:
             echo "== Build SSR =="
             npm run build
 
-            echo "== Restart SSR (PM2) =="
-            # Recomendado: usar un ecosystem config (ver abajo).
-            # Si no tienes ecosystem, intentamos restart y si no existe lo iniciamos.
-            if pm2 describe juliancarrillo-ssr >/dev/null 2>&1; then
-              pm2 restart juliancarrillo-ssr
-            else
-              pm2 start dist/neurosurgeon-julian-carrillo/server/server.mjs --name juliancarrillo-ssr
-            fi
+            echo "== Restart SSR (PM2 via ecosystem) =="
+            pm2 startOrRestart ecosystem.config.cjs --update-env
             pm2 save
 
-            echo "== Sanity check =="
+            echo "== Wait for SSR to be ready =="
+            # 20 intentos (20s). Ajusta si quieres.
+            for i in $(seq 1 20); do
+              if curl -fsSI http://127.0.0.1:4000 >/dev/null; then
+                echo "SSR is up ✅"
+                break
+              fi
+              echo "Waiting... ($i/20)"
+              sleep 1
+            done
+
+            echo "== Final healthcheck =="
             curl -fsSI http://127.0.0.1:4000 | head -n 1
+
+            echo "== PM2 status =="
+            pm2 status
+
+            echo "== If it fails, show logs =="
+            # si algo falla arriba, este bloque no corre por set -e,
+            # pero lo dejo por si lo usas en debugging manual:
+            true
