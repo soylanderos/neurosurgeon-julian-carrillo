@@ -106,7 +106,7 @@ export class Home {
       value: '27 años',
       icon: 'graduation',
       details: [
-        'Enfoque: Neurocirugía Brain & Spine',
+        'Enfoque: Neurocirugía Cerebro & Columna',
         'Técnicas: abordajes mínimamente invasivos + neuronavegación',
       ],
     },
